@@ -1,0 +1,15 @@
+.nav__menu {
+  display: flex;
+  align-items: center;
+
+  gap: 3rem;
+
+  font-size: 18px;
+  font-family: var(--font-aldrich);
+  letter-spacing: 0.4px;
+
+  .menu__link {
+    list-style-type: none;
+    cursor: pointer;
+  }
+}

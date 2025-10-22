@@ -1,0 +1,21 @@
+@use 'assets/styles/variables';
+
+nav {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 9.75rem;
+
+  background: variables.$black;
+
+  z-index: 10;
+
+  .nav__brand {
+    max-width: 188px;
+    max-height: 24px;
+  }
+}
