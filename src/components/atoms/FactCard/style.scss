@@ -1,0 +1,33 @@
+@use 'assets/styles/variables';
+
+.fact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .fact-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 0 3rem;
+
+    .content__number {
+      font-family: var(--font-aldrich);
+      font-size: 80px;
+      color: variables.$spanish-gold;
+    }
+
+    .content__title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .content__description {
+      font-size: 18px;
+      line-height: 1.3;
+      color: variables.$brainstem-grey;
+    }
+  }
+}

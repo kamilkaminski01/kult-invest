@@ -2,7 +2,7 @@ import './style.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import { PATHS } from 'utils/consts'
-import Logo from 'assets/images/logo.png'
+import Logo from 'assets/images/logo.svg'
 import NavMenu from './partials/components/NavMenu'
 
 const Navbar = () => {
