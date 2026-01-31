@@ -165,3 +165,36 @@ export const INVESTORS_DATA = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
   }
 ]
+
+export const FAQ_DATA = [
+  {
+    id: 1,
+    question: 'Czym wyróżnia się KULT na tle innych firm?',
+    answer:
+      'Tworzymy rozwiązania, które realnie generują zysk, a nie tylko dobrze wyglądają. Każdy nasz projekt – zarówno inwestycyjny, jak i technologiczny – jest zaprojektowany tak, aby przynosił wymierne efekty i zwiększał wartość dla naszych klientów i partnerów.'
+  },
+  {
+    id: 2,
+    question: 'Czy mogę zainwestować razem z Wami?',
+    answer:
+      'Tak, oferujemy różne modele współpracy inwestycyjnej dostosowane do kapitału i oczekiwań partnera.'
+  },
+  {
+    id: 3,
+    question: 'Jakie aplikacje i rozwiązania technologiczne tworzycie?',
+    answer:
+      'Specjalizujemy się w narzędziach do automatyzacji, monitoringu rynku nieruchomości oraz dedykowanych systemach CRM/ERP.'
+  },
+  {
+    id: 4,
+    question: 'Ile trwa realizacja projektu inwestycyjnego?',
+    answer:
+      'Czas realizacji zależy od skali projektu, zazwyczaj proces od zakupu do sprzedaży zamyka się w 4-8 miesiącach.'
+  },
+  {
+    id: 5,
+    question: 'W jaki sposób mogę rozpocząć współpracę z KULT?',
+    answer:
+      'Zapraszamy do kontaktu przez formularz lub bezpośrednio – chętnie porozmawiamy o wspólnych celach.'
+  }
+]
