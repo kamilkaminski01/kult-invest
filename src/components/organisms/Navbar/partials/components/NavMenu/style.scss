@@ -1,3 +1,5 @@
+@use 'assets/styles/variables';
+
 .nav__menu {
   display: flex;
   align-items: center;
@@ -11,5 +13,8 @@
   .menu__link {
     list-style-type: none;
     cursor: pointer;
+    &:hover {
+      color: variables.$spanish-gold;
+    }
   }
 }
