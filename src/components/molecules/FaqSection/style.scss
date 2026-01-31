@@ -17,33 +17,58 @@
     z-index: -1;
   }
 
-  .faq-section__container {
+  &__container {
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; // Changed from center to align-start for better FAQ flow
     gap: 160px;
   }
 
-  .faq-section__title {
+  &__title {
     font-size: 48px;
     font-weight: 700;
     line-height: 1.1;
     color: variables.$grey-title;
     max-width: 560px;
+    flex-shrink: 0; // Ensures title doesn't get squeezed
   }
-}
 
-@media (max-width: 1024px) {
-  .faq-section {
+  // --- RWD STYLES ---
+
+  @media (max-width: 1440px) {
+    padding: 80px 4rem;
+
+    &__container {
+      gap: 80px; // Reduce gap on smaller laptops
+    }
+  }
+
+  @media (max-width: 1024px) {
     padding: 60px 2rem;
-    .faq-section__container {
-      grid-template-columns: 1fr;
+
+    &__container {
+      flex-direction: column; // Switch from horizontal to vertical
+      align-items: flex-start;
       gap: 40px;
     }
-    .faq-section__title {
-      font-size: 32px;
+
+    &__title {
+      font-size: 36px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 1.5rem;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__container {
+      gap: 32px;
     }
   }
 }

@@ -63,6 +63,7 @@
     padding: 40px;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    height: 100%; // Ensure cards are same height if container allows
 
     &__header {
       display: flex;
@@ -138,6 +139,57 @@
     &-active {
       background: variables.$spanish-gold;
       width: 25px;
+    }
+  }
+
+  // --- RESPONSIVE STYLES ---
+
+  @media (max-width: 1024px) {
+    padding: 60px 20px;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 3rem;
+    }
+
+    .investor-card {
+      padding: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 2rem;
+    }
+
+    .investor-card {
+      padding: 25px 20px;
+
+      &__header {
+        margin-bottom: 15px;
+      }
+
+      &__avatar {
+        width: 45px;
+        height: 45px;
+      }
+
+      &__name {
+        font-size: 1rem;
+      }
+    }
+
+    // Hide navigation arrows on mobile to save space, use pagination instead
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+
+    .investors-swiper {
+      padding: 10px 0 40px 0;
     }
   }
 }

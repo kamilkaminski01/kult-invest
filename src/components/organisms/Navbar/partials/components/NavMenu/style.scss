@@ -22,12 +22,8 @@
       display: inline-block;
       text-decoration: none;
       color: variables.$white;
-      font-size: 24px;
+      font-size: 18px;
       transition: color 0.3s ease;
-
-      @media (min-width: 1024px) {
-        font-size: 18px;
-      }
 
       &:hover {
         color: variables.$spanish-gold;

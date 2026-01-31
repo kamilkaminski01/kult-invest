@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-almarai);
   color: variables.$lighthouse;

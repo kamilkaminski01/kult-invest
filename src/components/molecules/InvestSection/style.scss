@@ -7,21 +7,20 @@
   max-width: 1920px;
   margin: 0 auto;
   padding: 5rem 9.75rem;
-
   background-color: variables.$black;
+  color: variables.$white;
 
-  .invest-section__left-col {
+  &__left-col {
     display: flex;
     flex-direction: column;
     gap: 5rem;
-
     max-width: 520px;
+    flex: 1;
 
     .left-col__header {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-
       text-transform: uppercase;
 
       .header__subtitle {
@@ -36,16 +35,17 @@
         font-size: 48px;
         line-height: 1.15;
         color: variables.$spanish-gold;
+        font-weight: 700;
       }
     }
   }
 
-  .invest-section__center-col {
+  &__center-col {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
-    padding-top: 5rem;
+    padding-top: 5rem; // Desktop stagger
+    flex: 1;
 
     .center-col__header {
       font-size: 24px;
@@ -59,8 +59,81 @@
     }
   }
 
-  .invest-section__right-col {
+  &__right-col {
     display: flex;
     align-items: center;
+    flex: 1;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // --- RESPONSIVE STYLES ---
+
+  @media (max-width: 1440px) {
+    gap: 4rem;
+    padding: 5rem 4rem;
+  }
+
+  @media (max-width: 1200px) {
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    .invest-section__left-col,
+    .invest-section__center-col {
+      max-width: 100%;
+      flex: 0 0 calc(50% - 1.5rem);
+    }
+
+    .invest-section__right-col {
+      flex: 0 0 100%;
+      justify-content: center;
+      order: 3; // Keep imagery/icons at the bottom
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 2.5rem;
+
+    .invest-section__left-col,
+    .invest-section__center-col {
+      flex: 0 0 100%;
+    }
+
+    .invest-section__center-col {
+      padding-top: 0; // Align naturally on mobile
+    }
+
+    .header__title {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+
+    .left-col__header {
+      .header__subtitle {
+        font-size: 14px;
+        letter-spacing: 4px;
+      }
+
+      .header__title {
+        font-size: 28px;
+      }
+    }
+
+    .center-col__header {
+      font-size: 20px;
+    }
+
+    .invest-section__left-col {
+      gap: 3rem; // Tighten internal gaps
+    }
   }
 }

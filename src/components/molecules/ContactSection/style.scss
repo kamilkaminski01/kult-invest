@@ -35,6 +35,10 @@
 
   &__right {
     position: relative;
+    flex: 1;
+    background: variables.$white;
+    padding: 60px;
+
     &::after {
       content: '';
       position: absolute;
@@ -120,7 +124,6 @@
 
     &:hover {
       background-color: #fafafa;
-
       .contact-section__link-arrow {
         transform: translateX(5px);
       }
@@ -146,9 +149,61 @@
     transition: transform 0.3s ease;
   }
 
-  &__right {
-    flex: 1;
-    background: variables.$white;
-    padding: 60px;
+  // --- RWD STYLES ---
+
+  @media (max-width: 1440px) {
+    padding: 5rem 4rem 0 4rem;
+    &__left {
+      padding-right: 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem 2rem 0 2rem;
+
+    &__left {
+      max-width: 100%;
+      padding-right: 0;
+      padding-top: 0;
+    }
+
+    &__right {
+      width: 100%;
+      padding: 40px;
+
+      &::after {
+        left: -2rem; // Aligns white background with container edge
+        width: calc(100% + 4rem);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      font-size: 32px;
+    }
+    &__subtitle {
+      font-size: 20px;
+    }
+
+    &__link-card {
+      padding: 1.5rem;
+      height: auto;
+      min-height: 70px;
+    }
+
+    &__link-text {
+      font-size: 16px;
+    }
+
+    &__right {
+      padding: 30px 15px;
+      &::after {
+        left: -1.5rem;
+        width: calc(100% + 3rem);
+      }
+    }
   }
 }

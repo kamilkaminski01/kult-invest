@@ -9,6 +9,7 @@
   &__header {
     text-align: center;
     margin-bottom: 4rem;
+    padding: 0 1.5rem; // Added padding for mobile edge-to-edge text
 
     .header__title {
       font-weight: 700;
@@ -35,10 +36,11 @@
       flex-shrink: 0;
 
       img {
-        width: 384px;
+        width: 384px; // Desktop size
         height: 384px;
         object-fit: cover;
         display: block;
+        transition: transform 0.3s ease;
       }
     }
 
@@ -50,8 +52,65 @@
       animation: scrollRight 30s linear infinite;
     }
 
-    &:hover .swiper-track {
-      animation-play-state: paused;
+    // Disable hover-pause on touch devices to avoid "stuck" animations
+    @media (hover: hover) {
+      &:hover .swiper-track {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  // --- RESPONSIVE STYLES ---
+
+  @media (max-width: 1024px) {
+    padding: 3rem 0;
+
+    &__header {
+      margin-bottom: 3rem;
+      .header__title {
+        font-size: 36px;
+      }
+    }
+
+    .projects-investments__swiper {
+      margin-bottom: 20px;
+
+      .swiper-track {
+        gap: 20px;
+      }
+
+      .swiper-item img {
+        width: 280px; // Medium size
+        height: 280px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 0;
+
+    &__header {
+      margin-bottom: 2rem;
+      .header__title {
+        font-size: 28px;
+      }
+    }
+
+    .projects-investments__swiper {
+      .swiper-track {
+        gap: 15px;
+      }
+
+      .swiper-item img {
+        width: 200px; // Mobile size
+        height: 200px;
+      }
+
+      // Speed up animation slightly on mobile because distance is shorter
+      &-top .swiper-track,
+      &-bottom .swiper-track {
+        animation-duration: 20s;
+      }
     }
   }
 }
