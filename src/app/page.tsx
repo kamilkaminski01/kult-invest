@@ -7,6 +7,7 @@ import WhoWeAreSection from 'components/molecules/WhoWeAreSection'
 import ProjectsInvestmentsSection from 'components/molecules/ProjectsInvestmentsSection'
 import WhatWeDoSection from 'components/molecules/WhatWeDoSection'
 import InvestorsPartners from 'components/molecules/InvestorsPartners'
+import FaqSection from 'components/molecules/FaqSection'
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
       <ProjectsInvestmentsSection />
       <WhatWeDoSection />
       <InvestorsPartners />
+      <FaqSection />
     </div>
   )
 }

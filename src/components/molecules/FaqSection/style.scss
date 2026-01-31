@@ -1,0 +1,49 @@
+@use 'assets/styles/variables';
+
+.faq-section {
+  position: relative;
+  padding: 100px 9.75rem;
+  background-color: variables.$light-bg;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 100%;
+    background: variables.$light-bg;
+    z-index: -1;
+  }
+
+  .faq-section__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 160px;
+  }
+
+  .faq-section__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: variables.$grey-title;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .faq-section {
+    padding: 60px 2rem;
+    .faq-section__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .faq-section__title {
+      font-size: 32px;
+    }
+  }
+}
