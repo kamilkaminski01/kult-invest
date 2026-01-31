@@ -3,13 +3,13 @@
 .whoweare-section {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 7.5rem;
   max-width: 1920px;
   margin: 6rem auto;
   padding: 6rem auto;
   gap: 148px;
   background-color: variables.$black;
-  margin-left: -6.75rem;
 
   &__left-col {
     display: flex;
