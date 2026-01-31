@@ -1,0 +1,63 @@
+@use 'assets/styles/variables';
+
+.accordion-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 32px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  &__number {
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 20px;
+    color: variables.$dover-gray;
+    min-width: 25px;
+  }
+
+  &__question {
+    font-size: 24px;
+    font-weight: 700;
+    flex-grow: 1;
+    color: variables.$black;
+    margin: 0;
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+    svg path {
+      stroke: variables.$spanish-gold;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  &__answer {
+    padding-bottom: 24px;
+    padding-left: 45px;
+    line-height: 1.4;
+    color: variables.$black;
+    font-size: 18px;
+    max-width: 900px;
+  }
+
+  &--active {
+    .accordion-item__icon {
+      transform: rotate(180deg);
+    }
+    .accordion-item__content {
+      max-height: 500px;
+    }
+  }
+}
