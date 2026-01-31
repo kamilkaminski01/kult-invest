@@ -46,9 +46,9 @@ const Footer = () => {
           <p>
             Wykonanie:{' '}
             <span>
-              <a href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
                 Marcin Godlewski
-              </a>
+              </Link>
             </span>
           </p>
         </div>

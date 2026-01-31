@@ -1,4 +1,5 @@
 import ContactForm from 'components/organisms/ContactForm'
+import Link from 'next/link'
 import './style.scss'
 
 const ContactSection = () => {
@@ -18,7 +19,7 @@ const ContactSection = () => {
         </div>
 
         <div className="contact-section__links">
-          <a href="mailto:kontakt@kultinvest.pl" className="contact-section__link-card">
+          <Link href="mailto:kontakt@kultinvest.pl" className="contact-section__link-card">
             <span className="contact-section__link-icon">✉</span>
             <span className="contact-section__link-text">kontakt@kultinvest.pl</span>
             <span className="contact-section__link-arrow">
@@ -36,8 +37,8 @@ const ContactSection = () => {
                 />
               </svg>
             </span>
-          </a>
-          <a href="mailto:ksiegowosc@kultinvest.pl" className="contact-section__link-card">
+          </Link>
+          <Link href="mailto:ksiegowosc@kultinvest.pl" className="contact-section__link-card">
             <span className="contact-section__link-icon">✉</span>
             <span className="contact-section__link-text">ksiegowosc@kultinvest.pl</span>
             <span className="contact-section__link-arrow">
@@ -55,7 +56,7 @@ const ContactSection = () => {
                 />
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
 
