@@ -6,11 +6,36 @@
   align-items: center;
 
   .fact-card__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
     padding: 0 3rem;
+    min-height: 300px;
+    background-color: variables.$dark-grey;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 40px;
+      width: calc(100% - 40px);
+      height: 40px;
+      background-color: variables.$dark-grey;
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      width: calc(100% - 40px);
+      height: 40px;
+      background-color: variables.$dark-grey;
+      z-index: 0;
+    }
 
     .content__number {
       font-family: var(--font-aldrich);
