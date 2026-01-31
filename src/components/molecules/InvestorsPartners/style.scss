@@ -1,0 +1,143 @@
+@use 'assets/styles/variables';
+
+.investors-partners-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background-color: variables.$light-bg;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 100%;
+    background: variables.$light-bg;
+    z-index: -1;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: variables.$grey-title;
+  }
+
+  .investors-swiper {
+    width: 100%;
+    position: relative;
+    padding: 20px 0 60px 0;
+    z-index: 2;
+  }
+
+  .swiper-slide {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+
+  .investor-card {
+    background: variables.$white;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    &__avatar {
+      width: 55px;
+      height: 55px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    &__name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+      color: variables.$black;
+    }
+
+    &__role {
+      font-size: 0.75rem;
+      color: variables.$black;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    &__desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: variables.$black;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    background-color: variables.$spanish-gold;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    top: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    font-size: 0;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      path {
+        fill: variables.$white;
+      }
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: darken(variables.$spanish-gold, 5%);
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: variables.$brainstem-grey;
+    opacity: 1;
+
+    &-active {
+      background: variables.$spanish-gold;
+      width: 25px;
+    }
+  }
+}

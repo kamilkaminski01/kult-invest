@@ -17,6 +17,8 @@ import webServiceIcon from '../assets/images/what-we-do/web-service-icon.svg'
 import webCodeIcon from '../assets/images/what-we-do/web-code-icon.svg'
 import announcementsIcon from '../assets/images/what-we-do/announcements-icon.svg'
 
+import jerzy from '../assets/images/investors/jerzy.jpg'
+
 export const WHAT_WE_DO_DATA = [
   {
     icon: houseIcon,
@@ -86,5 +88,80 @@ export const FACTS = [
     title: 'w tym roku wystartowaliśmy',
     description:
       'Kult powstał z pasji do dwóch różnych światów - od początku wyznaczając kierunek w stronę nowoczesnych rozwiązań.'
+  }
+]
+
+export const INVESTORS_DATA = [
+  {
+    id: 1,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 2,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 3,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 4,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 5,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 6,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 7,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 8,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+  },
+  {
+    id: 9,
+    name: 'Jerzy Jurkiewicz',
+    role: 'CEO ZIRO INVEST',
+    image: jerzy,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
   }
 ]
