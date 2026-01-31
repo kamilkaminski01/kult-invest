@@ -1,0 +1,39 @@
+@use 'assets/styles/variables';
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  padding: 3.75rem 5rem;
+
+  width: 100%;
+  max-width: 1064px;
+
+  background: variables.$white;
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+    color: variables.$grey-title;
+  }
+
+  .contact-form__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .contact-form__button {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .footer__icon {
+      width: 60px;
+      height: 60px;
+
+      transform: translateX(-5px);
+    }
+  }
+}

@@ -1,0 +1,154 @@
+@use 'assets/styles/variables';
+
+.contact-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1920px;
+  margin: 0 auto;
+  gap: 4rem;
+  padding: 5rem 9.75rem 0 9.75rem;
+  background-color: variables.$light-bg;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 100%;
+    background: variables.$light-bg;
+    z-index: -1;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+    padding-right: 5rem;
+    padding-top: 4rem;
+    gap: 32px;
+  }
+
+  &__right {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      background: variables.$white;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.1;
+    color: variables.$grey-title;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.4;
+    color: variables.$black;
+    position: relative;
+    padding-bottom: 24px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 1px;
+      background-color: #d1d1d1;
+    }
+  }
+
+  &__company-info {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.6;
+    color: variables.$black;
+    padding-bottom: 24px;
+
+    p {
+      margin: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 1px;
+      background-color: #d1d1d1;
+    }
+  }
+
+  &__company-name {
+    font-weight: 800;
+    margin-bottom: 8px !important;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  &__link-card {
+    display: flex;
+    align-items: center;
+    background: variables.$white;
+    text-decoration: none;
+    color: variables.$black;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+    height: 80px;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: #fafafa;
+
+      .contact-section__link-arrow {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &__link-icon {
+    margin-right: 20px;
+    font-size: 40px;
+    color: variables.$spanish-gold;
+  }
+
+  &__link-text {
+    font-family: var(--font-aldrich);
+    font-weight: 400;
+    font-size: 18px;
+    flex-grow: 1;
+  }
+
+  &__link-arrow {
+    color: variables.$spanish-gold;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  &__right {
+    flex: 1;
+    background: variables.$white;
+    padding: 60px;
+  }
+}

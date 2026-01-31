@@ -1,0 +1,12 @@
+@use 'assets/styles/variables';
+
+.error-message {
+  padding-left: 0.375em;
+  margin-top: 0.375em;
+
+  font-size: 15px;
+  color: variables.$valencia;
+
+  width: 100%;
+  max-width: 320px;
+}

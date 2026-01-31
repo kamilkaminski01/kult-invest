@@ -1,0 +1,18 @@
+@use 'assets/styles/variables';
+
+.btn {
+  width: fit-content;
+  padding: 1.5rem 3rem;
+
+  border: none;
+  outline: none;
+
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.44px;
+
+  border-radius: 4px;
+  background-color: variables.$spanish-gold;
+  color: variables.$white;
+}

@@ -8,10 +8,11 @@ import ProjectsInvestmentsSection from 'components/molecules/ProjectsInvestments
 import WhatWeDoSection from 'components/molecules/WhatWeDoSection'
 import InvestorsPartners from 'components/molecules/InvestorsPartners'
 import FaqSection from 'components/molecules/FaqSection'
+import ContactSection from 'components/molecules/ContactSection'
 
 const HomePage = () => {
   return (
-    <div className="home-page">
+    <main className="home-page">
       <HeroSection />
       <InvestSection />
       <TechnologySection />
@@ -21,7 +22,8 @@ const HomePage = () => {
       <WhatWeDoSection />
       <InvestorsPartners />
       <FaqSection />
-    </div>
+      <ContactSection />
+    </main>
   )
 }
 
