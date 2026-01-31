@@ -1,0 +1,53 @@
+@use 'assets/styles/variables';
+
+.whoweare-section {
+  display: flex;
+  justify-content: center;
+  gap: 7.5rem;
+  max-width: 1920px;
+  margin: 6rem auto;
+  padding: 6rem auto;
+  gap: 148px;
+  background-color: variables.$black;
+  margin-left: -6.75rem;
+
+  &__left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    max-width: 960px;
+    img {
+      max-width: inherit;
+      height: auto;
+    }
+  }
+
+  &__right-col {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 48px;
+    width: 656px;
+
+    .header__title {
+      font-size: 48px;
+      line-height: 1.15;
+      color: variables.$spanish-gold;
+      text-transform: uppercase;
+    }
+
+    .header__subtitle {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .header__desc {
+      font-size: 16px;
+      line-height: 1.5;
+      color: variables.$brainstem-grey;
+    }
+  }
+}
