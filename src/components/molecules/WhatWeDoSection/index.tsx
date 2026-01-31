@@ -6,7 +6,7 @@ import ServiceCard from 'components/atoms/ServiceCard'
 const WhatWeDoSection = () => {
   return (
     <section id="what-we-do" className="whatwedo-section">
-      <h3 className="whatwedo-section__title">Co robimy?</h3>
+      <h2 className="whatwedo-section__title">Co robimy?</h2>
       <div className="whatwedo-section__grid">
         {WHAT_WE_DO_DATA.map((item, index) => (
           <ServiceCard
