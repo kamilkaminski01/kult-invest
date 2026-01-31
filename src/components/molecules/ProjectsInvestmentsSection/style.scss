@@ -1,0 +1,75 @@
+@use 'assets/styles/variables';
+
+.projects-investments-section {
+  padding: 4rem 0;
+  max-width: 1920px;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .header__title {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.15;
+      text-align: center;
+      text-transform: uppercase;
+      color: variables.$spanish-gold;
+    }
+  }
+
+  .projects-investments__swiper {
+    display: flex;
+    margin-bottom: 40px;
+    width: 100%;
+
+    .swiper-track {
+      display: flex;
+      gap: 40px;
+      width: max-content;
+    }
+
+    .swiper-item {
+      flex-shrink: 0;
+
+      img {
+        width: 384px;
+        height: 384px;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    &-top .swiper-track {
+      animation: scrollLeft 30s linear infinite;
+    }
+
+    &-bottom .swiper-track {
+      animation: scrollRight 30s linear infinite;
+    }
+
+    &:hover .swiper-track {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
