@@ -29,8 +29,8 @@ const ContactSection = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M14.586 9.707H0V7.707H14.586L8.293 1.414L9.707 0L18.414 8.707L9.707 17.414L8.293 16L14.586 9.707Z"
                   fill="#B29850"
                 />
@@ -48,8 +48,8 @@ const ContactSection = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M14.586 9.707H0V7.707H14.586L8.293 1.414L9.707 0L18.414 8.707L9.707 17.414L8.293 16L14.586 9.707Z"
                   fill="#B29850"
                 />
