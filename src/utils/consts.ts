@@ -12,6 +12,38 @@ import porosly from '../assets/images/swipers/bottom/porosly.jpg'
 import kalinowa from '../assets/images/swipers/bottom/kalinowa.jpg'
 import wlokiennicza from '../assets/images/swipers/bottom/wlokiennicza.jpg'
 
+import houseIcon from '../assets/images/what-we-do/home-loan-icon.svg'
+import webServiceIcon from '../assets/images/what-we-do/web-service-icon.svg'
+import webCodeIcon from '../assets/images/what-we-do/web-code-icon.svg'
+import announcementsIcon from '../assets/images/what-we-do/announcements-icon.svg'
+
+export const WHAT_WE_DO_DATA = [
+  {
+    icon: houseIcon,
+    title: 'Inwestycja w modelu 50/50',
+    description:
+      'Zakup mieszkania, kompleksowy remont i sprzedaż z zyskiem. Każdy etap projektowany jest tak, aby maksymalizować zwrot z inwestycji.'
+  },
+  {
+    icon: webServiceIcon,
+    title: 'Automatyzujemy procesy',
+    description:
+      'Usprawniające codzienną pracę, tworząc dopasowane rozwiązania które eliminują powtarzalne procesy.'
+  },
+  {
+    icon: webCodeIcon,
+    title: 'Projektujemy aplikacje',
+    description:
+      'Tworzymy dedykowane narzędzia - aplikacje webowe i mobilne, które odpowiadają na konkretne potrzeby Twojej firmy.'
+  },
+  {
+    icon: announcementsIcon,
+    title: 'Monitor ogłoszeń nieruchomości',
+    description:
+      'Dedykowane narzędzie, które automatycznie zbiera dane z platform ogłoszeniowych i powiadamia użytkownika o nowych ofertach'
+  }
+]
+
 export const PATHS = { home: '/' }
 
 export const SWIPER_IMAGES_TOP: ProjectImage[] = [

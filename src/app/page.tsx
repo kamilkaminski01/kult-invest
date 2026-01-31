@@ -5,6 +5,7 @@ import TechnologySection from 'components/molecules/TechnologySection'
 import FactsSection from 'components/molecules/FactsSection'
 import WhoWeAreSection from 'components/molecules/WhoWeAreSection'
 import ProjectsInvestmentsSection from 'components/molecules/ProjectsInvestmentsSection'
+import WhatWeDoSection from 'components/molecules/WhatWeDoSection'
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <FactsSection />
       <WhoWeAreSection />
       <ProjectsInvestmentsSection />
+      <WhatWeDoSection />
     </div>
   )
 }
