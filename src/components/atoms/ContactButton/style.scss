@@ -1,6 +1,7 @@
 @use 'assets/styles/variables';
 
 .contact-btn {
+  font-family: var(--font-aldrich);
   padding: 1rem 1.5rem;
 
   background-color: variables.$spanish-gold;
