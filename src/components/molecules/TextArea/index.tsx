@@ -36,7 +36,7 @@ const Textarea = ({ name, displayName, placeholder, validators, rows = 10 }: Tex
         }`}
         {...register(name, validators)}
       />
-      {isInvalid && <span className="input-wrapper__error">{errors[name]?.message as string}</span>}
+      {isInvalid && <span className="error-message">{errors[name]?.message as string}</span>}
     </div>
   )
 }
