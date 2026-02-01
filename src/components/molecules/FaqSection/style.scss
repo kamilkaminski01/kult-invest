@@ -22,7 +22,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; // Changed from center to align-start for better FAQ flow
+    align-items: center;
     gap: 160px;
   }
 
@@ -32,7 +32,7 @@
     line-height: 1.1;
     color: variables.$grey-title;
     max-width: 560px;
-    flex-shrink: 0; // Ensures title doesn't get squeezed
+    flex-shrink: 0;
   }
 
   // --- RWD STYLES ---
@@ -41,7 +41,7 @@
     padding: 80px 4rem;
 
     &__container {
-      gap: 80px; // Reduce gap on smaller laptops
+      gap: 80px;
     }
   }
 
@@ -49,7 +49,7 @@
     padding: 60px 2rem;
 
     &__container {
-      flex-direction: column; // Switch from horizontal to vertical
+      flex-direction: column;
       align-items: flex-start;
       gap: 40px;
     }
