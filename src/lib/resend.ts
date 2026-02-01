@@ -14,9 +14,9 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const sendEmail = async ({ name, surname, phoneNumber, email }: EmailProps) => {
   await resend.emails.send({
-    to: 'kontakt@dominiktorebko.pl',
-    from: 'kontakt@kultmatcha.pl',
-    subject: `Linia Produkcyjna Flipów - wiadomość od ${name} ${surname}`,
+    to: 'kontakt@kultinvest.pl',
+    from: 'kontakt@kultinvest.pl',
+    subject: `Kult - wiadomość od ${name} ${surname}`,
     react: EmailTemplate({ name, surname, phoneNumber, email })
   })
 }
