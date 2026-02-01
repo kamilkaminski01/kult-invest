@@ -7,10 +7,8 @@
   align-items: center;
   gap: 1.5rem;
   height: 800px;
-  max-width: 1920px;
   margin: 0 auto;
-  padding: 0 2rem; // Added side padding for mobile safety
-
+  padding: 0 2rem;
   background: variables.$bg-img no-repeat center/cover;
 
   .hero-section__header {
