@@ -8,13 +8,13 @@ const NavMenu = () => {
   return (
     <ul className="nav__menu">
       <li className="menu__link">
-        <Link href="/invest">Invest</Link>
+        <Link href="#invest-section">Invest</Link>
       </li>
       <li className="menu__link">
-        <Link href="/technology">Technology</Link>
+        <Link href="#technology-section">Technology</Link>
       </li>
       <li className="menu__link">
-        <Link href="/o-nas">O nas</Link>
+        <Link href="#whoweare-section">O nas</Link>
       </li>
       <li className="menu__link--btn">
         <ContactButton />

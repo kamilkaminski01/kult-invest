@@ -19,16 +19,16 @@ const Footer = () => {
 
         <ul className="footer__nav">
           <li>
-            <Link href="#invest">Invest</Link>
+            <Link href="#invest-section">Invest</Link>
           </li>
           <li>
-            <Link href="#technology">Technology</Link>
+            <Link href="#technology-section">Technology</Link>
           </li>
           <li>
-            <Link href="#o-nas">O nas</Link>
+            <Link href="#whoweare-section">O nas</Link>
           </li>
           <li>
-            <Link href="#contact" className="footer__btn">
+            <Link href="#contact-section" className="footer__btn">
               Skontaktuj się
             </Link>
           </li>
