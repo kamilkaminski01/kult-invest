@@ -120,6 +120,8 @@
 
   @media (max-width: 768px) {
     padding: 3.5rem 1rem;
+    background-color: variables.$mobile-body-bg;
+
     .technology-section__left-col {
       .left-col__header {
         .header__subtitle {

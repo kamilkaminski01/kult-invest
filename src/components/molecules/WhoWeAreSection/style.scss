@@ -87,6 +87,8 @@
   }
 
   @media (max-width: 768px) {
+    background-color: variables.$mobile-body-bg;
+
     padding: 5rem 1rem 4rem 1rem;
 
     &__left-col {

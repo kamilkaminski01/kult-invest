@@ -20,6 +20,9 @@ body {
   overscroll-behavior: none;
   background-color: variables.$black;
   overflow-x: clip;
+  @media (max-width: 768px) {
+    background-color: variables.$mobile-body-bg;
+  }
 }
 
 a {

@@ -52,6 +52,8 @@
   }
 
   @media (max-width: 760px) {
+    background-color: variables.$mobile-body-bg;
+
     justify-content: flex-start;
     align-items: flex-start;
 
