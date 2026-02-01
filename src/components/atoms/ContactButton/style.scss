@@ -1,6 +1,10 @@
 @use 'assets/styles/variables';
 
 .contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-family: var(--font-aldrich);
   padding: 1rem 1.5rem;
 
@@ -10,5 +14,10 @@
   cursor: pointer;
   &:hover {
     filter: brightness(1.1);
+  }
+
+  @media (max-width: 768px) {
+    min-width: 280px;
+    height: 48px;
   }
 }

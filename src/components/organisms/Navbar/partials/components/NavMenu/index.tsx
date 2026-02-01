@@ -1,5 +1,6 @@
 'use client'
 
+import './style.scss'
 import Link from 'next/link'
 import { NavMenuProps } from './interface'
 import ContactButton from 'components/atoms/ContactButton'
