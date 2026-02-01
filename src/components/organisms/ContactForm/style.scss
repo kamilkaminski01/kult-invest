@@ -31,6 +31,9 @@
       line-height: 1;
       letter-spacing: 2%;
       font-family: var(--font-aldrich);
+      &:hover {
+        filter: brightness(1.1);
+      }
     }
 
     .footer__icon {
