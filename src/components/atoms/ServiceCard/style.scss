@@ -44,4 +44,46 @@
     color: variables.$black;
     font-weight: 300;
   }
+
+  @media (max-width: 768px) {
+    position: relative;
+    border-right: 0;
+    border-bottom: 1px solid variables.$light-grey;
+    padding: 2rem 0 2rem 5rem;
+    max-width: unset;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: auto;
+      width: 64px;
+    }
+
+    &__icon-wrapper {
+      height: unset;
+      margin: 0;
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: left;
+    }
+  }
 }

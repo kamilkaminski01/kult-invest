@@ -11,7 +11,7 @@ const TechnologySection = () => {
           <h3 className="header__subtitle">po drugie</h3>
           <h2 className="header__title">Technologia i automatyzacja</h2>
         </div>
-        <Image src={KultTechnologyImage} alt="Kult Technology" />
+        <Image className="left-col__header--img" src={KultTechnologyImage} alt="Kult Technology" />
       </div>
       <div className="technology-section__center-col">
         <p className="center-col__header">
@@ -26,7 +26,7 @@ const TechnologySection = () => {
         </p>
       </div>
       <div className="technology-section__right-col">
-        <Image src={LaptopImage} alt="Laptop" />
+        <Image className="right-col__header--img" src={LaptopImage} alt="Laptop" />
       </div>
     </section>
   )

@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 3rem;
 
-  padding: 3.75rem 5rem; // Desktop padding
+  padding: 3.75rem 5rem;
 
   width: 100%;
   max-width: 1064px;
@@ -20,7 +20,6 @@
   }
 
   &__footer {
-    // Removed the redundant nesting for cleaner BEM
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -40,7 +39,7 @@
       width: 60px;
       height: 60px;
       transform: translateX(-5px);
-      flex-shrink: 0; // Prevents icon from squishing
+      flex-shrink: 0;
     }
   }
 
@@ -56,26 +55,28 @@
   }
 
   @media (max-width: 768px) {
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     gap: 2rem;
 
     &__title {
-      font-size: 28px;
-      text-align: center;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.2;
+      text-align: left;
     }
 
     &__footer {
-      flex-direction: column-reverse; // Puts the button on top of the icon for better thumb-reach
+      flex-direction: column-reverse;
       align-items: center;
       text-align: center;
       gap: 1.5rem;
 
       .contact-form__button {
-        width: 100%; // Full width button on mobile
+        width: 100%;
       }
 
       .footer__icon {
-        transform: none; // Remove the desktop offset
+        transform: none;
       }
     }
   }

@@ -11,7 +11,7 @@ const InvestSection = () => {
           <h3 className="header__subtitle">po pierwsze</h3>
           <h2 className="header__title">Nieruchomości i inwestycje</h2>
         </div>
-        <Image src={KultInvestImage} alt="Kult Invest" />
+        <Image className="left-col__header--img" src={KultInvestImage} alt="Kult Invest" />
       </div>
       <div className="invest-section__center-col">
         <p className="center-col__header">
@@ -26,7 +26,7 @@ const InvestSection = () => {
         </p>
       </div>
       <div className="invest-section__right-col">
-        <Image src={StaircaseImage} alt="Staircase" />
+        <Image className="right-col__header--img" src={StaircaseImage} alt="Staircase" />
       </div>
     </section>
   )

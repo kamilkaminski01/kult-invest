@@ -3,6 +3,10 @@
 .accordion-item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
+  @media (max-width: 768px) {
+    border-bottom: 4px solid #dddddd;
+  }
+
   &__header {
     width: 100%;
     display: flex;
@@ -12,6 +16,10 @@
     border: none;
     cursor: pointer;
     text-align: left;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
   }
 
   &__number {
@@ -20,6 +28,12 @@
     margin-right: 20px;
     color: variables.$dover-gray;
     min-width: 25px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      line-height: 1.2;
+      padding-left: 0.5rem;
+    }
   }
 
   &__question {
@@ -28,6 +42,11 @@
     flex-grow: 1;
     color: variables.$black;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      line-height: 1.4;
+    }
   }
 
   &__icon {
@@ -50,6 +69,13 @@
     color: variables.$black;
     font-size: 18px;
     max-width: 900px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 1.5;
+      padding-right: 1.5rem;
+      padding-left: 3.7rem;
+    }
   }
 
   &--active {

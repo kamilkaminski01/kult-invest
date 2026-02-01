@@ -59,6 +59,10 @@
     color: variables.$dark-grey;
     font-size: 16px;
     line-height: 1.5;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .checkbox-wrapper__error-message {

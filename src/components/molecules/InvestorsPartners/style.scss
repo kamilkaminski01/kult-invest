@@ -63,7 +63,7 @@
     padding: 40px;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    height: 100%; // Ensure cards are same height if container allows
+    height: 100%;
 
     &__header {
       display: flex;
@@ -161,8 +161,11 @@
     padding: 40px 15px;
 
     &__title {
-      font-size: 28px;
+      font-size: 32px;
+      line-height: 1.2;
       margin-bottom: 2rem;
+      padding: 0 5rem;
+      text-align: center;
     }
 
     .investor-card {
@@ -180,12 +183,6 @@
       &__name {
         font-size: 1rem;
       }
-    }
-
-    // Hide navigation arrows on mobile to save space, use pagination instead
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none;
     }
 
     .investors-swiper {

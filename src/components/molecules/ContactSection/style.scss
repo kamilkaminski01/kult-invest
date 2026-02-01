@@ -174,22 +174,85 @@
       padding: 40px;
 
       &::after {
-        left: -2rem; // Aligns white background with container edge
+        left: -2rem;
         width: calc(100% + 4rem);
       }
     }
   }
 
   @media (max-width: 768px) {
+    padding: 3rem 1rem 0 1rem;
+
     &__title {
+      order: 1;
       font-size: 32px;
+      line-height: 1.2;
     }
+
     &__subtitle {
-      font-size: 20px;
+      order: 2;
+      font-size: 24px;
+      line-height: 1.4;
+      padding-bottom: 0.5rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__company-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      order: 4;
+      padding-top: 3rem;
+      &::after {
+        display: none;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 120px;
+        height: 4px;
+        background-color: #dddddd;
+      }
+      .contact-section__company-name {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+      }
+    }
+
+    &__links {
+      order: 3;
+      padding-bottom: 1rem;
+      .contact-section__link-icon {
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+      }
+      .contact-section__link-arrow {
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+      }
     }
 
     &__link-card {
-      padding: 1.5rem;
+      position: relative;
+      padding: 5rem 1.5rem 1.5rem 1.5rem;
       height: auto;
       min-height: 70px;
     }
@@ -199,7 +262,7 @@
     }
 
     &__right {
-      padding: 30px 15px;
+      padding: 1.5rem 0;
       &::after {
         left: -1.5rem;
         width: calc(100% + 3rem);

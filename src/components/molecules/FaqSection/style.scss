@@ -61,10 +61,14 @@
   }
 
   @media (max-width: 768px) {
-    padding: 40px 1.5rem;
+    padding: 40px 1rem;
 
     &__title {
-      font-size: 28px;
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      padding: 0 2rem;
+      text-align: center;
     }
 
     &__container {
