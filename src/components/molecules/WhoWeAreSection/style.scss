@@ -87,7 +87,14 @@
   }
 
   @media (max-width: 768px) {
-    padding: 2rem 1rem;
+    padding: 5rem 1rem 4rem 1rem;
+
+    &__left-col {
+      img {
+        margin: 0 -1rem;
+        width: calc(100% + 2rem);
+      }
+    }
 
     &__right-col {
       justify-content: flex-start;
