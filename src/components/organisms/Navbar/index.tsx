@@ -12,22 +12,22 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => setIsOpen(!isOpen)
+  const closeMenu = () => setIsOpen(false)
 
   return (
     <nav className={isOpen ? 'nav--open' : ''}>
-      {/* Hamburger / Close Icon */}
       <div className="nav__toggle" onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
 
-      <Link href={PATHS.home} className="nav__logo-link">
+      <Link href={PATHS.home} className="nav__logo-link" onClick={closeMenu}>
         <Image src={Logo} alt="Logo" className="nav__brand" />
       </Link>
 
       <div className={`nav__container ${isOpen ? 'active' : ''}`}>
-        <NavMenu />
+        <NavMenu closeMenu={closeMenu} />
       </div>
     </nav>
   )

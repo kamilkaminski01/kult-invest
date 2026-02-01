@@ -1,22 +1,28 @@
 'use client'
 
 import Link from 'next/link'
-import './style.scss'
+import { NavMenuProps } from './interface'
 import ContactButton from 'components/atoms/ContactButton'
 
-const NavMenu = () => {
+const NavMenu = ({ closeMenu }: NavMenuProps) => {
   return (
     <ul className="nav__menu">
       <li className="menu__link">
-        <Link href="#invest-section">Invest</Link>
+        <Link href="#invest-section" onClick={closeMenu}>
+          Invest
+        </Link>
       </li>
       <li className="menu__link">
-        <Link href="#technology-section">Technology</Link>
+        <Link href="#technology-section" onClick={closeMenu}>
+          Technology
+        </Link>
       </li>
       <li className="menu__link">
-        <Link href="#whoweare-section">O nas</Link>
+        <Link href="#whoweare-section" onClick={closeMenu}>
+          O nas
+        </Link>
       </li>
-      <li className="menu__link--btn">
+      <li className="menu__link--btn" onClick={closeMenu}>
         <ContactButton />
       </li>
     </ul>
