@@ -5,18 +5,18 @@ import EmailTemplate from 'components/atoms/EmailTemplate'
 
 interface EmailProps {
   name: string
-  surname: string
-  phoneNumber: string
+  company: string
   email: string
+  message: string
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const sendEmail = async ({ name, surname, phoneNumber, email }: EmailProps) => {
+export const sendEmail = async ({ name, company, email, message }: EmailProps) => {
   await resend.emails.send({
-    to: 'kamilkaminski39@gmail.com',
+    to: 'kontakt@kultinvest.pl',
     from: 'kontakt@kultinvest.pl',
-    subject: `Kult - wiadomość od ${name} ${surname}`,
-    react: EmailTemplate({ name, surname, phoneNumber, email })
+    subject: `Kult Invest - wiadomość od ${name} z ${company}`,
+    react: EmailTemplate({ email, message })
   })
 }

@@ -3,12 +3,16 @@
 import { useState } from 'react'
 import { AccordionItemProps } from './interface'
 import './style.scss'
+import Image from 'next/image'
+import classNames from 'classnames'
+import ArrowDownIcon from 'assets/icons/arrow-down-icon.svg'
+import ArrowUpIcon from 'assets/icons/arrow-up-icon.svg'
 
 const AccordionItem = ({ number, question, answer, isOpenInitial = false }: AccordionItemProps) => {
   const [isOpen, setIsOpen] = useState(isOpenInitial)
 
   return (
-    <div className={`accordion-item ${isOpen ? 'accordion-item--active' : ''}`}>
+    <div className={classNames('accordion-item', { 'accordion-item--active': isOpen })}>
       <button
         className="accordion-item__header"
         onClick={() => setIsOpen(!isOpen)}
@@ -17,13 +21,9 @@ const AccordionItem = ({ number, question, answer, isOpenInitial = false }: Acco
         <h3 className="accordion-item__question">{question}</h3>
         <div className="accordion-item__icon">
           {!isOpen ? (
-            <svg width="18" height="11" viewBox="0 0 18 11" fill="none">
-              <path d="M1 1L9 9L17 1" stroke="#C4A661" strokeWidth="2" rotate={180} />
-            </svg>
+            <Image src={ArrowDownIcon} alt="arrow-down" />
           ) : (
-            <svg width="18" height="11" viewBox="0 0 18 11" fill="none">
-              <path d="M1 1L9 9L17 1" stroke="#C4A661" strokeWidth="2" />
-            </svg>
+            <Image src={ArrowUpIcon} alt="arrow-up" />
           )}
         </div>
       </button>

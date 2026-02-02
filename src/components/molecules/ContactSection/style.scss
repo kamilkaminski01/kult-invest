@@ -3,14 +3,16 @@
 .contact-section {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 1920px;
-  margin: 0 auto;
+
   gap: 4rem;
-  padding: 5rem 9.75rem 0 9.75rem;
+  margin: 0 auto;
+  padding: 5rem 0 0 9.75rem;
+  max-width: 1920px;
+
   background-color: variables.$light-bg;
+
   z-index: 1;
 
   &::before {
@@ -27,17 +29,19 @@
   &__left {
     display: flex;
     flex-direction: column;
-    max-width: 520px;
+    gap: 32px;
     padding-right: 5rem;
     padding-top: 4rem;
-    gap: 32px;
+
+    max-width: 520px;
   }
 
   &__right {
     position: relative;
     flex: 1;
-    background: variables.$white;
     padding: 60px;
+
+    background: variables.$white;
 
     &::after {
       content: '';
@@ -59,12 +63,13 @@
   }
 
   &__subtitle {
+    position: relative;
+    padding-bottom: 24px;
+
     font-weight: 400;
     font-size: 24px;
     line-height: 1.4;
     color: variables.$black;
-    position: relative;
-    padding-bottom: 24px;
 
     &::after {
       content: '';
@@ -79,10 +84,11 @@
 
   &__company-info {
     position: relative;
-    font-size: 14px;
+    padding-bottom: 24px;
+
+    font-size: 18px;
     line-height: 1.6;
     color: variables.$black;
-    padding-bottom: 24px;
 
     p {
       margin: 0;
@@ -100,6 +106,7 @@
   }
 
   &__company-name {
+    font-size: 24px;
     font-weight: 800;
     margin-bottom: 8px !important;
   }
@@ -113,17 +120,21 @@
   &__link-card {
     display: flex;
     align-items: center;
-    background: variables.$white;
-    text-decoration: none;
-    color: variables.$black;
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid #f0f0f0;
-    height: 80px;
     padding: 2rem;
+
+    height: 80px;
+
+    color: variables.$black;
+    background: variables.$white;
+    border-bottom: 1px solid #f0f0f0;
+
+    transition: background-color 0.3s ease;
+    text-decoration: none;
     box-sizing: border-box;
 
     &:hover {
       background-color: #fafafa;
+
       .contact-section__link-arrow {
         transform: translateX(5px);
       }
@@ -144,15 +155,14 @@
   }
 
   &__link-arrow {
-    color: variables.$spanish-gold;
     font-size: 20px;
+    color: variables.$spanish-gold;
     transition: transform 0.3s ease;
   }
 
-  // --- RWD STYLES ---
-
   @media (max-width: 1440px) {
     padding: 5rem 4rem 0 4rem;
+
     &__left {
       padding-right: 2rem;
     }
@@ -191,9 +201,9 @@
 
     &__subtitle {
       order: 2;
+      padding-bottom: 0.5rem;
       font-size: 24px;
       line-height: 1.4;
-      padding-bottom: 0.5rem;
 
       &::after {
         display: none;
@@ -201,15 +211,19 @@
     }
 
     &__company-info {
+      order: 4;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      order: 4;
+
       padding-top: 3rem;
+
       &::after {
         display: none;
       }
+
       &::before {
         content: '';
         position: absolute;
@@ -220,12 +234,14 @@
         height: 4px;
         background-color: #dddddd;
       }
+
       .contact-section__company-name {
         font-weight: 700;
         font-size: 18px;
         line-height: 1.4;
         text-align: center;
       }
+
       p {
         font-weight: 400;
         font-size: 16px;
@@ -237,11 +253,13 @@
     &__links {
       order: 3;
       padding-bottom: 1rem;
+
       .contact-section__link-icon {
         position: absolute;
         top: 1rem;
         left: 1.5rem;
       }
+
       .contact-section__link-arrow {
         position: absolute;
         top: 50%;
@@ -253,6 +271,7 @@
     &__link-card {
       position: relative;
       padding: 5rem 1.5rem 1.5rem 1.5rem;
+
       height: auto;
       min-height: 70px;
     }
@@ -263,6 +282,7 @@
 
     &__right {
       padding: 1.5rem 0;
+
       &::after {
         left: -1.5rem;
         width: calc(100% + 3rem);

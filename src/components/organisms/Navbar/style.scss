@@ -2,17 +2,20 @@
 
 nav {
   position: sticky;
+  top: 0;
+
   display: flex;
   align-items: center;
-
   justify-content: flex-start;
-  gap: 24px;
-  top: 0;
-  width: 100%;
+
+  gap: 1.5rem;
   padding: 1.5rem;
-  max-width: 1920px;
   margin: 0 auto;
+
+  width: 100%;
+  max-width: 1920px;
   background: variables.$black;
+
   z-index: 100;
 
   &::before {
@@ -46,6 +49,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 6px;
+
     cursor: pointer;
     z-index: 101;
 
@@ -68,12 +72,15 @@ nav {
       left: 0;
       width: 100%;
       height: 100vh;
-      background: variables.$black;
+
       display: none;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 7rem;
       align-items: center;
+
+      padding-top: 7rem;
+
+      background: variables.$black;
 
       &.active {
         display: flex;

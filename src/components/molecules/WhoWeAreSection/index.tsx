@@ -11,7 +11,7 @@ const WhoWeAreSection = () => {
       <div className="whoweare-section__right-col">
         <h2 className="header__title">Kim jesteśmy?</h2>
         <p className="header__subtitle ">
-          KULT to zespół praktyków inwestowania i inżynierów technologii w jednym. Tworzymy
+          Kult to zespół praktyków inwestowania i inżynierów technologii w jednym. Tworzymy
           projekty, które łączą stabilność rynku nieruchomości z innowacyjnymi rozwiązaniami
           cyfrowymi, jednocześnie rozumiejąc realne procesy biznesowe. Dzięki temu nasze działania
           przynoszą wymierne efekty i realną wartość dla inwestorów i klientów.

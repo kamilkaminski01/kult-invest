@@ -1,14 +1,18 @@
+@use "sass:color";
 @use 'assets/styles/variables';
 
 .investors-partners-section {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   max-width: 1920px;
   margin: 0 auto;
   padding: 80px 20px;
+
   background-color: variables.$light-bg;
   z-index: 1;
 
@@ -24,34 +28,37 @@
   }
 
   &__container {
-    width: 100%;
-    max-width: 1920px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 100%;
+    max-width: 1920px;
   }
 
   &__title {
+    margin-bottom: 5rem;
+
+    text-align: center;
     font-weight: 700;
     font-size: 48px;
     line-height: 1.2;
-    text-align: center;
-    margin-bottom: 5rem;
     color: variables.$grey-title;
   }
 
   .investors-swiper {
-    width: 100%;
     position: relative;
+    width: 100%;
     padding: 20px 0 60px 0;
     z-index: 2;
   }
 
   .swiper-slide {
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
     display: flex;
     justify-content: center;
+
+    transition: opacity 0.3s ease;
+    opacity: 0.4;
 
     &-active {
       opacity: 1;
@@ -59,11 +66,12 @@
   }
 
   .investor-card {
-    background: variables.$white;
     padding: 40px;
+    height: 100%;
+
+    background: variables.$white;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    height: 100%;
 
     &__header {
       display: flex;
@@ -102,11 +110,12 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    background-color: variables.$spanish-gold;
+    top: 50%;
     width: 40px;
     height: 40px;
+
+    background-color: variables.$spanish-gold;
     border-radius: 4px;
-    top: 50%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
@@ -115,6 +124,7 @@
     svg {
       width: 18px;
       height: 18px;
+
       path {
         fill: variables.$white;
       }
@@ -125,13 +135,14 @@
     }
 
     &:hover {
-      background-color: darken(variables.$spanish-gold, 5%);
+      background-color: color.adjust(variables.$spanish-gold, $lightness: -5%);
     }
   }
 
   .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
+
     border-radius: 2px;
     background: variables.$brainstem-grey;
     opacity: 1;
@@ -141,8 +152,6 @@
       width: 25px;
     }
   }
-
-  // --- RESPONSIVE STYLES ---
 
   @media (max-width: 1024px) {
     padding: 60px 20px;
@@ -161,11 +170,12 @@
     padding: 40px 15px;
 
     &__title {
+      padding: 0 5rem;
+      margin-bottom: 2rem;
+
+      text-align: center;
       font-size: 32px;
       line-height: 1.2;
-      margin-bottom: 2rem;
-      padding: 0 5rem;
-      text-align: center;
     }
 
     .investor-card {

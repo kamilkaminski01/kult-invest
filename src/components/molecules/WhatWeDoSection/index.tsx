@@ -1,4 +1,3 @@
-import React from 'react'
 import './style.scss'
 import { WHAT_WE_DO_DATA } from 'utils/consts'
 import ServiceCard from 'components/atoms/ServiceCard'

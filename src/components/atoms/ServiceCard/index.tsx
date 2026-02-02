@@ -1,4 +1,3 @@
-import React from 'react'
 import { ServiceCardProps } from './interface'
 import './style.scss'
 

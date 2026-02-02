@@ -2,26 +2,30 @@
 
 .service-card {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 1rem;
+
+  padding: 1rem 4rem 1rem 2rem;
   max-width: 350px;
+
+  text-align: center;
   border-right: 1px solid variables.$light-grey;
-  padding-right: 4rem;
-  padding-left: 2rem;
+
   z-index: 1;
+
   &:last-of-type {
     border-right: none;
   }
 
   &__icon-wrapper {
-    margin-bottom: 2.5rem;
-    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 2.5rem;
+    height: 100px;
   }
 
   &__icon {
@@ -31,10 +35,11 @@
   }
 
   &__title {
+    margin-bottom: 1.25rem;
+
     font-size: 24px;
     font-weight: 600;
     color: variables.$black;
-    margin-bottom: 1.25rem;
     line-height: 1.2;
   }
 
@@ -47,12 +52,14 @@
 
   @media (max-width: 768px) {
     position: relative;
-    border-right: 0;
-    border-bottom: 1px solid variables.$light-grey;
     padding: 2rem 0 2rem 5rem;
+
     max-width: unset;
     justify-content: flex-start;
     align-items: flex-start;
+
+    border-right: 0;
+    border-bottom: 1px solid variables.$light-grey;
 
     &:last-of-type {
       border-bottom: none;
@@ -72,18 +79,20 @@
     }
 
     &__title {
+      margin-bottom: 1rem;
+      text-align: left;
+
       font-weight: 700;
       font-size: 18px;
       line-height: 1.4;
-      text-align: left;
-      margin-bottom: 1rem;
     }
 
     &__description {
+      text-align: left;
+
       font-weight: 400;
       font-size: 16px;
       line-height: 1.5;
-      text-align: left;
     }
   }
 }

@@ -4,9 +4,3 @@ export interface AccordionItemProps {
   answer: string
   isOpenInitial?: boolean
 }
-
-export interface FaqData {
-  id: number | string
-  question: string
-  answer: string
-}

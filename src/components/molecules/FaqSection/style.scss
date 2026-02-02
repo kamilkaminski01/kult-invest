@@ -3,7 +3,9 @@
 .faq-section {
   position: relative;
   padding: 100px 9.75rem;
+
   background-color: variables.$light-bg;
+
   z-index: 1;
 
   &::before {
@@ -18,24 +20,24 @@
   }
 
   &__container {
-    max-width: 1600px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     gap: 160px;
+    margin: 0 auto;
+    max-width: 1600px;
   }
 
   &__title {
+    flex-shrink: 0;
+    max-width: 560px;
+
     font-size: 48px;
     font-weight: 700;
     line-height: 1.1;
     color: variables.$grey-title;
-    max-width: 560px;
-    flex-shrink: 0;
   }
-
-  // --- RWD STYLES ---
 
   @media (max-width: 1440px) {
     padding: 80px 4rem;
@@ -64,11 +66,12 @@
     padding: 40px 1rem;
 
     &__title {
+      padding: 0 2rem;
+      margin-bottom: 2rem;
+
+      text-align: center;
       font-size: 32px;
       line-height: 1.2;
-      margin-bottom: 2rem;
-      padding: 0 2rem;
-      text-align: center;
     }
 
     &__container {

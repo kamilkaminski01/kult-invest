@@ -8,14 +8,15 @@
   }
 
   &__header {
-    width: 100%;
     display: flex;
     align-items: center;
     padding: 32px 0;
+    width: 100%;
+
+    text-align: left;
     background: none;
     border: none;
     cursor: pointer;
-    text-align: left;
 
     @media (max-width: 768px) {
       gap: 1rem;
@@ -26,13 +27,14 @@
     font-size: 24px;
     font-weight: 700;
     margin-right: 20px;
-    color: variables.$dover-gray;
     min-width: 25px;
+    color: variables.$dover-gray;
 
     @media (max-width: 768px) {
+      padding-left: 0.5rem;
+
       font-size: 18px;
       line-height: 1.2;
-      padding-left: 0.5rem;
     }
   }
 
@@ -51,6 +53,7 @@
 
   &__icon {
     transition: transform 0.3s ease;
+
     svg path {
       stroke: variables.$spanish-gold;
     }
@@ -66,15 +69,18 @@
     padding-bottom: 24px;
     padding-left: 45px;
     line-height: 1.4;
+
     color: variables.$black;
+
     font-size: 18px;
     max-width: 900px;
 
     @media (max-width: 768px) {
-      font-size: 16px;
-      line-height: 1.5;
       padding-right: 1.5rem;
       padding-left: 3.7rem;
+
+      font-size: 16px;
+      line-height: 1.5;
     }
   }
 

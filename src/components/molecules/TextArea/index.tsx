@@ -1,18 +1,10 @@
 'use client'
 
-import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import './style.scss'
+import { TextAreaProps } from './interface'
 
-interface TextareaProps {
-  name: string
-  displayName: string
-  placeholder?: string
-  validators?: object
-  rows?: number
-}
-
-const Textarea = ({ name, displayName, placeholder, validators, rows = 10 }: TextareaProps) => {
+const TextArea = ({ name, displayName, placeholder, validators, rows = 10 }: TextAreaProps) => {
   const {
     register,
     formState: { errors }
@@ -41,4 +33,4 @@ const Textarea = ({ name, displayName, placeholder, validators, rows = 10 }: Tex
   )
 }
 
-export default Textarea
+export default TextArea

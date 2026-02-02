@@ -1,23 +1,23 @@
-import { ProjectImage } from './../components/molecules/ProjectsInvestmentsSection/interface'
+import { ProjectImage } from 'components/molecules/ProjectsInvestmentsSection/interface'
 
-import nowosielska from '../assets/images/swipers/top/nowosielska.jpg'
-import kolejowa from '../assets/images/swipers/top/kolejowa.jpg'
-import olenki from '../assets/images/swipers/top/olenki.jpg'
-import stokrotki from '../assets/images/swipers/top/stokrotki.jpg'
-import vena from '../assets/images/swipers/top/vena.jpg'
+import nowosielska from 'assets/images/swipers/top/nowosielska.jpg'
+import kolejowa from 'assets/images/swipers/top/kolejowa.jpg'
+import olenki from 'assets/images/swipers/top/olenki.jpg'
+import stokrotki from 'assets/images/swipers/top/stokrotki.jpg'
+import vena from 'assets/images/swipers/top/vena.jpg'
 
-import elektryczna from '../assets/images/swipers/bottom/elektryczna.jpg'
-import witosa from '../assets/images/swipers/bottom/witosa.jpg'
-import porosly from '../assets/images/swipers/bottom/porosly.jpg'
-import kalinowa from '../assets/images/swipers/bottom/kalinowa.jpg'
-import wlokiennicza from '../assets/images/swipers/bottom/wlokiennicza.jpg'
+import elektryczna from 'assets/images/swipers/bottom/elektryczna.jpg'
+import witosa from 'assets/images/swipers/bottom/witosa.jpg'
+import porosly from 'assets/images/swipers/bottom/porosly.jpg'
+import kalinowa from 'assets/images/swipers/bottom/kalinowa.jpg'
+import wlokiennicza from 'assets/images/swipers/bottom/wlokiennicza.jpg'
 
-import houseIcon from '../assets/images/what-we-do/home-loan-icon.svg'
-import webServiceIcon from '../assets/images/what-we-do/web-service-icon.svg'
-import webCodeIcon from '../assets/images/what-we-do/web-code-icon.svg'
-import announcementsIcon from '../assets/images/what-we-do/announcements-icon.svg'
+import houseIcon from 'assets/images/what-we-do/home-loan-icon.svg'
+import webServiceIcon from 'assets/images/what-we-do/web-service-icon.svg'
+import webCodeIcon from 'assets/images/what-we-do/web-code-icon.svg'
+import announcementsIcon from 'assets/images/what-we-do/announcements-icon.svg'
 
-import jerzy from '../assets/images/investors/jerzy.jpg'
+import jerzy from 'assets/images/investors/jerzy.jpg'
 
 export const WHAT_WE_DO_DATA = [
   {
@@ -49,19 +49,19 @@ export const WHAT_WE_DO_DATA = [
 export const PATHS = { home: '/' }
 
 export const SWIPER_IMAGES_TOP: ProjectImage[] = [
-  { id: 't1', src: nowosielska.src || nowosielska, alt: 'Nowosielska' },
-  { id: 't2', src: kolejowa.src || kolejowa, alt: 'Kolejowa' },
-  { id: 't3', src: olenki.src || olenki, alt: 'Olenki' },
-  { id: 't4', src: stokrotki.src || stokrotki, alt: 'Stokrotki' },
-  { id: 't5', src: vena.src || vena, alt: 'Vena' }
+  { id: 't1', src: nowosielska.src, alt: 'Nowosielska' },
+  { id: 't2', src: kolejowa.src, alt: 'Kolejowa' },
+  { id: 't3', src: olenki.src, alt: 'Olenki' },
+  { id: 't4', src: stokrotki.src, alt: 'Stokrotki' },
+  { id: 't5', src: vena.src, alt: 'Vena' }
 ]
 
 export const SWIPER_IMAGES_BOTTOM: ProjectImage[] = [
-  { id: 'b1', src: elektryczna.src || elektryczna, alt: 'Elektryczna' },
-  { id: 'b2', src: witosa.src || witosa, alt: 'Witosa' },
-  { id: 'b3', src: porosly.src || porosly, alt: 'Porosly' },
-  { id: 'b4', src: kalinowa.src || kalinowa, alt: 'Kalinowa' },
-  { id: 'b5', src: wlokiennicza.src || wlokiennicza, alt: 'Włókiennicza' }
+  { id: 'b1', src: elektryczna.src, alt: 'Elektryczna' },
+  { id: 'b2', src: witosa.src, alt: 'Witosa' },
+  { id: 'b3', src: porosly.src, alt: 'Porosly' },
+  { id: 'b4', src: kalinowa.src, alt: 'Kalinowa' },
+  { id: 'b5', src: wlokiennicza.src, alt: 'Włókiennicza' }
 ]
 
 export const FACTS = [
@@ -72,16 +72,16 @@ export const FACTS = [
       'Każdego miesiąca pracujemy równolegle nad kilkoma inwestycjami i rozwiązaniami IT, zachowując najwyższą jakość na każdym etapie.'
   },
   {
-    number: 24,
+    number: 11,
     title: 'zrealizowanych projektów',
     description:
       'Od startu zakończyliśmy z sukcesem kilkanaście przedsięwzięć - zarówno w nieruchomościach, jak i w nowoczesnych technologiach.'
   },
   {
-    number: 374,
-    title: 'przeprowadzonych transkacji',
+    number: 21,
+    title: 'przeprowadzonych transakcji',
     description:
-      'Za nami setki działań związanych z kupnem, sprzedażą i wdrożeniami, które potwierdzają skuteczność oraz zaufanie inwestorów.'
+      'Za nami dziesiątki działań związanych z kupnem, sprzedażą i wdrożeniami, które potwierdzają skuteczność oraz zaufanie inwestorów.'
   },
   {
     number: 2025,
@@ -169,7 +169,7 @@ export const INVESTORS_DATA = [
 export const FAQ_DATA = [
   {
     id: 1,
-    question: 'Czym wyróżnia się KULT na tle innych firm?',
+    question: 'Czym wyróżniamy się na tle innych firm?',
     answer:
       'Tworzymy rozwiązania, które realnie generują zysk, a nie tylko dobrze wyglądają. Każdy nasz projekt – zarówno inwestycyjny, jak i technologiczny – jest zaprojektowany tak, aby przynosił wymierne efekty i zwiększał wartość dla naszych klientów i partnerów.'
   },
@@ -183,7 +183,7 @@ export const FAQ_DATA = [
     id: 3,
     question: 'Jakie aplikacje i rozwiązania technologiczne tworzycie?',
     answer:
-      'Specjalizujemy się w narzędziach do automatyzacji, monitoringu rynku nieruchomości oraz dedykowanych systemach CRM/ERP.'
+      'Specjalizujemy się w narzędziach do automatyzacji, monitoringu rynku nieruchomości oraz dedykowanych systemach wspierających małe i średnie firmy.'
   },
   {
     id: 4,
@@ -193,7 +193,7 @@ export const FAQ_DATA = [
   },
   {
     id: 5,
-    question: 'W jaki sposób mogę rozpocząć współpracę z KULT?',
+    question: 'W jaki sposób mogę rozpocząć z Wami współpracę?',
     answer:
       'Zapraszamy do kontaktu przez formularz lub bezpośrednio – chętnie porozmawiamy o wspólnych celach.'
   }

@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { PATHS } from 'utils/consts'
 import Logo from 'assets/images/logo.svg'
 import NavMenu from './partials/components/NavMenu'
+import classNames from 'classnames'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false)
 
   return (
-    <nav className={isOpen ? 'nav--open' : ''}>
+    <nav className={classNames({ 'nav--open': isOpen })}>
       <div className="nav__toggle" onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
@@ -26,7 +27,7 @@ const Navbar = () => {
         <Image src={Logo} alt="Logo" className="nav__brand" />
       </Link>
 
-      <div className={`nav__container ${isOpen ? 'active' : ''}`}>
+      <div className={classNames('nav__container', { active: isOpen })}>
         <NavMenu closeMenu={closeMenu} />
       </div>
     </nav>

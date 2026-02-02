@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
-import { INVESTORS_DATA } from './../../../utils/consts'
+import { INVESTORS_DATA } from 'utils/consts'
 
 import 'swiper/css'
 import 'swiper/css/navigation'

@@ -7,6 +7,7 @@
 
   .fact-card__content {
     position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -59,15 +60,19 @@
       padding: 1.5rem 2rem 1rem 2rem;
       margin-bottom: 5rem;
       min-height: unset;
+
       .content__number {
+        margin-bottom: -0.75rem;
+
         font-size: 48px;
         line-height: 1;
-        margin-bottom: -0.75rem;
       }
+
       .content__title {
         font-size: 18px;
         line-height: 1.4;
       }
+
       .content__description {
         font-size: 16px;
         line-height: 1.5;

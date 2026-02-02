@@ -1,13 +1,11 @@
 import { EmailTemplateProps } from './interface'
 
-const EmailTemplate = ({ name, surname, phoneNumber, email }: EmailTemplateProps) => {
+const EmailTemplate = ({ email, message }: EmailTemplateProps) => {
   return (
     <>
-      <div>
-        {name} {surname} chce wziąć udział w wydarzeniu.
-      </div>
-      <div>numer telefonu nadawcy: {phoneNumber}</div>
-      <div>e-mail nadawcy: {email}</div>
+      <div style={{ whiteSpace: 'pre-line' }}>{message}</div>
+      <br />
+      <div>e-mail nadawcy {email}</div>
     </>
   )
 }

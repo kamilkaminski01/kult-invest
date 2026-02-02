@@ -4,15 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1920px;
-  margin: 6rem auto;
-  padding: 0 9.75rem;
+
   gap: 148px;
+  padding: 0 9.75rem;
+  margin: 6rem auto;
+
+  max-width: 1920px;
   background-color: variables.$black;
 
   &__left-col {
     display: flex;
     flex-direction: column;
+
     gap: 5rem;
     flex: 1;
     max-width: 960px;
@@ -29,15 +32,17 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+
     gap: 48px;
     width: 656px;
 
     .header__title {
       font-size: 48px;
+      font-weight: 700;
       line-height: 1.15;
       color: variables.$spanish-gold;
+
       text-transform: uppercase;
-      font-weight: 700;
     }
 
     .header__subtitle {
@@ -54,8 +59,6 @@
     }
   }
 
-  // --- RESPONSIVE STYLES ---
-
   @media (max-width: 1440px) {
     gap: 80px;
     padding: 0 4rem;
@@ -68,8 +71,8 @@
   @media (max-width: 1024px) {
     flex-direction: column;
     gap: 4rem;
-    margin: 0 auto;
     padding: 6rem 2rem;
+    margin: 0 auto;
 
     &__left-col {
       width: 100%;
@@ -87,9 +90,8 @@
   }
 
   @media (max-width: 768px) {
-    background-color: variables.$mobile-body-bg;
-
     padding: 5rem 1rem 4rem 1rem;
+    background-color: variables.$mobile-body-bg;
 
     &__left-col {
       img {

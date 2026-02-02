@@ -1,6 +1,6 @@
 import './style.scss'
 import { ProjectImage } from './interface'
-import { SWIPER_IMAGES_BOTTOM, SWIPER_IMAGES_TOP } from './../../../utils/consts'
+import { SWIPER_IMAGES_BOTTOM, SWIPER_IMAGES_TOP } from 'utils/consts'
 
 const ProjectsInvestmentsSection = () => {
   const renderRow = (images: ProjectImage[]) => (

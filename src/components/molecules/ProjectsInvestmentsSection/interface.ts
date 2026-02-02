@@ -1,12 +1,5 @@
-import { StaticImageData } from 'next/image'
-
 export interface ProjectImage {
   id: string | number
-  src: string | StaticImageData
+  src: string
   alt?: string
-}
-
-export interface SwiperRowProps {
-  images: ProjectImage[]
-  direction: 'top' | 'bottom'
 }

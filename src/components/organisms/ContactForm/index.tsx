@@ -15,18 +15,24 @@ import Spinner from 'components/atoms/Spinner'
 import ErrorMessage from 'components/atoms/ErrorMessage'
 
 const ContactForm = () => {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('loading')
   const methods = useForm()
 
   const formID = 'contactForm'
 
   const onSubmit = async (data: FieldValues) => {
+    const { name, company, email, message } = data
+
     try {
       setStatus('loading')
-      await sendEmail(data)
+
+      await sendEmail({ name, company, email, message })
       methods.reset()
+
       setStatus('success')
-      setTimeout(() => setStatus('idle'), 4000)
+      setTimeout(() => setStatus('idle'), 3000)
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setStatus('error')
     }
@@ -36,41 +42,36 @@ const ContactForm = () => {
     <FormProvider {...methods}>
       <form id={formID} className="contact-form" onSubmit={methods.handleSubmit(onSubmit)}>
         <h2 className="contact-form__title">Skontaktuj się z nami</h2>
-
         <Input
           name="name"
           displayName="Podaj imię"
-          placeholder="np. Kamil"
+          placeholder="np. Adam"
           validators={{ required: valid.required, ...validSchemas.name }}
         />
-
         <Input
           name="company"
           displayName="W imieniu jakiej firmy się kontaktujesz? (opcjonalnie)"
-          placeholder="np. JourexPOL"
+          placeholder="np. Kult Invest"
         />
-
         <Input
           name="email"
           displayName="Podaj e-mail"
-          placeholder="np. kamil@gmail.com..."
+          placeholder="np. adam@gmail.com..."
           validators={{ required: valid.required, pattern: valid.emailPattern }}
         />
-
         <TextArea
           name="message"
           displayName="Wiadomość"
           placeholder="Treść pytania lub wiadomości..."
           validators={{ required: valid.required }}
         />
-
         <Checkbox name="termsAcceptance" validators={{ required: valid.required }}>
-          Zgadzam się lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod
-          convallis urna et gravida. Aenean elementum turpis mi, vel sagittis nibh pulvinar ac.
+          Wyrażam zgodę na przetwarzanie moich danych osobowych przez Kult sp. z o.o. z siedzibą w
+          Białymstoku, w celu obsługi mojego zapytania przesłanego za pomocą formularza
+          kontaktowego.
         </Checkbox>
-
         <div className="contact-form__footer">
-          <Button className="contact-form__button" type="submit" disabled={status === 'loading'}>
+          <Button className="contact-form__button" type="submit" disable={status === 'loading'}>
             Wyślij wiadomość
           </Button>
           {status === 'loading' && <Spinner />}

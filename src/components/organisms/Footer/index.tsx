@@ -36,21 +36,14 @@ const Footer = () => {
       </div>
 
       <div className="footer__bottom">
-        {/* Updated year to be dynamic */}
-        <p className="footer__copyright">Copyright {currentYear} © kultinvest.pl</p>
-
+        <p className="footer__copyright">Copyright {currentYear} © Kult Invest</p>
         <div className="footer__credits">
-          <p>
-            Projekt: <span>Damian Kiliszek</span>
-          </p>
-          <p>
-            Wykonanie:{' '}
-            <span>
-              <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
-                Marcin Godlewski
-              </Link>
-            </span>
-          </p>
+          Wykonanie
+          <span>
+            <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
+              Marcin Godlewski
+            </Link>
+          </span>
         </div>
       </div>
     </footer>

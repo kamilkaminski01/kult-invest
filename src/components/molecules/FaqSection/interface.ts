@@ -3,10 +3,3 @@ export interface IFaqItem {
   question: string
   answer: string
 }
-
-export interface IAccordionItemProps {
-  number: number
-  question: string
-  answer: string
-  isOpenInitial?: boolean
-}
