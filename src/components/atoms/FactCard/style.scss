@@ -4,17 +4,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 0 0 calc(25% - 1.5rem);
+  width: calc(25% - 1.5rem);
+  margin-bottom: 5rem;
+
+  @media (max-width: 1560px) {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 992px) {
+    margin-bottom: 0;
+    width: 100%;
+  }
 
   .fact-card__content {
     position: relative;
-
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
     padding: 0 3rem;
-    min-height: 300px;
+    min-height: 380px;
+    width: 100%;
     background-color: variables.$dark-grey;
+
+    @media (max-width: 1560px) {
+      min-height: 348px;
+    }
 
     &::before {
       content: '';

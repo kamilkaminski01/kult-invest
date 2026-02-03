@@ -43,6 +43,10 @@
 
     background: variables.$white;
 
+    @media (max-width: 1280px) {
+      padding: 2rem 1rem;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -164,7 +168,8 @@
     padding: 5rem 4rem 0 4rem;
 
     &__left {
-      padding-right: 2rem;
+      padding-right: 0;
+      max-width: 400px;
     }
   }
 
@@ -253,27 +258,22 @@
     &__links {
       order: 3;
       padding-bottom: 1rem;
-
-      .contact-section__link-icon {
-        position: absolute;
-        top: 1rem;
-        left: 1.5rem;
-      }
-
-      .contact-section__link-arrow {
-        position: absolute;
-        top: 50%;
-        right: 1.5rem;
-        transform: translateY(-50%);
-      }
     }
 
     &__link-card {
       position: relative;
-      padding: 5rem 1.5rem 1.5rem 1.5rem;
+      padding: 0.5rem 1.5rem;
 
       height: auto;
       min-height: 70px;
+    }
+
+    &__link-icon {
+      font-size: 26px;
+      img {
+        width: 26px;
+        height: auto;
+      }
     }
 
     &__link-text {

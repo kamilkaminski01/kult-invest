@@ -35,8 +35,12 @@ nav {
   }
 
   @media (min-width: 1024px) {
-    padding: 1.5rem 9.75rem;
+    padding: 1.5rem 3rem;
     justify-content: space-between;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 1.5rem 9.75rem;
   }
 
   .nav__brand {
