@@ -2,7 +2,7 @@ import './style.scss'
 
 const HeroSection = () => {
   return (
-    <section id="hero-section" className="hero-section">
+    <section id="hero" className="hero-section">
       <div className="hero-section__header">
         <h2 className="header__subtitle">Nowoczesne</h2>
         <h1 className="header__title">inwestycje i technologie</h1>

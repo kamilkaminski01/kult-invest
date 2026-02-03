@@ -5,7 +5,7 @@ import { IFaqItem } from './interface'
 
 const FaqSection = () => {
   return (
-    <section id="faq-section" className="faq-section">
+    <section id="faq" className="faq-section">
       <div className="faq-section__container">
         <div className="faq-section__left">
           <h2 className="faq-section__title">Pytania, które często padają</h2>

@@ -1,16 +1,17 @@
+import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
-export const almarai = localFont({
-  variable: '--font-almarai',
+export const archivo = localFont({
+  variable: '--font-archivo',
   src: [
-    { path: '../assets/fonts/Almarai-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../assets/fonts/Almarai-Bold.woff2', weight: '700', style: 'normal' }
+    { path: '../assets/fonts/Archivo-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../assets/fonts/Archivo-Semi-Bold.woff2', weight: '500', style: 'normal' },
+    { path: '../assets/fonts/Archivo-Bold.woff2', weight: '600', style: 'normal' }
   ]
 })
 
-export const aldrich = localFont({
-  variable: '--font-aldrich',
-  src: '../assets/fonts/Aldrich-Regular.woff2',
-  weight: '400',
-  style: 'normal'
+export const inter = Inter({
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin']
 })

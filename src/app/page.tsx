@@ -3,12 +3,12 @@ import HeroSection from 'components/molecules/HeroSection'
 import InvestSection from 'components/molecules/InvestSection'
 import TechnologySection from 'components/molecules/TechnologySection'
 import FactsSection from 'components/molecules/FactsSection'
-import WhoWeAreSection from 'components/molecules/WhoWeAreSection'
+import AboutSection from 'components/molecules/AboutSection'
 import ProjectsInvestmentsSection from 'components/molecules/ProjectsInvestmentsSection'
 import WhatWeDoSection from 'components/molecules/WhatWeDoSection'
-import InvestorsPartners from 'components/molecules/InvestorsPartners'
 import FaqSection from 'components/molecules/FaqSection'
 import ContactSection from 'components/molecules/ContactSection'
+// import InvestorsPartners from 'components/molecules/InvestorsPartners'
 
 const HomePage = () => {
   return (
@@ -17,10 +17,10 @@ const HomePage = () => {
       <InvestSection />
       <TechnologySection />
       <FactsSection />
-      <WhoWeAreSection />
+      <AboutSection />
       <ProjectsInvestmentsSection />
       <WhatWeDoSection />
-      <InvestorsPartners />
+      {/*<InvestorsPartners />*/}
       <FaqSection />
       <ContactSection />
     </main>

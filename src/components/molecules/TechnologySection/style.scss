@@ -28,7 +28,7 @@
       text-transform: uppercase;
 
       .header__subtitle {
-        font-family: var(--font-aldrich);
+        font-family: var(--font-inter);
         font-size: 18px;
         font-weight: 400;
         letter-spacing: 6.4px;
@@ -78,7 +78,7 @@
     }
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1580px) {
     gap: 4rem;
     padding: 5rem 4rem;
   }

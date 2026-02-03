@@ -9,17 +9,17 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
   return (
     <ul className="nav__menu">
       <li className="menu__link">
-        <Link href="#invest-section" onClick={closeMenu}>
+        <Link href="#invest" onClick={closeMenu}>
           Invest
         </Link>
       </li>
       <li className="menu__link">
-        <Link href="#technology-section" onClick={closeMenu}>
+        <Link href="#technology" onClick={closeMenu}>
           Technology
         </Link>
       </li>
       <li className="menu__link">
-        <Link href="#whoweare-section" onClick={closeMenu}>
+        <Link href="#about" onClick={closeMenu}>
           O nas
         </Link>
       </li>

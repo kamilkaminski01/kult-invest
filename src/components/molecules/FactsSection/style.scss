@@ -14,13 +14,13 @@
   background-color: variables.$black;
   color: variables.$white;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1580px) {
     padding: 5rem 4rem;
   }
 
   &__title {
     text-align: center;
-    font-family: var(--font-aldrich);
+    font-family: var(--font-inter);
     font-weight: 400;
     font-size: 18px;
     letter-spacing: 3.6px;
@@ -30,7 +30,6 @@
 
   &__facts {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
@@ -41,6 +40,7 @@
     padding: 5rem 4rem;
 
     &__facts {
+      flex-wrap: wrap;
       gap: 1rem;
     }
   }

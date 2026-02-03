@@ -5,7 +5,7 @@ import { scrollTo } from 'utils/scrollTo'
 
 const ContactButton = () => {
   const handleClick = () => {
-    scrollTo('contact-section')
+    scrollTo('contact')
   }
 
   return (

@@ -19,16 +19,16 @@ const Footer = () => {
 
         <ul className="footer__nav">
           <li>
-            <Link href="#invest-section">Invest</Link>
+            <Link href="#invest">Invest</Link>
           </li>
           <li>
-            <Link href="#technology-section">Technology</Link>
+            <Link href="#technology">Technology</Link>
           </li>
           <li>
-            <Link href="#whoweare-section">O nas</Link>
+            <Link href="#about">O nas</Link>
           </li>
           <li>
-            <Link href="#contact-section" className="footer__btn">
+            <Link href="#contact" className="footer__btn">
               Skontaktuj się
             </Link>
           </li>
@@ -38,10 +38,16 @@ const Footer = () => {
       <div className="footer__bottom">
         <p className="footer__copyright">Copyright {currentYear} © Kult Invest</p>
         <div className="footer__credits">
-          Wykonanie
+          Wykonali
           <span>
             <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
               Marcin Godlewski
+            </Link>
+          </span>
+          &
+          <span>
+            <Link href="https://kamilkaminski.pl" target="_blank" rel="noopener noreferrer">
+              Kamil Kamiński
             </Link>
           </span>
         </div>

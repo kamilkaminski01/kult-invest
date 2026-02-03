@@ -2,16 +2,22 @@ import './style.scss'
 import Image from 'next/image'
 import KultInvestImage from 'assets/images/kultinvest.svg'
 import StaircaseImage from 'assets/images/staircase.png'
+import Link from 'next/link'
+import { PATHS } from 'utils/consts'
 
 const InvestSection = () => {
   return (
-    <section id="invest-section" className="invest-section">
+    <section id="invest" className="invest-section">
       <div className="invest-section__left-col">
         <div className="left-col__header">
           <h3 className="header__subtitle">po pierwsze</h3>
-          <h2 className="header__title">Nieruchomości i inwestycje</h2>
+          <Link href={PATHS.home}>
+            <h2 className="header__title">Nieruchomości i inwestycje</h2>
+          </Link>
         </div>
-        <Image className="left-col__header--img" src={KultInvestImage} alt="Kult Invest" />
+        <Link href={PATHS.home}>
+          <Image className="left-col__header--img" src={KultInvestImage} alt="Kult Invest" />
+        </Link>
       </div>
       <div className="invest-section__center-col">
         <p className="center-col__header">

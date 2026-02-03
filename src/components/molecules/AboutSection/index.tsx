@@ -2,13 +2,13 @@ import './style.scss'
 import Image from 'next/image'
 import DominikKamilImage from 'assets/images/dominik-kamil.jpg'
 
-const WhoWeAreSection = () => {
+const AboutSection = () => {
   return (
-    <section id="whoweare-section" className="whoweare-section">
-      <div className="whoweare-section__left-col">
+    <section id="about" className="about-section">
+      <div className="about-section__left-col">
         <Image src={DominikKamilImage} alt="Dominik Torebko, Kamil Kamiński" />
       </div>
-      <div className="whoweare-section__right-col">
+      <div className="about-section__right-col">
         <h2 className="header__title">Kim jesteśmy?</h2>
         <p className="header__subtitle ">
           Kult to zespół praktyków inwestowania i inżynierów technologii w jednym. Tworzymy
@@ -30,4 +30,4 @@ const WhoWeAreSection = () => {
   )
 }
 
-export default WhoWeAreSection
+export default AboutSection

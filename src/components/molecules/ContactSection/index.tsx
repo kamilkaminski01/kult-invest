@@ -7,7 +7,7 @@ import ArrowRightIcon from 'assets/icons/arrow-right-icon.svg'
 
 const ContactSection = () => {
   return (
-    <section id="contact-section" className="contact-section">
+    <section id="contact" className="contact-section">
       <div className="contact-section__left">
         <h2 className="contact-section__title">
           Chcesz uwolnić swój czas, przyspieszyć rozwój firmy lub zainwestować z nami?

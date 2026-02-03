@@ -4,7 +4,7 @@ import FactCard from 'components/atoms/FactCard'
 
 const FactsSection = () => {
   return (
-    <section id="facts-section" className="facts-section">
+    <section id="facts" className="facts-section">
       <h3 className="facts-section__title">Kilka faktów</h3>
       <div className="facts-section__facts">
         {FACTS.map((fact, index) => (

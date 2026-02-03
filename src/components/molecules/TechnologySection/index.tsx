@@ -2,16 +2,25 @@ import './style.scss'
 import Image from 'next/image'
 import KultTechnologyImage from 'assets/images/kulttechnology.svg'
 import LaptopImage from 'assets/images/laptop.png'
+import Link from 'next/link'
 
 const TechnologySection = () => {
   return (
-    <section id="technology-section" className="technology-section">
+    <section id="technology" className="technology-section">
       <div className="technology-section__left-col">
         <div className="left-col__header">
           <h3 className="header__subtitle">po drugie</h3>
-          <h2 className="header__title">Technologia i automatyzacja</h2>
+          <Link href="https://kulttechnology.pl" target="_blank" rel="noreferrer">
+            <h2 className="header__title">Technologia i automatyzacja</h2>
+          </Link>
         </div>
-        <Image className="left-col__header--img" src={KultTechnologyImage} alt="Kult Technology" />
+        <Link href="https://kulttechnology.pl" target="_blank" rel="noreferrer">
+          <Image
+            className="left-col__header--img"
+            src={KultTechnologyImage}
+            alt="Kult Technology"
+          />
+        </Link>
       </div>
       <div className="technology-section__center-col">
         <p className="center-col__header">
