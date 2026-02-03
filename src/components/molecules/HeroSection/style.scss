@@ -92,7 +92,7 @@
 
   @media (max-width: 768px) {
     height: auto;
-    padding: 6rem 1rem;
+    padding: 6rem 1rem 3rem 1rem;
     margin-top: -5vh;
     justify-content: flex-start;
     align-items: flex-start;
@@ -118,13 +118,9 @@
     .hero-section__body {
       gap: 1rem;
 
-      .body__upper {
-        font-size: 18px;
-        text-align: left;
-      }
-
+      .body__upper,
       .body__lower {
-        font-size: 15px;
+        font-size: 16px;
         text-align: left;
       }
     }
