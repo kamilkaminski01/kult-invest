@@ -15,7 +15,7 @@ import Spinner from 'components/atoms/Spinner'
 import ErrorMessage from 'components/atoms/ErrorMessage'
 
 const ContactForm = () => {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('loading')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const methods = useForm()
 
   const formID = 'contactForm'
