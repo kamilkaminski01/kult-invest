@@ -3,6 +3,7 @@
 .technology-section {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 
   gap: 7.5rem;
   padding: 5rem 9.75rem;
@@ -85,7 +86,6 @@
   @media (max-width: 1200px) {
     flex-wrap: wrap;
     gap: 3rem;
-    align-items: flex-end;
 
     .technology-section__left-col,
     .technology-section__center-col {
