@@ -39,7 +39,7 @@
         line-height: 1.15;
         color: variables.$spanish-gold;
         font-weight: 700;
-        max-width: 440px;
+        max-width: 420px;
       }
     }
   }
@@ -85,6 +85,7 @@
   @media (max-width: 1200px) {
     flex-wrap: wrap;
     gap: 3rem;
+    align-items: flex-end;
 
     .technology-section__left-col,
     .technology-section__center-col {
@@ -93,9 +94,7 @@
     }
 
     .technology-section__right-col {
-      flex: 0 0 100%;
-      justify-content: flex-start;
-      order: 3;
+      display: none;
       img {
         width: auto;
         min-height: 500px;
@@ -109,6 +108,7 @@
 
   @media (max-width: 1024px) {
     flex-direction: column;
+    align-items: flex-start;
     padding: 4rem 2rem;
     gap: 2.5rem;
 
@@ -127,6 +127,10 @@
     }
 
     .technology-section__right-col {
+      display: flex;
+      flex: 0 0 100%;
+      justify-content: flex-start;
+      order: 3;
       margin: 0;
     }
   }
