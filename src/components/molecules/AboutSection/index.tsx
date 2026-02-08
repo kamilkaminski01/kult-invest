@@ -1,6 +1,6 @@
 import './style.scss'
 import Image from 'next/image'
-import DominikKamilImage from 'assets/images/dominik-kamil.jpg'
+import DominikKamilImage from 'assets/images/dominik-kamil.webp'
 
 const AboutSection = () => {
   return (
