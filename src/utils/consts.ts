@@ -75,7 +75,7 @@ export const FACTS = [
     number: 11,
     title: 'zrealizowanych projektów',
     description:
-      'Od startu zakończyliśmy z sukcesem kilkanaście przedsięwzięć - zarówno w nieruchomościach, jak i w nowoczesnych technologiach.'
+      'Od startu zakończyliśmy z sukcesem kilkanaście przedsięwzięć - zarówno w nieruchomościach, jak i w sektorze cyfrowym.'
   },
   {
     number: 21,
