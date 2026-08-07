@@ -31,7 +31,7 @@
     grid-column: 1 / 13;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 1px;
     margin-top: clamp(48px, 8vh, 104px);
     background-color: v.$line;
