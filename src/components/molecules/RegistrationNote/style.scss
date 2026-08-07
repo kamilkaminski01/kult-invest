@@ -11,22 +11,16 @@
   }
 
   &__title {
-    grid-column: 1 / 6;
+    @include v.block-title;
 
-    font-size: clamp(24px, 3.4vw, 44px);
-    font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -0.022em;
-    text-transform: uppercase;
-    color: v.$ink;
+    grid-column: 1 / 6;
   }
 
   &__text {
     grid-column: 7 / 13;
     max-width: 58ch;
 
-    font-size: clamp(16px, 1.3vw, 19px);
-    line-height: 1.6;
+    font-size: v.$fs-body-l;
     color: v.$ink-muted;
 
     span {

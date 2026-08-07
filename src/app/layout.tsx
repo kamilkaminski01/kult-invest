@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { ReactNode } from 'react'
 import 'assets/styles/globals.scss'
-import { inter, archivo } from 'utils/fonts'
+import { plexSans, plexCondensed, plexMono } from 'utils/fonts'
 import Footer from 'components/organisms/Footer'
 
 const description =
@@ -71,7 +71,7 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pl">
-      <body className={`${inter.variable} ${archivo.variable}`}>
+      <body className={`${plexSans.variable} ${plexCondensed.variable} ${plexMono.variable}`}>
         <a href="#main" className="skip-link">
           Przejdź do treści
         </a>

@@ -47,21 +47,14 @@
   }
 
   &__name {
-    margin-bottom: 16px;
+    @include v.card-title;
 
-    font-size: clamp(20px, 2.6vw, 36px);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.022em;
-    text-transform: uppercase;
-    color: v.$ink;
+    margin-bottom: 16px;
+    font-size: clamp(20px, 2.4vw, 36px);
   }
 
   &__bio {
     max-width: 52ch;
-
-    font-size: 16px;
-    line-height: 1.6;
     color: v.$ink-muted;
   }
 

@@ -1,42 +1,48 @@
-$black: #020202;
-$white: #ffffff;
+// Tokeny przepisane 1:1 z zatwierdzonego projektu (Kult Invest.dc_1.html).
+// Kontrast kazdej pary tekst/tlo sprawdzony pod WCAG 2.1 AA: ink 16,7:1,
+// ink-muted 5,8:1, brass 7,9:1 na $bg-deep.
 
-$dark-grey: #2d2d2d;
-$dover-gray: #848484;
-$grey-title: #5b5b5b;
-$light-grey: #cecece;
-$brainstem-grey: #b4b4b4;
-$lighthouse: #f4f4f4;
-$light-bg: #e4e4e4;
-
-$mobile-body-bg: #040404;
-
-$spanish-gold: #b29850;
-
-$valencia: #da4950;
-
-// --- redesign kultinvest.pl ---
-// Ciemna paleta jednostronicowej witryny inwestycyjnej. Kontrast kazdej pary
-// tekst/tlo sprawdzony pod WCAG 2.1 AA: ink 16,7:1, ink-muted 5,8:1,
-// brass 7,8:1 na $bg-deep.
 $ink: #f1efea;
 $ink-muted: #938d82;
 
 $bg-deep: #0e0f12;
-$bg-alt: #14161a;
+$bg-alt: #14161b;
 $bg-raised: #1a1d23;
 
 $line: #24262c;
-$line-strong: #33363d;
+$line-strong: #33363e;
+// Obramowanie pol formularza — jasniejsze niz $line-strong, bo kontrolka musi
+// byc rozpoznawalna jako kontrolka (WCAG 1.4.11, 3:1 wzgledem tla).
+$control-border: #6a6e78;
 
 $brass: #c4a15a;
-$brass-dim: rgba(196, 161, 90, 0.28);
-$brass-ink: #14110a;
+$brass-ink: #0e0f12;
+// Projekt uzywa tu koloru krytego, nie polprzezroczystego mosiadzu — dzieki temu
+// krawedz wyglada tak samo na $bg-deep i na $bg-alt.
+$brass-dim: #4e422b;
+
+$danger: #e88a6a;
 
 // Siatka tresci — ta sama we wszystkich sekcjach.
 $content-max: 1440px;
 $content-pad: clamp(20px, 4.2vw, 72px);
-$rhythm: clamp(72px, 12vh, 160px);
+$rhythm: clamp(80px, 12vh, 200px);
+
+// Skala typograficzna z projektu.
+$fs-display-xl: clamp(34px, 6.7vw, 96px);
+$fs-display-l: clamp(34px, 6vw, 92px);
+$fs-display-m: clamp(24px, 3.4vw, 44px);
+$fs-heading-s: clamp(19px, 1.6vw, 24px);
+$fs-body-l: clamp(16px, 1.5vw, 19px);
+$fs-meta: 11px;
+
+// Ruch — te same krzywe i czasy trwania, co w projekcie.
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$dur-fast: 200ms;
+$dur-base: 450ms;
+$dur-slow: 800ms;
 
 @mixin content-grid {
   display: grid;
@@ -53,18 +59,42 @@ $rhythm: clamp(72px, 12vh, 160px);
 }
 
 @mixin mono-label {
-  font-family: var(--font-inter);
-  font-size: 11px;
+  font-family: var(--font-plex-mono);
+  font-size: $fs-meta;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 @mixin section-title {
-  font-size: clamp(30px, 5vw, 68px);
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-display-l;
   font-weight: 700;
-  line-height: 0.94;
+  line-height: 0.86;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: $ink;
+}
+
+// Mniejsze naglowki blokowe (nota o rejestracji, numery etapow) — ta sama
+// rodzina, inna skala i ciasniejsza interlinia niz w tytule sekcji.
+@mixin block-title {
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-display-m;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  text-transform: uppercase;
+  color: $ink;
+}
+
+// Podtytuly wewnatrz kart: etapy A/B/C, nazwy projektow, nazwiska, pytania FAQ.
+@mixin card-title {
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-heading-s;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
   text-transform: uppercase;
   color: $ink;
 }

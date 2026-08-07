@@ -51,21 +51,20 @@
   &__number {
     display: block;
 
-    font-size: clamp(24px, 3.4vw, 44px);
+    font-family: var(--font-plex-condensed);
+    font-size: v.$fs-display-m;
     font-weight: 700;
     line-height: 1;
     color: v.$ink-muted;
   }
 
+  // Tytul etapu idzie w tej samej skali co numer — w projekcie proces jest
+  // sekcja przewijana poziomo, wiec kazdy etap ma czytac sie jak wlasny ekran.
   &__title {
-    margin: 8px 0;
+    @include v.card-title;
 
-    font-size: clamp(18px, 1.8vw, 26px);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.022em;
-    text-transform: uppercase;
-    color: v.$ink;
+    margin: 8px 0;
+    font-size: v.$fs-display-m;
   }
 
   &__description {

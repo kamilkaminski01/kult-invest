@@ -13,6 +13,9 @@
   &__title {
     @include v.section-title;
 
+    // OBOWIAZKOW nie miesci sie w waskiej kolumnie tytulu w pelnej skali,
+    // a dzielenie tego slowa myslnikiem wyglada zle.
+    font-size: clamp(30px, 5vw, 68px);
     grid-column: 1 / 6;
     align-self: start;
     position: sticky;
@@ -27,8 +30,7 @@
     max-width: 58ch;
     margin-bottom: 64px;
 
-    font-size: clamp(16px, 1.3vw, 19px);
-    line-height: 1.6;
+    font-size: v.$fs-body-l;
     color: v.$ink-muted;
   }
 
@@ -58,10 +60,8 @@
       }
     }
 
-    // Jedyne miejsce, gdzie Archivo prosi o srednia wage — 600, bo 500 nie ma
-    // wlasnego kroju i spadloby do Regular, gubiac naglowki wierszy.
     tbody th {
-      font-weight: 600;
+      font-weight: 500;
       color: v.$ink;
     }
 

@@ -24,14 +24,11 @@
   }
 
   &__question {
+    @include v.card-title;
+
     flex-grow: 1;
     margin: 0;
-
     font-size: clamp(16px, 1.6vw, 22px);
-    font-weight: 600;
-    letter-spacing: -0.022em;
-    text-transform: uppercase;
-    color: v.$ink;
   }
 
   // next/image renderuje <img>, wiec kolor strzalki siedzi w samym pliku SVG,

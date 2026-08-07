@@ -1,20 +1,30 @@
-import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
+import { IBM_Plex_Sans, IBM_Plex_Sans_Condensed, IBM_Plex_Mono } from 'next/font/google'
 
-// Wagi musza odpowiadac krojom, bo inaczej `font-weight: 700` nie ma do czego
-// trafic i przegladarka podstawia najblizszy dostepny krój — przy Bold pod 600
-// tytuly sekcji renderowaly sie identycznie jak nazwy projektow i osob.
-export const archivo = localFont({
-  variable: '--font-archivo',
-  src: [
-    { path: '../assets/fonts/Archivo-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../assets/fonts/Archivo-Semi-Bold.woff2', weight: '600', style: 'normal' },
-    { path: '../assets/fonts/Archivo-Bold.woff2', weight: '700', style: 'normal' }
-  ]
+// Trojka krojow z zatwierdzonego projektu. Wagi sa dokladnie te, ktore projekt
+// wywoluje — nic wiecej sie nie wczytuje.
+//
+// `latin-ext` jest obowiazkowy: bez tego podzbioru polskie znaki diakrytyczne
+// (a z ogonkiem, s z kreska, z z kropka) spadaja na krój zastepczy i lamia sklad.
+
+export const plexSans = IBM_Plex_Sans({
+  variable: '--font-plex-sans',
+  weight: ['400', '500'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
 })
 
-export const inter = Inter({
-  variable: '--font-inter',
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin']
+// Waga 300 jest tylko dla drugiego czlonu logotypu ("invest"), 600 dla podtytulow,
+// 700 dla naglowkow sekcji.
+export const plexCondensed = IBM_Plex_Sans_Condensed({
+  variable: '--font-plex-condensed',
+  weight: ['300', '600', '700'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
+})
+
+export const plexMono = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  weight: ['500'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
 })

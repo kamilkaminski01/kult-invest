@@ -47,14 +47,10 @@
   }
 
   &__name {
-    margin-bottom: 16px;
+    @include v.card-title;
 
+    margin-bottom: 16px;
     font-size: clamp(20px, 2.4vw, 32px);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.022em;
-    text-transform: uppercase;
-    color: v.$ink;
   }
 
   &__meta {

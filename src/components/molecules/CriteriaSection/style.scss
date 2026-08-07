@@ -27,8 +27,7 @@
   &__lead {
     max-width: 62ch;
 
-    font-size: clamp(16px, 1.3vw, 19px);
-    line-height: 1.6;
+    font-size: v.$fs-body-l;
     color: v.$ink-muted;
   }
 

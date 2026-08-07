@@ -12,7 +12,9 @@ html {
 }
 
 body {
-  font-family: var(--font-archivo);
+  font-family: var(--font-plex-sans);
+  font-size: 16px;
+  line-height: 1.62;
   color: v.$ink;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -53,11 +55,7 @@ section[id],
   background-color: v.$brass;
   color: v.$brass-ink;
 
-  font-family: var(--font-inter);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  @include v.mono-label;
 
   &:focus {
     left: 8px;
