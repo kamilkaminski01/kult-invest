@@ -1,34 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { AccordionItemProps } from './interface'
 import './style.scss'
-import Image from 'next/image'
-import classNames from 'classnames'
-import ArrowDownIcon from 'assets/icons/arrow-down-icon.svg'
 
-const AccordionItem = ({ number, question, answer, isOpenInitial = false }: AccordionItemProps) => {
+const AccordionItem = ({ question, answer, isOpenInitial = false }: AccordionItemProps) => {
   const [isOpen, setIsOpen] = useState(isOpenInitial)
+  const panelId = useId()
 
   return (
-    <div className={classNames('accordion-item', { 'accordion-item--active': isOpen })}>
-      <button
-        className="accordion-item__header"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}>
-        <span className="accordion-item__number">{number}.</span>
-        <h3 className="accordion-item__question">{question}</h3>
-        {/* Kierunek strzalki niesie sama rotacja stanu --active. Podmiana ikony
-            odwracala ja drugi raz, wiec pozycja otwarta wygladala jak zamknieta.
-            Strzalka duplikuje aria-expanded, wiec dla czytnika jest dekoracja. */}
-        <div className="accordion-item__icon">
-          <Image src={ArrowDownIcon} alt="" />
-        </div>
-      </button>
-      <div className="accordion-item__content">
-        <div className="accordion-item__answer">
-          <p>{answer}</p>
-        </div>
+    <div className="accordion-item">
+      {/* Naglowek niesie przycisk, nie odwrotnie — dzieki temu pytanie zostaje
+          w konspekcie strony, a czytnik ekranu podaje je jako naglowek h3. */}
+      <h3 className="accordion-item__heading">
+        <button
+          type="button"
+          className="accordion-item__button"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={() => setIsOpen(!isOpen)}>
+          <span>{question}</span>
+          {/* Znak duplikuje aria-expanded, wiec dla czytnika jest dekoracja. */}
+          <span className="accordion-item__icon" aria-hidden="true">
+            {isOpen ? '−' : '+'}
+          </span>
+        </button>
+      </h3>
+      <div id={panelId} className="accordion-item__panel" hidden={!isOpen}>
+        {answer}
       </div>
     </div>
   )

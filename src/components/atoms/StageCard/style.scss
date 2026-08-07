@@ -1,8 +1,10 @@
 @use 'assets/styles/variables' as v;
 
+// Karta jest jasniejsza od sekcji, na ktorej stoi — to ona niesie podzial na trzy
+// etapy, a nie obramowanie.
 .stage-card {
-  padding: 40px 32px;
-  background-color: v.$bg-deep;
+  padding: 40px 24px;
+  background-color: v.$bg-alt;
 
   &__letter {
     @include v.mono-label;

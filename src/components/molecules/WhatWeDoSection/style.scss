@@ -25,20 +25,15 @@
     color: v.$ink-muted;
   }
 
+  // Odstep 1 px na tle linii daje siatke bez rysowania obramowan — karty same
+  // odslaniaja tlo miedzy soba.
   &__stages {
     grid-column: 1 / 13;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1px;
     margin-top: clamp(48px, 8vh, 104px);
     background-color: v.$line;
-    border: 1px solid v.$line;
-  }
-
-  @media (max-width: 900px) {
-    &__stages {
-      grid-template-columns: 1fr;
-    }
   }
 }

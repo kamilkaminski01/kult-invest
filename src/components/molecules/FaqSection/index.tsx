@@ -13,13 +13,8 @@ const FaqSection = () => {
           partnera
         </h2>
         <div className="faq-section__items">
-          {FAQ_DATA.map((faq: IFaqItem, index: number) => (
-            <AccordionItem
-              key={faq.id}
-              number={index + 1}
-              question={faq.question}
-              answer={faq.answer}
-            />
+          {FAQ_DATA.map((faq: IFaqItem) => (
+            <AccordionItem key={faq.id} question={faq.question} answer={faq.answer} />
           ))}
         </div>
       </div>

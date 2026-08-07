@@ -1,75 +1,45 @@
 @use 'assets/styles/variables' as v;
 
 .accordion-item {
-  border-bottom: 1px solid v.$line;
+  &__heading {
+    margin: 0;
+  }
 
-  &__header {
+  &__button {
+    @include v.card-title;
+
+    width: 100%;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
     gap: 24px;
-    width: 100%;
     padding: 28px 0;
 
     text-align: left;
     background: none;
-    border: none;
+    border: 0;
+    border-bottom: 1px solid v.$line;
     cursor: pointer;
   }
 
-  &__number {
-    @include v.mono-label;
+  &__icon {
+    flex: 0 0 auto;
 
-    min-width: 24px;
+    font-family: var(--font-plex-mono);
+    font-size: v.$fs-meta;
     color: v.$brass;
   }
 
-  &__question {
-    @include v.card-title;
-
-    flex-grow: 1;
-    margin: 0;
-    font-size: clamp(16px, 1.6vw, 22px);
-  }
-
-  // next/image renderuje <img>, wiec kolor strzalki siedzi w samym pliku SVG,
-  // nie w CSS — tutaj zostaje wylacznie obrot.
-  &__icon {
-    flex: 0 0 auto;
-    transition: transform 0.3s ease;
-  }
-
-  &__content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
-
-  &__answer {
+  &__panel {
     max-width: 60ch;
-    padding: 0 0 28px 48px;
-
-    font-size: 16px;
-    line-height: 1.6;
+    padding-bottom: 28px;
+    border-bottom: 1px solid v.$line;
     color: v.$ink-muted;
   }
 
-  &--active {
-    .accordion-item__icon {
-      transform: rotate(180deg);
-    }
-
-    .accordion-item__content {
-      max-height: 500px;
-    }
-  }
-
   @media (max-width: 768px) {
-    &__header {
+    &__button {
       gap: 16px;
-    }
-
-    &__answer {
-      padding-left: 40px;
     }
   }
 }
