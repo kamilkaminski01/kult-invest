@@ -71,9 +71,16 @@ const ContactForm = () => {
             Wyślij wiadomość
           </Button>
           {status === 'loading' && <Spinner />}
+          {/* The tick alone said nothing to a screen reader, and nothing at all
+              to a sighted visitor who does not read it as "sent". Its meaning
+              now lives in the text beside it, so the icon is decorative. */}
           {status === 'success' && (
-            <img src={CheckmarkIcon.src} alt="Success" className="footer__icon" />
+            <img src={CheckmarkIcon.src} alt="" className="contact-form__icon" />
           )}
+          <p className="contact-form__status" role="status">
+            {status === 'loading' && 'Wysyłanie wiadomości…'}
+            {status === 'success' && 'Wiadomość wysłana. Odezwiemy się.'}
+          </p>
           {status === 'error' && (
             <ErrorMessage message="Nie udało się wysłać wiadomości." fieldName="contactForm" />
           )}

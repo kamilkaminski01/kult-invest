@@ -3,6 +3,7 @@
 import { useFormContext } from 'react-hook-form'
 import './style.scss'
 import { TextAreaProps } from './interface'
+import ErrorMessage from 'components/atoms/ErrorMessage'
 
 const TextArea = ({ name, displayName, placeholder, validators, rows = 10 }: TextAreaProps) => {
   const {
@@ -28,7 +29,9 @@ const TextArea = ({ name, displayName, placeholder, validators, rows = 10 }: Tex
         }`}
         {...register(name, validators)}
       />
-      {isInvalid && <span className="error-message">{errors[name]?.message as string}</span>}
+      {/* Same component the text inputs use, so this message is announced as a
+          live region too — it used to be a bare span with no role. */}
+      {isInvalid && <ErrorMessage message={`${errors[name]?.message}`} fieldName={name} />}
     </div>
   )
 }

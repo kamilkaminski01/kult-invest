@@ -3,7 +3,13 @@ import './style.scss'
 
 const ErrorMessage = ({ message, fieldName }: ErrorMessageProps) => {
   return (
-    <span className="error-message" data-testid={fieldName && `${fieldName}ErrorMessage`}>
+    // role="alert" makes the message an assertive live region, so a screen
+    // reader announces it the moment validation fails instead of leaving it to
+    // be discovered by chance.
+    <span
+      role="alert"
+      className="error-message"
+      data-testid={fieldName && `${fieldName}ErrorMessage`}>
       {message}
     </span>
   )
