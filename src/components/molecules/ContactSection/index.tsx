@@ -2,21 +2,18 @@ import './style.scss'
 import Link from 'next/link'
 import ContactForm from 'components/organisms/ContactForm'
 import { CONTACT } from 'utils/consts'
+import RevealLines from 'components/atoms/RevealLines'
 
 const ContactSection = () => {
   return (
     <section id="kontakt" className="contact-section">
       <div className="contact-section__inner">
         <div className="contact-section__left">
-          <h2 className="contact-section__title">
-            Masz pomysł
-            <br />
-            na flipa?
-            <br />
-            Porozmawiajmy
+          <h2 className="contact-section__title reveal">
+            <RevealLines lines={['Masz pomysł', 'na flipa?', 'Porozmawiajmy']} />
           </h2>
 
-          <p className="contact-section__lead">
+          <p className="contact-section__lead fade">
             Masz konkretny lokal na oku, mieszkanie do sprzedania albo kapitał, który ma pracować —
             napisz. Na pierwszym spotkaniu pokazujemy pełne zestawienie kosztów i wyniku
             zakończonego projektu, to samo, które dostaje partner po sprzedaży. Wtedy sam ocenisz,

@@ -3,18 +3,17 @@ import Image from 'next/image'
 import PortraitPlaceholder from 'assets/images/portrait-placeholder.svg'
 import { TEAM } from 'utils/consts'
 import { IPerson } from './interface'
+import RevealLines from 'components/atoms/RevealLines'
 
 const TeamSection = () => {
   return (
     <section id="zespol" className="team-section">
-      <h2 className="team-section__title">
-        Dwie osoby,
-        <br />
-        jedna odpowiedzialność
+      <h2 className="team-section__title reveal">
+        <RevealLines lines={['Dwie osoby,', 'jedna odpowiedzialność']} />
       </h2>
 
       {TEAM.map((person: IPerson) => (
-        <div key={person.name} className="team-section__person">
+        <div key={person.name} className="team-section__person fade">
           {/* ZASLEPKA: czeka na portret 4:5. Podmiana to zamiana src na statyczny
               import zdjecia i usuniecie figcaption — reszta karty zostaje. */}
           <figure className="team-section__figure">

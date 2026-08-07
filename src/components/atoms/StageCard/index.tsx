@@ -3,7 +3,7 @@ import { StageCardProps } from './interface'
 
 const StageCard = ({ letter, title, description }: StageCardProps) => {
   return (
-    <article className="stage-card">
+    <article className="stage-card fade">
       <span className="stage-card__letter">{letter}</span>
       <h3 className="stage-card__title">{title}</h3>
       <p className="stage-card__description">{description}</p>

@@ -1,19 +1,18 @@
 import './style.scss'
 import { RESPONSIBILITIES } from 'utils/consts'
 import { IResponsibility } from './interface'
+import RevealLines from 'components/atoms/RevealLines'
 
 const ResponsibilitiesSection = () => {
   return (
     <section id="podzial-obowiazkow" className="responsibilities">
       <div className="responsibilities__inner">
-        <h2 className="responsibilities__title">
-          Podział
-          <br />
-          obowiązków
+        <h2 className="responsibilities__title reveal">
+          <RevealLines lines={['Podział', 'obowiązków']} />
         </h2>
 
         <div className="responsibilities__content">
-          <p className="responsibilities__lead">
+          <p className="responsibilities__lead fade">
             Partner wnosi kapitał, my prowadzimy projekt — od wyszukania lokalu po akt sprzedaży.
             Modele współpracy dobieramy do kapitału i oczekiwań partnera: nie w każdym partner
             finansuje zakup w całości. Zysk dzielimy wprost proporcjonalnie do wniesionego kapitału,
@@ -22,7 +21,7 @@ const ResponsibilitiesSection = () => {
             sam w każdym modelu.
           </p>
 
-          <table className="responsibilities__table">
+          <table className="responsibilities__table fade">
             <caption>Kto za co odpowiada, etap po etapie</caption>
             <thead>
               <tr>

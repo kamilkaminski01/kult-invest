@@ -4,7 +4,7 @@ import { CriteriaListProps, ICriterion } from './interface'
 
 const CriteriaList = ({ title, items, variant }: CriteriaListProps) => {
   return (
-    <div className={classNames('criteria-list', `criteria-list--${variant}`)}>
+    <div className={classNames('criteria-list', 'fade', `criteria-list--${variant}`)}>
       <h3 className="criteria-list__title">{title}</h3>
       <ul className="criteria-list__items">
         {items.map((item: ICriterion) => (

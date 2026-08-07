@@ -2,20 +2,19 @@ import './style.scss'
 import Image from 'next/image'
 import { PROJECTS } from 'utils/consts'
 import { IProject } from './interface'
+import RevealLines from 'components/atoms/RevealLines'
 
 const ProjectsSection = () => {
   return (
     <section id="projekty" className="projects-section">
       <div className="projects-section__inner">
-        <h2 className="projects-section__title">
-          Jedenaście projektów,
-          <br />
-          dwadzieścia jeden transakcji
+        <h2 className="projects-section__title reveal">
+          <RevealLines lines={['Jedenaście', 'projektów,', 'dwadzieścia jeden', 'transakcji']} />
         </h2>
 
         <ul className="projects-section__grid">
           {PROJECTS.map((project: IProject) => (
-            <li key={project.id} className="project-card">
+            <li key={project.id} className="project-card fade">
               <div className="project-card__media">
                 <Image
                   src={project.image}

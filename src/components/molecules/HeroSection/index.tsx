@@ -40,8 +40,12 @@ const HeroSection = () => {
 
       <ul className="hero-section__stats">
         {HERO_STATS.map((stat: IStat) => (
-          <li key={stat.label} className="hero-section__stat">
-            <b className="hero-section__stat-value">{stat.value}</b>
+          <li key={stat.label} className="hero-section__stat fade">
+            {/* The rendered value is the real one — the counter only animates
+                towards it, so the number is correct without JavaScript. */}
+            <b className="hero-section__stat-value" data-count-to={stat.value}>
+              {stat.value}
+            </b>
             <span className="hero-section__stat-label">{stat.label}</span>
           </li>
         ))}

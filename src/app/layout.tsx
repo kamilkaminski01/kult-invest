@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import 'assets/styles/globals.scss'
 import { plexSans, plexCondensed, plexMono } from 'utils/fonts'
 import Footer from 'components/organisms/Footer'
+import Motion from 'components/atoms/Motion'
 
 const description =
   'Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.'
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           Przejdź do treści
         </a>
         <Analytics />
+        <Motion />
         {children}
         <Footer />
         <script

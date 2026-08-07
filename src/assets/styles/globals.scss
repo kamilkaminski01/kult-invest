@@ -62,10 +62,109 @@ section[id],
   }
 }
 
+// --- Entrance animations ---
+//
+// Every rule below is scoped under `.js`, a class added by the Motion component
+// once it mounts. Without JavaScript nothing is hidden, so the page reads in
+// full. Only `transform` and `opacity` animate, and no element changes the space
+// it occupies, so none of this can shift the layout while scrolling.
+
+// The mask is padded by .2em and pulled back by the same negative margin: at
+// line-height .86 the line box is shorter than the ink of capitals carrying
+// Polish diacritics, so a bare `overflow: hidden` clipped them top and bottom.
+.reveal__line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.2em;
+  margin-block: -0.2em;
+
+  // Safety net for narrow columns: a word that cannot fit on its own is
+  // hyphenated rather than sliced by the mask.
+  > span {
+    display: block;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+.js {
+  .reveal__line > span {
+    transform: translateY(145%);
+    transition: transform v.$dur-slow v.$ease-out-expo;
+  }
+
+  .is-revealed .reveal__line > span {
+    transform: translateY(0);
+  }
+
+  .fade {
+    opacity: 0;
+    translate: 0 24px;
+    transition:
+      opacity v.$dur-base v.$ease-out-expo,
+      translate v.$dur-base v.$ease-out-expo;
+  }
+
+  .from-left,
+  .from-right {
+    opacity: 0;
+    transition:
+      opacity v.$dur-slow v.$ease-out-expo,
+      translate v.$dur-slow v.$ease-out-expo;
+  }
+
+  .from-left {
+    translate: -48px 0;
+  }
+
+  .from-right {
+    translate: 48px 0;
+  }
+
+  .slide-x {
+    opacity: 0;
+    translate: -16px 0;
+    transition:
+      opacity v.$dur-base v.$ease-out-expo,
+      translate v.$dur-base v.$ease-out-expo;
+  }
+
+  .rule {
+    transform: scaleX(0);
+    transition: transform v.$dur-slow v.$ease-out-expo;
+  }
+
+  .fade.is-in,
+  .from-left.is-in,
+  .from-right.is-in,
+  .slide-x.is-in {
+    opacity: 1;
+    translate: none;
+  }
+
+  .rule.is-in {
+    transform: scaleX(1);
+  }
+}
+
+// A hairline that draws itself from the left once it enters the viewport.
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: v.$brass;
+  transform-origin: left;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+
+  // Belt and braces: Motion never adds `.js` under reduced motion, but if these
+  // classes reach the DOM some other way the content must still be visible.
+  .reveal__line > span {
+    transform: none !important;
   }
 }
