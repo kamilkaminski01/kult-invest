@@ -5,13 +5,16 @@
   --gap: clamp(24px, 4vw, 64px);
   --steps: 5;
 
-  // Total width of the track, and how far past the viewport it reaches. Both are
+  // Width the track is measured against: the same content column every other
+  // section uses, so above $content-max the steps stay aligned with the grid
+  // instead of running to the screen edge.
+  --view-w: calc(min(100vw, #{v.$content-max}) - 2 * #{v.$content-pad});
+
+  // Total width of the track and how far past the column it reaches. Both are
   // pure CSS, so the pinned section knows its own height on the first paint and
   // never resizes afterwards.
-  --track-w: calc(
-    var(--steps) * var(--step-w) + (var(--steps) - 1) * var(--gap) + 2 * #{v.$content-pad}
-  );
-  --travel: max(0px, calc(var(--track-w) - 100vw));
+  --track-w: calc(var(--steps) * var(--step-w) + (var(--steps) - 1) * var(--gap));
+  --travel: max(0px, calc(var(--track-w) - var(--view-w)));
 
   background-color: v.$bg-alt;
   border-top: 1px solid v.$line;
@@ -34,7 +37,8 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: clamp(48px, 8vh, 104px);
+    max-width: v.$content-max;
+    margin: clamp(48px, 8vh, 104px) auto 0;
     padding-inline: v.$content-pad;
     list-style: none;
   }
@@ -76,61 +80,83 @@
 
 // --- Pinned view ---
 //
-// Gated on `html.js`, which Motion adds only when reduced motion is not
-// requested. The outer block is tall enough to buy the horizontal travel; the
-// inner block sticks to the top for exactly that distance while a scroll
-// handler slides the track sideways. Only `transform` is ever written.
-@media (min-width: 1024px) {
-  .js .process-section {
-    padding-bottom: 0;
-  }
+// Applies at every width, phones included, so the section behaves the same
+// everywhere. Gated only on `html.js`, which is set before the first paint and
+// only when reduced motion has not been requested.
+//
+// The outer block is tall enough to buy the horizontal travel; the inner block
+// sticks to the top for exactly that distance while a scroll handler slides the
+// track sideways. Only `transform` is ever written.
+.js .process-section {
+  padding-bottom: 0;
+}
 
+.js .process-section__pin-outer {
+  height: calc(100vh + var(--travel));
+}
+
+// The pin clips at the content column, not the screen edge, so on wide monitors
+// the steps enter and leave in line with every other section.
+.js .process-section__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  max-width: v.$content-max;
+  margin-inline: auto;
+  padding-inline: v.$content-pad;
+}
+
+// Mobile browsers grow and shrink the viewport as the address bar hides, and
+// 100vh follows it — the pinned section would resize mid-scroll and drag the
+// whole page with it. svh is the height with the bars showing, so it never
+// changes while scrolling.
+@supports (height: 100svh) {
   .js .process-section__pin-outer {
-    height: calc(100vh + var(--travel));
+    height: calc(100svh + var(--travel));
   }
 
   .js .process-section__pin {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
+    height: 100svh;
   }
+}
 
-  .js .process-section__track {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: var(--gap);
-    align-items: stretch;
-    margin-top: 0;
-    will-change: transform;
-  }
+.js .process-section__track {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+  align-items: center;
+  max-width: none;
+  margin: 0;
+  padding-inline: 0;
+  will-change: transform;
+}
 
-  .js .process-step {
-    flex: 0 0 auto;
-    width: var(--step-w);
-  }
+.js .process-step {
+  flex: 0 0 auto;
+  width: var(--step-w);
+}
 
-  .js .process-section__progress {
-    display: block;
-    margin-top: clamp(16px, 2.5vh, 28px);
-    padding-inline: v.$content-pad;
-  }
+.js .process-section__progress {
+  display: block;
+  margin-top: clamp(16px, 2.5vh, 28px);
+}
 
-  .js .process-section__progress-line {
-    position: relative;
-    height: 1px;
-    background-color: v.$line-strong;
-  }
+.js .process-section__progress-line {
+  position: relative;
+  height: 1px;
+  background-color: v.$line-strong;
+}
 
-  .js .process-section__progress-bar {
-    position: absolute;
-    inset: 0;
-    background-color: v.$brass;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
+.js .process-section__progress-bar {
+  position: absolute;
+  inset: 0;
+  background-color: v.$brass;
+  transform: scaleX(0);
+  transform-origin: left;
 }

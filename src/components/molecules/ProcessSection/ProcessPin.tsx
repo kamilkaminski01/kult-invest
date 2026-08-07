@@ -15,10 +15,10 @@ interface ProcessPinProps {
  * CLS. JavaScript only reads scroll position and writes a transform; it never
  * measures or sets anything that could trigger layout.
  *
- * Pinning is gated on `html.js`, which the Motion component adds only when the
- * visitor has not asked for reduced motion. Without JavaScript, with reduced
- * motion, or below 1024px the CSS leaves the steps stacked vertically and this
- * component does nothing.
+ * Pinning is gated on `html.js`, set before the first paint and only when the
+ * visitor has not asked for reduced motion. It applies at every width, phones
+ * included. Without JavaScript or with reduced motion the CSS leaves the steps
+ * stacked vertically and this component does nothing.
  */
 const ProcessPin = ({ children }: ProcessPinProps) => {
   const outerRef = useRef<HTMLDivElement>(null)
@@ -31,7 +31,6 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
     const bar = barRef.current
     if (!outer || !track || !bar) return
 
-    const canPin = window.matchMedia('(min-width: 1024px)')
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     let frame = 0
@@ -40,7 +39,7 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
     let active = false
 
     const measure = () => {
-      active = canPin.matches && !reducedMotion.matches
+      active = !reducedMotion.matches
       travel = outer.offsetHeight - window.innerHeight
       distance = track.scrollWidth - track.clientWidth
 
@@ -76,14 +75,12 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
 
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
-    canPin.addEventListener('change', onResize)
     reducedMotion.addEventListener('change', onResize)
 
     return () => {
       if (frame) cancelAnimationFrame(frame)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
-      canPin.removeEventListener('change', onResize)
       reducedMotion.removeEventListener('change', onResize)
       track.style.transform = ''
       bar.style.transform = ''
