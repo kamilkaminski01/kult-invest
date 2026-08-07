@@ -71,7 +71,9 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="pl">
+    // The inline script below sets `class="js"` before React hydrates, which is
+    // a deliberate mismatch with the server output — this tells React so.
+    <html lang="pl" suppressHydrationWarning>
       <head>
         {/* Runs before the first paint. The pinned process section has a very
             different height with motion enabled, so deciding this later would
