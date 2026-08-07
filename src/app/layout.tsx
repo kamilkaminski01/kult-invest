@@ -72,6 +72,19 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pl">
+      <head>
+        {/* Runs before the first paint. The pinned process section has a very
+            different height with motion enabled, so deciding this later would
+            re-lay-out the page after paint and cost us CLS. Kept inline and
+            tiny on purpose — it must not wait on a network round trip. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)" +
+              "document.documentElement.classList.add('js')}catch(e){}"
+          }}
+        />
+      </head>
       <body className={`${plexSans.variable} ${plexCondensed.variable} ${plexMono.variable}`}>
         <a href="#main" className="skip-link">
           Przejdź do treści

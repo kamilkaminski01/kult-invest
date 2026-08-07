@@ -17,13 +17,10 @@ const COUNTER_DURATION = 900
  */
 const Motion = () => {
   useEffect(() => {
-    const root = document.documentElement
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    // With reduced motion requested we never hide anything in the first place.
-    if (prefersReducedMotion) return
-
-    root.classList.add('js')
+    // `.js` is set by an inline script in the document head, before the first
+    // paint, so the pinned layout never swaps in afterwards. Its absence means
+    // reduced motion was requested — nothing is hidden, so nothing to reveal.
+    if (!document.documentElement.classList.contains('js')) return
 
     const targets = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR))
     const counters = Array.from(document.querySelectorAll<HTMLElement>('[data-count-to]'))
@@ -66,10 +63,9 @@ const Motion = () => {
 
     ;[...targets, ...counters].forEach((element) => observer.observe(element))
 
-    return () => {
-      observer.disconnect()
-      root.classList.remove('js')
-    }
+    // `.js` deliberately stays on the element — removing it would swap the
+    // layout back and register as a shift.
+    return () => observer.disconnect()
   }, [])
 
   return null

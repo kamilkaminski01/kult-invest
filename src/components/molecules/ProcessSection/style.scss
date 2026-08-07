@@ -1,9 +1,22 @@
 @use 'assets/styles/variables' as v;
 
 .process-section {
+  --step-w: min(88vw, 440px);
+  --gap: clamp(24px, 4vw, 64px);
+  --steps: 5;
+
+  // Total width of the track, and how far past the viewport it reaches. Both are
+  // pure CSS, so the pinned section knows its own height on the first paint and
+  // never resizes afterwards.
+  --track-w: calc(
+    var(--steps) * var(--step-w) + (var(--steps) - 1) * var(--gap) + 2 * #{v.$content-pad}
+  );
+  --travel: max(0px, calc(var(--track-w) - 100vw));
+
   background-color: v.$bg-alt;
   border-top: 1px solid v.$line;
-  padding-block: v.$rhythm;
+  padding-top: v.$rhythm;
+  padding-bottom: v.$rhythm;
 
   &__inner {
     @include v.content-grid;
@@ -15,38 +28,26 @@
     grid-column: 4 / 13;
   }
 
+  // Resting layout: a plain vertical list. This is what visitors get without
+  // JavaScript, with reduced motion, and on anything narrower than 1024px.
   &__track {
     display: flex;
-    gap: clamp(24px, 4vw, 64px);
+    flex-direction: column;
+    gap: 40px;
     margin-top: clamp(48px, 8vh, 104px);
     padding-inline: v.$content-pad;
-    padding-bottom: 24px;
-
     list-style: none;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
+  }
 
-    // Pasek przewijania zostaje widoczny tylko tam, gdzie jest czym przewijac.
-    scrollbar-width: thin;
-    scrollbar-color: v.$line-strong transparent;
-
-    &::-webkit-scrollbar {
-      height: 2px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: v.$line-strong;
-    }
+  &__progress {
+    display: none;
   }
 }
 
 .process-step {
-  flex: 0 0 auto;
-  width: min(88vw, 440px);
+  width: min(100%, 440px);
   padding-top: 24px;
   border-top: 1px solid v.$brass-dim;
-  scroll-snap-align: start;
 
   &__number {
     display: block;
@@ -58,8 +59,8 @@
     color: v.$ink-muted;
   }
 
-  // Tytul etapu idzie w tej samej skali co numer — w projekcie proces jest
-  // sekcja przewijana poziomo, wiec kazdy etap ma czytac sie jak wlasny ekran.
+  // The step title carries the same weight as the number — in the pinned view
+  // each step reads as its own screen.
   &__title {
     @include v.card-title;
 
@@ -69,21 +70,67 @@
 
   &__description {
     max-width: 52ch;
-
-    font-size: 16px;
-    line-height: 1.6;
     color: v.$ink-muted;
   }
 }
 
-@media (max-width: 900px) {
-  .process-section__track {
-    flex-direction: column;
-    overflow-x: visible;
-    scroll-snap-type: none;
+// --- Pinned view ---
+//
+// Gated on `html.js`, which Motion adds only when reduced motion is not
+// requested. The outer block is tall enough to buy the horizontal travel; the
+// inner block sticks to the top for exactly that distance while a scroll
+// handler slides the track sideways. Only `transform` is ever written.
+@media (min-width: 1024px) {
+  .js .process-section {
+    padding-bottom: 0;
   }
 
-  .process-step {
-    width: 100%;
+  .js .process-section__pin-outer {
+    height: calc(100vh + var(--travel));
+  }
+
+  .js .process-section__pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .js .process-section__track {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--gap);
+    align-items: stretch;
+    margin-top: 0;
+    will-change: transform;
+  }
+
+  .js .process-step {
+    flex: 0 0 auto;
+    width: var(--step-w);
+  }
+
+  .js .process-section__progress {
+    display: block;
+    margin-top: clamp(16px, 2.5vh, 28px);
+    padding-inline: v.$content-pad;
+  }
+
+  .js .process-section__progress-line {
+    position: relative;
+    height: 1px;
+    background-color: v.$line-strong;
+  }
+
+  .js .process-section__progress-bar {
+    position: absolute;
+    inset: 0;
+    background-color: v.$brass;
+    transform: scaleX(0);
+    transform-origin: left;
   }
 }
