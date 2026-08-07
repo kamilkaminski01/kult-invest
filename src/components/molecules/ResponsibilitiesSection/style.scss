@@ -1,0 +1,138 @@
+@use 'assets/styles/variables' as v;
+
+.responsibilities {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 1 / 6;
+    align-self: start;
+    position: sticky;
+    top: 40px;
+  }
+
+  &__content {
+    grid-column: 6 / 13;
+  }
+
+  &__lead {
+    max-width: 58ch;
+    margin-bottom: 64px;
+
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.6;
+    color: v.$ink-muted;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    caption {
+      @include v.mono-label;
+
+      padding-bottom: 16px;
+      text-align: left;
+      color: v.$ink-muted;
+    }
+
+    thead th {
+      @include v.mono-label;
+
+      padding: 16px 8px;
+      border-bottom: 1px solid v.$line-strong;
+      font-weight: 500;
+      color: v.$brass;
+
+      &:first-child {
+        color: v.$ink-muted;
+      }
+    }
+
+    tbody th {
+      font-weight: 500;
+      color: v.$ink;
+    }
+
+    tbody td {
+      color: v.$ink-muted;
+    }
+
+    tbody th,
+    tbody td {
+      padding: 20px 8px;
+      border-bottom: 1px solid v.$line;
+    }
+
+    tbody tr:last-child {
+      th,
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__table tbody &__span {
+    color: v.$ink;
+  }
+
+  @media (max-width: 900px) {
+    &__title {
+      position: static;
+    }
+
+    &__lead {
+      margin-bottom: 40px;
+    }
+
+    // Na waskim ekranie tabela zamienia sie w liste par etykieta/wartosc —
+    // trzy kolumny obok siebie nie mieszcza sie czytelnie.
+    &__table {
+      caption {
+        padding-bottom: 8px;
+      }
+
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+      }
+
+      tbody tr {
+        display: block;
+        padding-block: 20px;
+        border-bottom: 1px solid v.$line;
+      }
+
+      tbody th,
+      tbody td {
+        display: block;
+        padding: 0;
+        border-bottom: 0;
+      }
+
+      tbody th {
+        margin-bottom: 8px;
+      }
+
+      tbody td::before {
+        @include v.mono-label;
+
+        content: attr(data-label);
+        display: block;
+        color: v.$brass;
+      }
+    }
+  }
+}

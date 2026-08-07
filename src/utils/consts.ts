@@ -1,200 +1,224 @@
-import { ProjectImage } from 'components/molecules/ProjectsInvestmentsSection/interface'
-
 import nowosielska from 'assets/images/swipers/top/nowosielska.jpg'
 import kolejowa from 'assets/images/swipers/top/kolejowa.jpg'
 import olenki from 'assets/images/swipers/top/olenki.jpg'
 import stokrotki from 'assets/images/swipers/top/stokrotki.jpg'
 import vena from 'assets/images/swipers/top/vena.jpg'
-
 import elektryczna from 'assets/images/swipers/bottom/elektryczna.jpg'
 import witosa from 'assets/images/swipers/bottom/witosa.jpg'
 import porosly from 'assets/images/swipers/bottom/porosly.jpg'
 import kalinowa from 'assets/images/swipers/bottom/kalinowa.jpg'
 import wlokiennicza from 'assets/images/swipers/bottom/wlokiennicza.jpg'
 
-import houseIcon from 'assets/images/what-we-do/home-loan-icon.svg'
-import webServiceIcon from 'assets/images/what-we-do/web-service-icon.svg'
-import webCodeIcon from 'assets/images/what-we-do/web-code-icon.svg'
-import announcementsIcon from 'assets/images/what-we-do/announcements-icon.svg'
-
-import jerzy from 'assets/images/investors/jerzy.jpg'
-
-export const WHAT_WE_DO_DATA = [
-  {
-    icon: houseIcon,
-    title: 'Inwestycja w modelu 50/50',
-    description:
-      'Zakup mieszkania, kompleksowy remont i sprzedaż z zyskiem. Każdy etap projektowany jest tak, aby maksymalizować zwrot z inwestycji.'
-  },
-  {
-    icon: webServiceIcon,
-    title: 'Automatyzujemy procesy',
-    description:
-      'Usprawniające codzienną pracę, tworząc dopasowane rozwiązania które eliminują powtarzalne procesy.'
-  },
-  {
-    icon: webCodeIcon,
-    title: 'Projektujemy aplikacje',
-    description:
-      'Tworzymy dedykowane narzędzia - aplikacje webowe i mobilne, które odpowiadają na konkretne potrzeby Twojej firmy.'
-  },
-  {
-    icon: announcementsIcon,
-    title: 'Monitor ogłoszeń nieruchomości',
-    description:
-      'Dedykowane narzędzie, które automatycznie zbiera dane z platform ogłoszeniowych i powiadamia użytkownika o nowych ofertach'
-  }
-]
+import { IFaqItem } from 'components/molecules/FaqSection/interface'
+import { IProject } from 'components/molecules/ProjectsSection/interface'
+import { IProcessStep } from 'components/molecules/ProcessSection/interface'
+import { IResponsibility } from 'components/molecules/ResponsibilitiesSection/interface'
+import { IStat } from 'components/molecules/HeroSection/interface'
+import { IStage } from 'components/molecules/WhatWeDoSection/interface'
 
 export const PATHS = { home: '/' }
 
-export const SWIPER_IMAGES_TOP: ProjectImage[] = [
-  { id: 't1', src: nowosielska.src, alt: 'Nowosielska' },
-  { id: 't2', src: kolejowa.src, alt: 'Kolejowa' },
-  { id: 't3', src: olenki.src, alt: 'Olenki' },
-  { id: 't4', src: stokrotki.src, alt: 'Stokrotki' },
-  { id: 't5', src: vena.src, alt: 'Vena' }
+export const CONTACT = {
+  email: 'kontakt@kultinvest.pl',
+  company: 'Kult spółka z o.o.',
+  street: 'ul. Kraszewskiego 30/23',
+  city: '15-025 Białystok',
+  nip: 'NIP 966 220 34 74'
+}
+
+export const NAV_LINKS = [
+  { href: '#o-nas', label: 'Jak działamy' },
+  { href: '#proces', label: 'Proces' },
+  { href: '#podzial-obowiazkow', label: 'Podział ról' },
+  { href: '#projekty', label: 'Projekty' }
 ]
 
-export const SWIPER_IMAGES_BOTTOM: ProjectImage[] = [
-  { id: 'b1', src: elektryczna.src, alt: 'Elektryczna' },
-  { id: 'b2', src: witosa.src, alt: 'Witosa' },
-  { id: 'b3', src: porosly.src, alt: 'Porosly' },
-  { id: 'b4', src: kalinowa.src, alt: 'Kalinowa' },
-  { id: 'b5', src: wlokiennicza.src, alt: 'Włókiennicza' }
+/** Jedyne liczby potwierdzone przez klienta. Nic poza nimi nie trafia na strone. */
+export const HERO_STATS: IStat[] = [
+  { value: '11', label: 'zrealizowanych projektów' },
+  { value: '21', label: 'przeprowadzonych transakcji' },
+  { value: '3', label: 'projekty prowadzone równolegle' }
 ]
 
-export const FACTS = [
+export const STAGES: IStage[] = [
   {
-    number: 3,
-    title: 'średnia liczba prowadzonych projektów',
+    letter: 'A',
+    title: 'Kupujemy',
     description:
-      'Każdego miesiąca pracujemy równolegle nad kilkoma inwestycjami i rozwiązaniami IT, zachowując najwyższą jakość na każdym etapie.'
+      'Lokale z problemem, który da się nazwać: układ, instalacje, stan techniczny, sytuacja właścicielska. Problem nazwany to problem wyceniony. Okazji, których nie umiemy policzyć, nie kupujemy — nawet tanich.'
   },
   {
-    number: 11,
-    title: 'zrealizowanych projektów',
+    letter: 'B',
+    title: 'Remontujemy',
     description:
-      'Od startu zakończyliśmy z sukcesem kilkanaście przedsięwzięć - zarówno w nieruchomościach, jak i w sektorze cyfrowym.'
+      'Zakres ustalony przed pierwszym uderzeniem młotka, harmonogram tygodniowy, jedna ekipa odpowiedzialna za całość.'
   },
   {
-    number: 21,
-    title: 'przeprowadzonych transakcji',
+    letter: 'C',
+    title: 'Sprzedajemy',
     description:
-      'Za nami dziesiątki działań związanych z kupnem, sprzedażą i wdrożeniami, które potwierdzają skuteczność oraz zaufanie inwestorów.'
-  },
-  {
-    number: 2025,
-    title: 'w tym roku wystartowaliśmy',
-    description:
-      'Kult powstał z pasji do dwóch różnych światów - od początku wyznaczając kierunek w stronę nowoczesnych rozwiązań.'
+      'Mieszkanie przygotowane do ekspozycji, cena wyjściowa liczona na podstawie transakcji z tej samej okolicy, nie na podstawie cudzych ofert.'
   }
 ]
 
-export const INVESTORS_DATA = [
+export const PROCESS_STEPS: IProcessStep[] = [
   {
-    id: 1,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
+    number: '01',
+    title: 'Analiza i wybór lokalu',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+      'Przeglądamy ogłoszenia, dzwonimy, jeździmy. Liczy się nie liczba obejrzanych mieszkań, a liczba odrzuconych.'
   },
   {
-    id: 2,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
+    number: '02',
+    title: 'Zakup i przekazanie',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+      'Umowa, notariusz, przejęcie kluczy, inwentaryzacja stanu zastanego z dokumentacją zdjęciową.'
   },
   {
-    id: 3,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
+    number: '03',
+    title: 'Projekt i remont',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+      'Plany, zakres, kosztorys, jedna ekipa. Raport z budowy raz w tygodniu, ze zdjęciami i listą tego, co nie poszło zgodnie z planem.'
   },
   {
-    id: 4,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
+    number: '04',
+    title: 'Home staging i ekspozycja',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+      'Umeblowanie, sesja fotograficzna, wystawienie na portalach ogłoszeniowych. Na oglądanie umawia się ten, kogo zatrzymało pierwsze zdjęcie. Dlatego sesja jest u nas częścią procesu, a nie formalnością na koniec.'
   },
   {
-    id: 5,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
+    number: '05',
+    title: 'Sprzedaż i rozliczenie',
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
-  },
-  {
-    id: 6,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
-  },
-  {
-    id: 7,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
-  },
-  {
-    id: 8,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
-  },
-  {
-    id: 9,
-    name: 'Jerzy Jurkiewicz',
-    role: 'CEO ZIRO INVEST',
-    image: jerzy,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+      'Negocjacje, akt, rozliczenie z partnerem na podstawie zestawienia wszystkich kosztów projektu.'
   }
 ]
 
-export const FAQ_DATA = [
+export const RESPONSIBILITIES: IResponsibility[] = [
+  {
+    stage: 'Kapitał na zakup',
+    partner: 'Całość albo część',
+    kult: 'Uzupełnienie, jeśli tak ustalimy'
+  },
+  { stage: 'Wyszukanie i wycena lokalu', partner: '—', kult: 'Całość' },
+  { stage: 'Decyzja o zakupie', partner: 'Zgoda', kult: 'Rekomendacja z wyceną' },
+  { stage: 'Zakres i kosztorys remontu', partner: 'Wgląd', kult: 'Decyzja' },
+  { stage: 'Prowadzenie budowy', partner: '—', kult: 'Całość' },
+  { stage: 'Raport z postępów', partner: 'Odbiorca', kult: 'Raz w tygodniu w czasie remontu' },
+  { stage: 'Ekspozycja i sprzedaż', partner: '—', kult: 'Całość' },
+  { stage: 'Korekta ceny wyjściowej', partner: 'Decyzja wspólna', kult: 'Decyzja wspólna' },
+  {
+    stage: 'Rozliczenie projektu',
+    partner: 'Odbiorca zestawienia',
+    kult: 'Zestawienie z fakturami'
+  },
+  {
+    stage: 'Podział zysku',
+    span: 'Wprost proporcjonalny do wniesionego kapitału'
+  }
+]
+
+export const CRITERIA_BUY = [
+  {
+    lead: 'Lokalizacja z płynnym rynkiem.',
+    text: 'Dzielnice, w których transakcje zdarzają się co tydzień, nie co kwartał. Płynny rynek skraca czas wyjścia, a czas wyjścia to dokładnie to, co zamraża kapitał partnera.'
+  },
+  {
+    lead: 'Metraż, na który jest kolejka.',
+    text: 'Mieszkania, których szuka najwięcej kupujących, sprzedają się najszybciej i najrzadziej wymagają korekty ceny.'
+  },
+  {
+    lead: 'Zły układ, dobra konstrukcja.',
+    text: 'Ściany do przestawienia to szansa; strop do wymiany to nie. Koszt zmiany układu policzymy przed zakupem, koszt niespodzianki w konstrukcji — dopiero po.'
+  },
+  {
+    lead: 'Czysta sytuacja prawna.',
+    text: 'Jeden właściciel, uregulowana księga, brak zaległości. Wszystko, co potrafi wstrzymać sprzedaż, wstrzymuje też zwrot kapitału.'
+  },
+  {
+    lead: 'Cena z marginesem.',
+    text: 'Kupujemy poniżej wartości po remoncie na tyle, żeby projekt wyszedł na plus również wtedy, gdy remont potrwa dłużej, niż zakładamy.'
+  }
+]
+
+export const CRITERIA_AVOID = [
+  {
+    lead: 'Sporów spadkowych.',
+    text: 'Termin zależy wtedy od sądu, a nie od nas. Partnerowi dajemy harmonogram, nie nadzieję.'
+  },
+  {
+    lead: 'Budynków w złym stanie technicznym.',
+    text: 'Remontujemy mieszkanie, nie wspólnotę. Nowa łazienka pod przeciekającym dachem to pieniądze partnera wydane na cudzy problem.'
+  },
+  {
+    lead: 'Lokali z lokatorem.',
+    text: 'Nie prowadzimy postępowań eksmisyjnych. Nigdy — nikt nie umie podać ich terminu, a bez terminu nie ma harmonogramu.'
+  },
+  {
+    lead: 'Rynków, których nie znamy.',
+    text: 'Poza Białymstokiem i okolicami nie mamy przewagi, a bez przewagi flip jest zwykłym zakupem mieszkania za cudze pieniądze.'
+  },
+  {
+    lead: 'Okazji bez wyceny.',
+    text: 'Jeśli nie umiemy policzyć wyjścia, nie wchodzimy. Niska cena wejścia nie jest argumentem, dopóki nie wiadomo, po ile się wychodzi.'
+  }
+]
+
+export const PROJECTS: IProject[] = [
+  {
+    id: 'nowosielska',
+    name: 'Nowosielska',
+    image: nowosielska,
+    scope: 'Instalacje, układ, wykończenie'
+  },
+  {
+    id: 'kolejowa',
+    name: 'Kolejowa',
+    image: kolejowa,
+    scope: 'Przebudowa układu, łazienka, kuchnia'
+  },
+  { id: 'olenki', name: 'Oleńki', image: olenki, scope: 'Osuszanie, tynki, wykończenie' },
+  { id: 'stokrotki', name: 'Stokrotki', image: stokrotki, scope: 'Układ, instalacje, wykończenie' },
+  { id: 'vena', name: 'Vena', image: vena, scope: 'Wykończenie pod klucz' },
+  {
+    id: 'elektryczna',
+    name: 'Elektryczna',
+    image: elektryczna,
+    scope: 'Kuchnia, łazienka, podłogi'
+  },
+  { id: 'witosa', name: 'Witosa', image: witosa, scope: 'Przebudowa układu, wykończenie' },
+  { id: 'porosly', name: 'Porosły', image: porosly, scope: 'Instalacje, tynki, wykończenie' },
+  { id: 'kalinowa', name: 'Kalinowa', image: kalinowa, scope: 'Łazienka, kuchnia, podłogi' },
+  {
+    id: 'wlokiennicza',
+    name: 'Włókiennicza',
+    image: wlokiennicza,
+    scope: 'Układ, instalacje, wykończenie'
+  }
+]
+
+export const FAQ_DATA: IFaqItem[] = [
   {
     id: 1,
-    question: 'Czym wyróżniamy się na tle innych firm?',
+    question: 'Kto podejmuje decyzję o zakupie mieszkania?',
     answer:
-      'Tworzymy rozwiązania, które realnie generują zysk, a nie tylko dobrze wyglądają. Każdy nasz projekt – zarówno inwestycyjny, jak i technologiczny – jest zaprojektowany tak, aby przynosił wymierne efekty i zwiększał wartość dla naszych klientów i partnerów.'
+      'Rekomendację przygotowujemy my — z wyceną, kosztorysem i zakładanym terminem wyjścia. Zgodę na zakup wydaje partner. Bez jego akceptacji nie kupujemy.'
   },
   {
     id: 2,
-    question: 'Czy mogę zainwestować razem z Wami?',
+    question: 'Jak wygląda rozliczenie?',
     answer:
-      'Tak, oferujemy różne modele współpracy inwestycyjnej dostosowane do kapitału i oczekiwań partnera.'
+      'Zestawienie wszystkich kosztów projektu wraz z fakturami, od ceny zakupu po prowizję pośrednika. Zysk liczony po odliczeniu tych kosztów i dzielony wprost proporcjonalnie do wniesionego kapitału.'
   },
   {
     id: 3,
-    question: 'Jakie aplikacje i rozwiązania technologiczne tworzycie?',
-    answer:
-      'Specjalizujemy się w narzędziach do automatyzacji, monitoringu rynku nieruchomości oraz dedykowanych systemach wspierających małe i średnie firmy.'
+    question: 'Czy mogę zobaczyć rozliczenie zakończonego projektu przed podjęciem decyzji?',
+    answer: 'Tak. Na spotkaniu pokazujemy pełne zestawienie kosztów i wyniku wybranego projektu.'
   },
   {
     id: 4,
-    question: 'Ile trwa realizacja projektu inwestycyjnego?',
+    question: 'Jak wygląda wejście w pierwszy projekt?',
     answer:
-      'Czas realizacji zależy od skali projektu, zazwyczaj proces od zakupu do sprzedaży zamyka się w 4-8 miesiącach.'
-  },
-  {
-    id: 5,
-    question: 'W jaki sposób mogę rozpocząć z Wami współpracę?',
-    answer:
-      'Zapraszamy do kontaktu przez formularz lub bezpośrednio – chętnie porozmawiamy o wspólnych celach.'
+      'Rozmowa, przegląd dotychczasowych projektów, ustalenie zakresu i podpisanie umowy — zanim wskażemy konkretny lokal. Dopiero potem zaczynamy szukać pod ten projekt.'
   }
 ]

@@ -1,0 +1,81 @@
+@use 'assets/styles/variables' as v;
+
+.projects-section {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  &__grid {
+    grid-column: 1 / 13;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: clamp(32px, 4vw, 56px);
+    margin-top: clamp(48px, 8vh, 104px);
+    list-style: none;
+  }
+}
+
+.project-card {
+  &__media {
+    // Proporcja trzymana w CSS, wiec obrazek nie przesuwa ukladu przy doczytaniu.
+    position: relative;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: v.$bg-raised;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-bottom: 16px;
+
+    font-size: clamp(20px, 2.4vw, 32px);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px 24px;
+
+    dt {
+      @include v.mono-label;
+
+      padding: 12px 0;
+      border-top: 1px solid v.$line;
+      color: v.$ink-muted;
+    }
+
+    dd {
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid v.$line;
+      font-size: 16px;
+      color: v.$ink;
+    }
+  }
+}

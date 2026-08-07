@@ -1,292 +1,71 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .contact-section {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  background-color: v.$bg-alt;
+  border-top: 1px solid v.$line;
 
-  gap: 4rem;
-  margin: 0 auto;
-  padding: 5rem 0 0 9.75rem;
-  max-width: 1920px;
+  &__inner {
+    @include v.content-grid;
 
-  background-color: variables.$light-bg;
-
-  z-index: 1;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background: variables.$light-bg;
-    z-index: -1;
+    padding-block: v.$rhythm;
   }
 
   &__left {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    padding-right: 5rem;
-    padding-top: 4rem;
-
-    max-width: 520px;
+    grid-column: 1 / 7;
   }
 
   &__right {
-    position: relative;
-    flex: 1;
-    padding: 60px;
-
-    background: variables.$white;
-
-    @media (max-width: 1280px) {
-      padding: 2rem 1rem;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100%;
-      background: variables.$white;
-      z-index: -1;
-    }
+    grid-column: 7 / 13;
   }
 
   &__title {
+    // POROZMAWIAJMY to najdluzsze slowo na stronie, a kolumna ma polowe siatki —
+    // stad mniejszy stopien niz w pozostalych sekcjach.
+    font-size: clamp(30px, 4.9vw, 70px);
     font-weight: 700;
-    font-size: 40px;
-    line-height: 1.1;
-    color: variables.$grey-title;
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: v.$ink;
   }
 
-  &__subtitle {
-    position: relative;
-    padding-bottom: 24px;
+  &__lead {
+    max-width: 52ch;
+    margin-top: 40px;
 
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.4;
-    color: variables.$black;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 1px;
-      background-color: #d1d1d1;
-    }
-  }
-
-  &__company-info {
-    position: relative;
-    padding-bottom: 24px;
-
-    font-size: 18px;
+    font-size: clamp(16px, 1.3vw, 19px);
     line-height: 1.6;
-    color: variables.$black;
-
-    p {
-      margin: 0;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 1px;
-      background-color: #d1d1d1;
-    }
+    color: v.$ink-muted;
   }
 
-  &__company-name {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 8px !important;
-  }
-
-  &__links {
+  &__details {
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
-  }
+    gap: 8px;
+    list-style: none;
+    color: v.$ink-muted;
 
-  &__link-card {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-
-    height: 80px;
-
-    color: variables.$black;
-    background: variables.$white;
-    border-bottom: 1px solid #f0f0f0;
-
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    box-sizing: border-box;
-
-    &:hover {
-      background-color: #fafafa;
-
-      .contact-section__link-arrow {
-        transform: translateX(5px);
-      }
+    address {
+      font-style: normal;
     }
   }
 
-  &__link-icon {
-    margin-right: 20px;
-    font-size: 40px;
-    color: variables.$spanish-gold;
-  }
+  &__mail {
+    color: v.$ink;
+    border-bottom: 1px solid v.$brass-dim;
+    transition: border-color 0.2s ease;
 
-  &__link-text {
-    font-family: var(--font-inter);
-    font-weight: 400;
-    font-size: 18px;
-    flex-grow: 1;
-  }
-
-  &__link-arrow {
-    font-size: 20px;
-    color: variables.$spanish-gold;
-    transition: transform 0.3s ease;
-  }
-
-  @media (max-width: 1440px) {
-    padding: 5rem 4rem 0 4rem;
-
-    &__left {
-      padding-right: 0;
-      max-width: 400px;
+    &:hover,
+    &:focus-visible {
+      border-color: v.$brass;
     }
   }
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 4rem 2rem 0 2rem;
-
-    &__left {
-      max-width: 100%;
-      padding-right: 0;
-      padding-top: 0;
-    }
-
-    &__right {
-      width: 100%;
-      padding: 40px;
-
-      &::after {
-        left: -2rem;
-        width: calc(100% + 4rem);
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 3rem 1rem 0 1rem;
-
-    &__title {
-      order: 1;
-      font-size: 32px;
-      line-height: 1.2;
-    }
-
-    &__subtitle {
-      order: 2;
-      padding-bottom: 0.5rem;
-      font-size: 24px;
-      line-height: 1.4;
-
-      &::after {
-        display: none;
-      }
-    }
-
-    &__company-info {
-      order: 4;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      padding-top: 3rem;
-
-      &::after {
-        display: none;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-        width: 120px;
-        height: 4px;
-        background-color: #dddddd;
-      }
-
-      .contact-section__company-name {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 1.4;
-        text-align: center;
-      }
-
-      p {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        text-align: center;
-      }
-    }
-
-    &__links {
-      order: 3;
-      padding-bottom: 1rem;
-    }
-
-    &__link-card {
-      position: relative;
-      padding: 0.5rem 1.5rem;
-
-      height: auto;
-      min-height: 70px;
-    }
-
-    &__link-icon {
-      font-size: 26px;
-      img {
-        width: 26px;
-        height: auto;
-      }
-    }
-
-    &__link-text {
-      font-size: 16px;
-    }
-
-    &__right {
-      padding: 1.5rem 0;
-
-      &::after {
-        left: -1.5rem;
-        width: calc(100% + 3rem);
-      }
+  @media (max-width: 900px) {
+    &__details {
+      margin-top: 40px;
+      margin-bottom: 48px;
     }
   }
 }

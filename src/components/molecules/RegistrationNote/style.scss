@@ -1,0 +1,36 @@
+@use 'assets/styles/variables' as v;
+
+.registration-note {
+  background-color: v.$bg-alt;
+  border-block: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: clamp(48px, 7vh, 96px);
+  }
+
+  &__title {
+    grid-column: 1 / 6;
+
+    font-size: clamp(24px, 3.4vw, 44px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
+  }
+
+  &__text {
+    grid-column: 7 / 13;
+    max-width: 58ch;
+
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.6;
+    color: v.$ink-muted;
+
+    span {
+      color: v.$ink;
+    }
+  }
+}

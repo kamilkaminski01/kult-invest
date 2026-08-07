@@ -1,0 +1,77 @@
+@use 'assets/styles/variables' as v;
+
+.team-section {
+  background-color: v.$bg-alt;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  &__figure {
+    grid-column: 1 / 7;
+    margin: clamp(48px, 8vh, 104px) 0 0;
+
+    // Zdjecie ma zostac na jednym ekranie razem z opisami, wiec wysokosc liczy
+    // sie z wysokosci okna, a nie z szerokosci kolumny.
+    --photo-h: clamp(240px, calc(100svh - 360px), 620px);
+    width: min(100%, max(40ch, calc(var(--photo-h) * 4 / 5)));
+    overflow: hidden;
+    background-color: v.$bg-raised;
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: var(--photo-h);
+    object-fit: cover;
+  }
+
+  &__people {
+    grid-column: 7 / 13;
+    align-self: end;
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 5vh, 56px);
+    margin-top: clamp(48px, 8vh, 104px);
+  }
+
+  &__name {
+    margin-bottom: 16px;
+
+    font-size: clamp(20px, 2.6vw, 36px);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
+  }
+
+  &__bio {
+    max-width: 52ch;
+
+    font-size: 16px;
+    line-height: 1.6;
+    color: v.$ink-muted;
+  }
+
+  @media (max-width: 900px) {
+    &__figure {
+      width: 100%;
+    }
+
+    &__people {
+      margin-top: 40px;
+    }
+  }
+}

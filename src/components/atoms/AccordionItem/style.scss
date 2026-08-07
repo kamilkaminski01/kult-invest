@@ -1,61 +1,45 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .accordion-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    border-bottom: 4px solid #dddddd;
-  }
+  border-bottom: 1px solid v.$line;
 
   &__header {
     display: flex;
-    align-items: center;
-    padding: 32px 0;
+    align-items: baseline;
+    gap: 24px;
     width: 100%;
+    padding: 28px 0;
 
     text-align: left;
     background: none;
     border: none;
     cursor: pointer;
-
-    @media (max-width: 768px) {
-      gap: 1rem;
-    }
   }
 
   &__number {
-    font-size: 24px;
-    font-weight: 700;
-    margin-right: 20px;
-    min-width: 25px;
-    color: variables.$dover-gray;
+    @include v.mono-label;
 
-    @media (max-width: 768px) {
-      padding-left: 0.5rem;
-
-      font-size: 18px;
-      line-height: 1.2;
-    }
+    min-width: 24px;
+    color: v.$brass;
   }
 
   &__question {
-    font-size: 24px;
-    font-weight: 700;
     flex-grow: 1;
-    color: variables.$black;
     margin: 0;
 
-    @media (max-width: 768px) {
-      font-size: 18px;
-      line-height: 1.4;
-    }
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
   }
 
   &__icon {
+    flex: 0 0 auto;
     transition: transform 0.3s ease;
 
     svg path {
-      stroke: variables.$spanish-gold;
+      stroke: v.$brass;
     }
   }
 
@@ -66,30 +50,31 @@
   }
 
   &__answer {
-    padding-bottom: 24px;
-    padding-left: 45px;
-    line-height: 1.4;
+    max-width: 60ch;
+    padding: 0 0 28px 48px;
 
-    color: variables.$black;
-
-    font-size: 18px;
-    max-width: 900px;
-
-    @media (max-width: 768px) {
-      padding-right: 1.5rem;
-      padding-left: 3.7rem;
-
-      font-size: 16px;
-      line-height: 1.5;
-    }
+    font-size: 16px;
+    line-height: 1.6;
+    color: v.$ink-muted;
   }
 
   &--active {
     .accordion-item__icon {
       transform: rotate(180deg);
     }
+
     .accordion-item__content {
       max-height: 500px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__header {
+      gap: 16px;
+    }
+
+    &__answer {
+      padding-left: 40px;
     }
   }
 }

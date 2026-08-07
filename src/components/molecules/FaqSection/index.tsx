@@ -6,18 +6,19 @@ import { IFaqItem } from './interface'
 const FaqSection = () => {
   return (
     <section id="faq" className="faq-section">
-      <div className="faq-section__container">
-        <div className="faq-section__left">
-          <h2 className="faq-section__title">Pytania, które często padają</h2>
-        </div>
-        <div className="faq-section__right">
+      <div className="faq-section__inner">
+        <h2 className="faq-section__title">
+          Pytania
+          <br />
+          partnera
+        </h2>
+        <div className="faq-section__items">
           {FAQ_DATA.map((faq: IFaqItem, index: number) => (
             <AccordionItem
               key={faq.id}
               number={index + 1}
               question={faq.question}
               answer={faq.answer}
-              isOpenInitial={index === 0}
             />
           ))}
         </div>

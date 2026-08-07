@@ -41,28 +41,24 @@ const ContactForm = () => {
   return (
     <FormProvider {...methods}>
       <form id={formID} className="contact-form" onSubmit={methods.handleSubmit(onSubmit)}>
-        <h2 className="contact-form__title">Skontaktuj się z nami</h2>
+        <p className="contact-form__note">Wszystkie pola oprócz firmy są wymagane</p>
         <Input
           name="name"
-          displayName="Podaj imię"
-          placeholder="np. Adam"
+          displayName="Imię i nazwisko"
+          placeholder="np. Adam Kowalski"
           validators={{ required: valid.required, ...validSchemas.name }}
         />
-        <Input
-          name="company"
-          displayName="W imieniu jakiej firmy się kontaktujesz? (opcjonalnie)"
-          placeholder="np. Kult Invest"
-        />
+        <Input name="company" displayName="Firma (opcjonalnie)" placeholder="np. Kult sp. z o.o." />
         <Input
           name="email"
-          displayName="Podaj e-mail"
-          placeholder="np. adam@gmail.com..."
+          displayName="E-mail"
+          placeholder="np. adam@firma.pl"
           validators={{ required: valid.required, pattern: valid.emailPattern }}
         />
         <TextArea
           name="message"
-          displayName="Wiadomość"
-          placeholder="Treść pytania lub wiadomości..."
+          displayName="Twoja sytuacja"
+          placeholder="Czego szukasz i w jakim horyzoncie czasowym"
           validators={{ required: valid.required }}
         />
         <Checkbox name="termsAcceptance" validators={{ required: valid.required }}>

@@ -1,7 +1,7 @@
 import './style.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PATHS } from 'utils/consts'
+import { PATHS, NAV_LINKS, CONTACT } from 'utils/consts'
 import Logo from 'assets/images/logo.svg'
 
 const Footer = () => {
@@ -12,31 +12,29 @@ const Footer = () => {
       <div className="footer__top">
         <div className="footer__brand-wrapper">
           <Link href={PATHS.home}>
-            <Image src={Logo} alt="Logo" className="footer__logo" />
+            <Image src={Logo} alt="Kult Invest" className="footer__logo" />
           </Link>
           <div className="footer__line" />
         </div>
 
         <ul className="footer__nav">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
           <li>
-            <Link href="#invest">Invest</Link>
-          </li>
-          <li>
-            <Link href="#technology">Technology</Link>
-          </li>
-          <li>
-            <Link href="#about">O nas</Link>
-          </li>
-          <li>
-            <Link href="#contact" className="footer__btn">
-              Skontaktuj się
+            <Link href="#kontakt" className="footer__btn">
+              Kontakt
             </Link>
           </li>
         </ul>
       </div>
 
       <div className="footer__bottom">
-        <p className="footer__copyright">Copyright {currentYear} © Kult Invest</p>
+        <p className="footer__copyright">
+          Copyright {currentYear} © {CONTACT.company}
+        </p>
         <div className="footer__credits">
           Wykonali
           <span>

@@ -1,4 +1,4 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .checkbox-wrapper {
   position: relative;
@@ -6,11 +6,7 @@
   flex-direction: column;
   flex-wrap: wrap;
 
-  padding-left: 1.5em;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  padding-left: 1.75em;
   user-select: none;
 
   .checkbox-wrapper__checkbox {
@@ -20,49 +16,44 @@
     &:checked ~ .checkbox-wrapper__indicator::after {
       display: block;
     }
+
+    &:focus-visible ~ .checkbox-wrapper__indicator {
+      border-color: v.$brass;
+      outline: 2px solid v.$brass;
+      outline-offset: 2px;
+    }
   }
 
   .checkbox-wrapper__indicator {
     position: absolute;
-
     top: 0.125em;
     left: 0;
-    height: 1em;
-    width: 1em;
+    height: 1.125em;
+    width: 1.125em;
 
-    border: 1px solid variables.$dark-grey;
-    border-radius: 2px;
-
+    border: 1px solid v.$line-strong;
     cursor: pointer;
 
     &::after {
       content: '';
-
       position: absolute;
       display: none;
 
-      left: 4px;
-      top: 1px;
-      width: 4px;
-      height: 8px;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
 
-      border: solid variables.$dark-grey;
+      border: solid v.$brass;
       border-width: 0 2px 2px 0;
-
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
   }
 
   .checkbox-wrapper__content {
-    color: variables.$dark-grey;
-    font-size: 16px;
-    line-height: 1.5;
-
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
+    font-size: 14px;
+    line-height: 1.6;
+    color: v.$ink-muted;
   }
 
   .checkbox-wrapper__error-message {
@@ -72,9 +63,7 @@
 
 .checkbox-wrapper--required .checkbox-wrapper__content::after {
   content: '*';
-
   position: relative;
   left: 1px;
-
-  color: variables.$dover-gray;
+  color: v.$brass;
 }

@@ -1,0 +1,34 @@
+@use 'assets/styles/variables' as v;
+
+.stage-card {
+  padding: 40px 32px;
+  background-color: v.$bg-deep;
+
+  &__letter {
+    @include v.mono-label;
+
+    display: block;
+    margin-bottom: 24px;
+    color: v.$brass;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: v.$ink-muted;
+  }
+
+  @media (max-width: 900px) {
+    padding: 32px 24px;
+  }
+}

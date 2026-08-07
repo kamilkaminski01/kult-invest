@@ -1,0 +1,90 @@
+@use 'assets/styles/variables' as v;
+
+.process-section {
+  background-color: v.$bg-alt;
+  border-top: 1px solid v.$line;
+  padding-block: v.$rhythm;
+
+  &__inner {
+    @include v.content-grid;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  &__track {
+    display: flex;
+    gap: clamp(24px, 4vw, 64px);
+    margin-top: clamp(48px, 8vh, 104px);
+    padding-inline: v.$content-pad;
+    padding-bottom: 24px;
+
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+
+    // Pasek przewijania zostaje widoczny tylko tam, gdzie jest czym przewijac.
+    scrollbar-width: thin;
+    scrollbar-color: v.$line-strong transparent;
+
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: v.$line-strong;
+    }
+  }
+}
+
+.process-step {
+  flex: 0 0 auto;
+  width: min(88vw, 440px);
+  padding-top: 24px;
+  border-top: 1px solid v.$brass-dim;
+  scroll-snap-align: start;
+
+  &__number {
+    display: block;
+
+    font-size: clamp(24px, 3.4vw, 44px);
+    font-weight: 700;
+    line-height: 1;
+    color: v.$ink-muted;
+  }
+
+  &__title {
+    margin: 8px 0;
+
+    font-size: clamp(18px, 1.8vw, 26px);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    color: v.$ink;
+  }
+
+  &__description {
+    max-width: 52ch;
+
+    font-size: 16px;
+    line-height: 1.6;
+    color: v.$ink-muted;
+  }
+}
+
+@media (max-width: 900px) {
+  .process-section__track {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .process-step {
+    width: 100%;
+  }
+}

@@ -3,20 +3,23 @@ import { Analytics } from '@vercel/analytics/next'
 import { ReactNode } from 'react'
 import 'assets/styles/globals.scss'
 import { inter, archivo } from 'utils/fonts'
-import Navbar from 'components/organisms/Navbar'
 import Footer from 'components/organisms/Footer'
 
+const description =
+  'Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.'
+
 export const metadata: Metadata = {
-  title: 'Kult - nowoczesne inwestycje i technologie',
-  description: 'Tworzymy innowacyjne rozwiązania, które łączą świat nieruchomości z technologią',
+  title: 'Kult Invest — flipy mieszkaniowe w Białymstoku',
+  description,
   robots: 'index, follow',
   manifest: '/manifest.json',
+  alternates: { canonical: 'https://kultinvest.pl' },
   openGraph: {
     type: 'website',
     url: 'https://kultinvest.pl',
-    title: 'Kult - nowoczesne inwestycje i technologie',
-    description: 'Tworzymy innowacyjne rozwiązania, które łączą świat nieruchomości z technologią',
-    siteName: 'Kult - nowoczesne inwestycje i technologie',
+    title: 'Kult Invest — flipy mieszkaniowe w Białymstoku',
+    description,
+    siteName: 'Kult Invest',
     images: 'https://kultinvest.pl/og.png'
   },
   twitter: {
@@ -37,19 +40,48 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#020202',
+  themeColor: '#0e0f12',
   width: 'device-width',
   initialScale: 1
+}
+
+/** Dane strukturalne — bez watku technologicznego, wylacznie nieruchomosci. */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  name: 'Kult sp. z o.o.',
+  url: 'https://kultinvest.pl',
+  email: 'kontakt@kultinvest.pl',
+  areaServed: 'Białystok i okolice',
+  foundingDate: '2025',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'ul. Kraszewskiego 30/23',
+    postalCode: '15-025',
+    addressLocality: 'Białystok',
+    addressCountry: 'PL'
+  },
+  taxID: '9662203474',
+  founder: [
+    { '@type': 'Person', name: 'Dominik Torebko' },
+    { '@type': 'Person', name: 'Kamil Kamiński' }
+  ]
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pl">
       <body className={`${inter.variable} ${archivo.variable}`}>
-        <Navbar />
+        <a href="#main" className="skip-link">
+          Przejdź do treści
+        </a>
         <Analytics />
         {children}
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   )

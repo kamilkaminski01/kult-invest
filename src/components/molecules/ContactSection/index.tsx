@@ -1,41 +1,46 @@
-import ContactForm from 'components/organisms/ContactForm'
-import Link from 'next/link'
-import Image from 'next/image'
 import './style.scss'
-import EmailIcon from 'assets/icons/email-icon.svg'
-import ArrowRightIcon from 'assets/icons/arrow-right-icon.svg'
+import Link from 'next/link'
+import ContactForm from 'components/organisms/ContactForm'
+import { CONTACT } from 'utils/consts'
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-section__left">
-        <h2 className="contact-section__title">
-          Chcesz uwolnić swój czas, przyspieszyć rozwój firmy lub zainwestować z nami?
-        </h2>
-        <p className="contact-section__subtitle">Napisz do nas wiadomość. Porozmawiajmy!</p>
+    <section id="kontakt" className="contact-section">
+      <div className="contact-section__inner">
+        <div className="contact-section__left">
+          <h2 className="contact-section__title">
+            Masz pomysł
+            <br />
+            na flipa?
+            <br />
+            Porozmawiajmy
+          </h2>
 
-        <div className="contact-section__company-info">
-          <p className="contact-section__company-name">Kult spółka z o.o.</p>
-          <p>ul. Kraszewskiego 30/23</p>
-          <p>15-025 Białystok</p>
-          <p>NIP: 966 220 34 74</p>
+          <p className="contact-section__lead">
+            Masz konkretny lokal na oku, mieszkanie do sprzedania albo kapitał, który ma pracować —
+            napisz. Na pierwszym spotkaniu pokazujemy pełne zestawienie kosztów i wyniku
+            zakończonego projektu, to samo, które dostaje partner po sprzedaży. Wtedy sam ocenisz,
+            czy jest o czym rozmawiać. Mówimy wprost, jeśli nie widzimy sensu we współpracy.
+          </p>
+
+          <ul className="contact-section__details">
+            <li>
+              <Link href={`mailto:${CONTACT.email}`} className="contact-section__mail">
+                {CONTACT.email}
+              </Link>
+            </li>
+            <li>
+              <address>
+                {CONTACT.street}, {CONTACT.city}
+              </address>
+            </li>
+            <li>{CONTACT.nip}</li>
+          </ul>
         </div>
 
-        <div className="contact-section__links">
-          <Link href="mailto:kontakt@kultinvest.pl" className="contact-section__link-card">
-            <span className="contact-section__link-icon">
-              <Image src={EmailIcon} alt="email" />
-            </span>
-            <span className="contact-section__link-text">kontakt@kultinvest.pl</span>
-            <span className="contact-section__link-arrow">
-              <Image src={ArrowRightIcon} alt="arrow" />
-            </span>
-          </Link>
+        <div className="contact-section__right">
+          <ContactForm />
         </div>
-      </div>
-
-      <div className="contact-section__right">
-        <ContactForm />
       </div>
     </section>
   )

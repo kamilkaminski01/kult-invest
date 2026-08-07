@@ -1,26 +1,26 @@
 import 'assets/styles/app.scss'
 import HeroSection from 'components/molecules/HeroSection'
-import InvestSection from 'components/molecules/InvestSection'
-import TechnologySection from 'components/molecules/TechnologySection'
-import FactsSection from 'components/molecules/FactsSection'
-import AboutSection from 'components/molecules/AboutSection'
-import ProjectsInvestmentsSection from 'components/molecules/ProjectsInvestmentsSection'
+import RegistrationNote from 'components/molecules/RegistrationNote'
 import WhatWeDoSection from 'components/molecules/WhatWeDoSection'
+import ProcessSection from 'components/molecules/ProcessSection'
+import ResponsibilitiesSection from 'components/molecules/ResponsibilitiesSection'
+import CriteriaSection from 'components/molecules/CriteriaSection'
+import ProjectsSection from 'components/molecules/ProjectsSection'
+import TeamSection from 'components/molecules/TeamSection'
 import FaqSection from 'components/molecules/FaqSection'
 import ContactSection from 'components/molecules/ContactSection'
-// import InvestorsPartners from 'components/molecules/InvestorsPartners'
 
 const HomePage = () => {
   return (
-    <main className="home-page">
+    <main id="main" className="home-page">
       <HeroSection />
-      <InvestSection />
-      <TechnologySection />
-      <FactsSection />
-      <AboutSection />
-      <ProjectsInvestmentsSection />
+      <RegistrationNote />
       <WhatWeDoSection />
-      {/*<InvestorsPartners />*/}
+      <ProcessSection />
+      <ResponsibilitiesSection />
+      <CriteriaSection />
+      <ProjectsSection />
+      <TeamSection />
       <FaqSection />
       <ContactSection />
     </main>

@@ -1,4 +1,4 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 * {
   margin: 0;
@@ -13,16 +13,13 @@ html {
 
 body {
   font-family: var(--font-archivo);
-  color: variables.$lighthouse;
+  color: v.$ink;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   overscroll-behavior: none;
-  background-color: variables.$black;
+  background-color: v.$bg-deep;
   overflow-x: clip;
-  @media (max-width: 768px) {
-    background-color: variables.$mobile-body-bg;
-  }
 }
 
 a {
@@ -32,4 +29,45 @@ a {
 
 button {
   cursor: pointer;
+}
+
+// Widoczny fokus jest wymogiem WCAG 2.4.7, a `all: unset` na <a> kasuje domyslny.
+:focus-visible {
+  outline: 2px solid v.$brass;
+  outline-offset: 3px;
+}
+
+// Kotwice nie moga chowac naglowka pod krawedzia okna.
+section[id],
+#main {
+  scroll-margin-top: 24px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 200;
+
+  padding: 10px 16px;
+  background-color: v.$brass;
+  color: v.$brass-ink;
+
+  font-family: var(--font-inter);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  &:focus {
+    left: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
