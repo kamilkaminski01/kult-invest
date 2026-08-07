@@ -1,4 +1,4 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .spinner {
   display: flex;
@@ -12,8 +12,8 @@
     content: ' ';
 
     border-radius: 50%;
-    border: 4px solid variables.$dark-grey;
-    border-top: 4px solid variables.$dover-gray;
+    border: 4px solid v.$line-strong;
+    border-top: 4px solid v.$brass;
 
     animation: spin 1s linear infinite;
   }

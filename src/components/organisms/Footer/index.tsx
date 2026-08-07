@@ -9,45 +9,47 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer__top">
-        <div className="footer__brand-wrapper">
-          <Link href={PATHS.home}>
-            <Image src={Logo} alt="Kult Invest" className="footer__logo" />
-          </Link>
-          <div className="footer__line" />
+      <div className="footer__inner">
+        <div className="footer__top">
+          <div className="footer__brand-wrapper">
+            <Link href={PATHS.home}>
+              <Image src={Logo} alt="Kult Invest" className="footer__logo" />
+            </Link>
+            <div className="footer__line" />
+          </div>
+
+          <ul className="footer__nav">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href="#kontakt" className="footer__btn">
+                Kontakt
+              </Link>
+            </li>
+          </ul>
         </div>
 
-        <ul className="footer__nav">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href}>{link.label}</Link>
-            </li>
-          ))}
-          <li>
-            <Link href="#kontakt" className="footer__btn">
-              Kontakt
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      <div className="footer__bottom">
-        <p className="footer__copyright">
-          Copyright {currentYear} © {CONTACT.company}
-        </p>
-        <div className="footer__credits">
-          Wykonali
-          <span>
-            <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
-              Marcin Godlewski
-            </Link>
-          </span>
-          &
-          <span>
-            <Link href="https://kamilkaminski.pl" target="_blank" rel="noopener noreferrer">
-              Kamil Kamiński
-            </Link>
-          </span>
+        <div className="footer__bottom">
+          <p className="footer__copyright">
+            Copyright {currentYear} © {CONTACT.company}
+          </p>
+          <div className="footer__credits">
+            Wykonali
+            <span>
+              <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
+                Marcin Godlewski
+              </Link>
+            </span>
+            &
+            <span>
+              <Link href="https://kamilkaminski.pl" target="_blank" rel="noopener noreferrer">
+                Kamil Kamiński
+              </Link>
+            </span>
+          </div>
         </div>
       </div>
     </footer>

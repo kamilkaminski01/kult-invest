@@ -6,7 +6,6 @@ import './style.scss'
 import Image from 'next/image'
 import classNames from 'classnames'
 import ArrowDownIcon from 'assets/icons/arrow-down-icon.svg'
-import ArrowUpIcon from 'assets/icons/arrow-up-icon.svg'
 
 const AccordionItem = ({ number, question, answer, isOpenInitial = false }: AccordionItemProps) => {
   const [isOpen, setIsOpen] = useState(isOpenInitial)
@@ -19,12 +18,11 @@ const AccordionItem = ({ number, question, answer, isOpenInitial = false }: Acco
         aria-expanded={isOpen}>
         <span className="accordion-item__number">{number}.</span>
         <h3 className="accordion-item__question">{question}</h3>
+        {/* Kierunek strzalki niesie sama rotacja stanu --active. Podmiana ikony
+            odwracala ja drugi raz, wiec pozycja otwarta wygladala jak zamknieta.
+            Strzalka duplikuje aria-expanded, wiec dla czytnika jest dekoracja. */}
         <div className="accordion-item__icon">
-          {!isOpen ? (
-            <Image src={ArrowDownIcon} alt="arrow-down" />
-          ) : (
-            <Image src={ArrowUpIcon} alt="arrow-up" />
-          )}
+          <Image src={ArrowDownIcon} alt="" />
         </div>
       </button>
       <div className="accordion-item__content">

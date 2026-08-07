@@ -34,6 +34,13 @@ const TeamSection = () => {
           </article>
           <article className="team-section__person">
             <h3 className="team-section__name">Kamil Kamiński</h3>
+            <p className="team-section__bio">
+              Programista z wieloletnim doświadczeniem zdobytym w największych firmach w Polsce i
+              Europie — projektował, wdrażał i prowadził tworzenie oprogramowania, czyli pracę, w
+              której harmonogram i budżet rozlicza się co tydzień. W Kult odpowiada za prowadzenie
+              remontu, raporty z budowy i rozliczenie projektu — czyli za wszystko, co dzieje się po
+              zakupie.
+            </p>
           </article>
         </div>
       </div>

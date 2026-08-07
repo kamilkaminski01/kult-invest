@@ -34,13 +34,11 @@
     color: v.$ink;
   }
 
+  // next/image renderuje <img>, wiec kolor strzalki siedzi w samym pliku SVG,
+  // nie w CSS — tutaj zostaje wylacznie obrot.
   &__icon {
     flex: 0 0 auto;
     transition: transform 0.3s ease;
-
-    svg path {
-      stroke: v.$brass;
-    }
   }
 
   &__content {
