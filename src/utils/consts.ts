@@ -15,6 +15,7 @@ import { IProcessStep } from 'components/molecules/ProcessSection/interface'
 import { IResponsibility } from 'components/molecules/ResponsibilitiesSection/interface'
 import { IStat } from 'components/molecules/HeroSection/interface'
 import { IStage } from 'components/molecules/WhatWeDoSection/interface'
+import { IPerson } from 'components/molecules/TeamSection/interface'
 
 export const PATHS = { home: '/' }
 
@@ -161,6 +162,19 @@ export const CRITERIA_AVOID = [
   {
     lead: 'Okazji bez wyceny.',
     text: 'Jeśli nie umiemy policzyć wyjścia, nie wchodzimy. Niska cena wejścia nie jest argumentem, dopóki nie wiadomo, po ile się wychodzi.'
+  }
+]
+
+export const TEAM: IPerson[] = [
+  {
+    name: 'Dominik Torebko',
+    photoAlt: 'Dominik Torebko, współzałożyciel Kult',
+    bio: 'Ponad 150 przeprowadzonych transakcji na rynku nieruchomości. Inwestycje deweloperskie obejmujące kilkadziesiąt mieszkań. W Kult odpowiada za wybór lokali, wycenę, negocjacje i relacje z partnerami — czyli za wszystkie decyzje podejmowane przed zakupem.'
+  },
+  {
+    name: 'Kamil Kamiński',
+    photoAlt: 'Kamil Kamiński, współzałożyciel Kult',
+    bio: 'Programista z wieloletnim doświadczeniem zdobytym w największych firmach w Polsce i Europie — projektował, wdrażał i prowadził tworzenie oprogramowania, czyli pracę, w której harmonogram i budżet rozlicza się co tydzień. W Kult odpowiada za prowadzenie remontu, raporty z budowy i rozliczenie projektu — czyli za wszystko, co dzieje się po zakupie.'
   }
 ]
 

@@ -1,14 +1,10 @@
 @use 'assets/styles/variables' as v;
 
 .team-section {
-  background-color: v.$bg-alt;
+  @include v.content-grid;
+
+  padding-block: v.$rhythm;
   border-top: 1px solid v.$line;
-
-  &__inner {
-    @include v.content-grid;
-
-    padding-block: v.$rhythm;
-  }
 
   &__title {
     @include v.section-title;
@@ -16,14 +12,37 @@
     grid-column: 4 / 13;
   }
 
-  &__figure {
-    grid-column: 1 / 7;
-    margin: clamp(48px, 8vh, 104px) 0 0;
+  // Portret 4:5 na cala szerokosc kolumny mial na monitorze ponad 900 px wysokosci,
+  // wiec nazwisko i opis zaczynaly sie juz pod krawedzia ekranu. Wysokosc zdjecia
+  // liczy sie teraz z wysokosci okna, a szerokosc karty wynika z tej wysokosci —
+  // proporcja zostaje dokladna, a calosc miesci sie na jednym ekranie.
+  // Rezerwa 360 px to miejsce na nazwisko i opis pod zdjeciem.
+  &__person {
+    --photo-h: clamp(240px, calc(100vh - 360px), 620px);
 
-    // Zdjecie ma zostac na jednym ekranie razem z opisami, wiec wysokosc liczy
-    // sie z wysokosci okna, a nie z szerokosci kolumny.
-    --photo-h: clamp(240px, calc(100svh - 360px), 620px);
     width: min(100%, max(40ch, calc(var(--photo-h) * 4 / 5)));
+    margin-top: clamp(48px, 8vh, 104px);
+
+    &:first-of-type {
+      grid-column: 1 / 7;
+    }
+
+    &:last-of-type {
+      grid-column: 7 / 13;
+    }
+  }
+
+  @supports (height: 100svh) {
+    &__person {
+      --photo-h: clamp(240px, calc(100svh - 360px), 620px);
+    }
+  }
+
+  &__figure {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: min(100%, calc(var(--photo-h) * 4 / 5));
+    margin: 0 0 24px;
     overflow: hidden;
     background-color: v.$bg-raised;
   }
@@ -31,19 +50,17 @@
   &__photo {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: var(--photo-h);
+    height: 100%;
     object-fit: cover;
   }
 
-  &__people {
-    grid-column: 7 / 13;
-    align-self: end;
+  &__caption {
+    @include v.mono-label;
 
-    display: flex;
-    flex-direction: column;
-    gap: clamp(32px, 5vh, 56px);
-    margin-top: clamp(48px, 8vh, 104px);
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    color: v.$ink-muted;
   }
 
   &__name {
@@ -58,12 +75,22 @@
     color: v.$ink-muted;
   }
 
-  @media (max-width: 900px) {
-    &__figure {
-      width: 100%;
+  // Nazwisko skaluje sie szerokoscia karty, a nie okna — karta bywa duzo wezsza
+  // niz kolumna, wiec cqw trafia w rzeczywista szerokosc i nazwisko zostaje
+  // w jednej linii na kazdym ekranie.
+  @supports (container-type: inline-size) {
+    &__person {
+      container-type: inline-size;
     }
 
-    &__people {
+    &__name {
+      font-size: clamp(20px, 8.6cqw, 36px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__person {
+      width: 100%;
       margin-top: 40px;
     }
   }

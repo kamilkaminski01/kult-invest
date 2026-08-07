@@ -1,49 +1,36 @@
 import './style.scss'
 import Image from 'next/image'
-import Founders from 'assets/images/dominik-kamil.webp'
+import PortraitPlaceholder from 'assets/images/portrait-placeholder.svg'
+import { TEAM } from 'utils/consts'
+import { IPerson } from './interface'
 
 const TeamSection = () => {
   return (
     <section id="zespol" className="team-section">
-      <div className="team-section__inner">
-        <h2 className="team-section__title">
-          Dwie osoby,
-          <br />
-          jedna odpowiedzialność
-        </h2>
+      <h2 className="team-section__title">
+        Dwie osoby,
+        <br />
+        jedna odpowiedzialność
+      </h2>
 
-        <figure className="team-section__figure">
-          <Image
-            src={Founders}
-            alt="Dominik Torebko i Kamil Kamiński, współzałożyciele Kult"
-            placeholder="blur"
-            sizes="(max-width: 900px) 100vw, 50vw"
-            className="team-section__photo"
-          />
-        </figure>
-
-        <div className="team-section__people">
-          <article className="team-section__person">
-            <h3 className="team-section__name">Dominik Torebko</h3>
-            <p className="team-section__bio">
-              Ponad 150 przeprowadzonych transakcji na rynku nieruchomości. Inwestycje deweloperskie
-              obejmujące kilkadziesiąt mieszkań. W Kult odpowiada za wybór lokali, wycenę,
-              negocjacje i relacje z partnerami — czyli za wszystkie decyzje podejmowane przed
-              zakupem.
-            </p>
-          </article>
-          <article className="team-section__person">
-            <h3 className="team-section__name">Kamil Kamiński</h3>
-            <p className="team-section__bio">
-              Programista z wieloletnim doświadczeniem zdobytym w największych firmach w Polsce i
-              Europie — projektował, wdrażał i prowadził tworzenie oprogramowania, czyli pracę, w
-              której harmonogram i budżet rozlicza się co tydzień. W Kult odpowiada za prowadzenie
-              remontu, raporty z budowy i rozliczenie projektu — czyli za wszystko, co dzieje się po
-              zakupie.
-            </p>
-          </article>
+      {TEAM.map((person: IPerson) => (
+        <div key={person.name} className="team-section__person">
+          {/* ZASLEPKA: czeka na portret 4:5. Podmiana to zamiana src na statyczny
+              import zdjecia i usuniecie figcaption — reszta karty zostaje. */}
+          <figure className="team-section__figure">
+            <Image
+              src={PortraitPlaceholder}
+              alt={person.photoAlt}
+              className="team-section__photo"
+            />
+            <figcaption className="team-section__caption">
+              [ZDJĘCIE: portret założyciela, 4:5]
+            </figcaption>
+          </figure>
+          <h3 className="team-section__name">{person.name}</h3>
+          {person.bio && <p className="team-section__bio">{person.bio}</p>}
         </div>
-      </div>
+      ))}
     </section>
   )
 }
