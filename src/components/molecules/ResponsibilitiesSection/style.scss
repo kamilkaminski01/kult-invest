@@ -58,8 +58,10 @@
       }
     }
 
+    // Jedyne miejsce, gdzie Archivo prosi o srednia wage — 600, bo 500 nie ma
+    // wlasnego kroju i spadloby do Regular, gubiac naglowki wierszy.
     tbody th {
-      font-weight: 500;
+      font-weight: 600;
       color: v.$ink;
     }
 
