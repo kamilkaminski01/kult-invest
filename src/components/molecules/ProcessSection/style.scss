@@ -53,6 +53,9 @@
   padding-top: 24px;
   border-top: 1px solid v.$brass-dim;
 
+  // Only the step currently under the scroll position is lit. Colour is the one
+  // property animated outside transform/opacity anywhere on the page: it repaints
+  // five short text nodes and cannot move anything, so it costs no layout.
   &__number {
     display: block;
 
@@ -61,6 +64,11 @@
     font-weight: 700;
     line-height: 1;
     color: v.$ink-muted;
+    transition: color v.$dur-fast v.$ease-out-quad;
+  }
+
+  &--active &__number {
+    color: v.$brass;
   }
 
   // The step title carries the same weight as the number — in the pinned view

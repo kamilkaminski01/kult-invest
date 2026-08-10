@@ -33,10 +33,28 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
+    const steps = Array.from(track.children) as HTMLElement[]
+
     let frame = 0
     let travel = 0
     let distance = 0
     let active = false
+    let activeStep = -1
+
+    // Highlights one step at a time. Driven by progress rather than by which
+    // card sits nearest an edge, so every number gets its turn — including the
+    // last one, which never reaches the left edge on a wide screen.
+    const setActiveStep = (index: number) => {
+      if (index === activeStep) return
+
+      steps.forEach((step, i) => {
+        step.classList.toggle('process-step--active', i === index)
+        if (i === index) step.setAttribute('aria-current', 'step')
+        else step.removeAttribute('aria-current')
+      })
+
+      activeStep = index
+    }
 
     const measure = () => {
       active = !reducedMotion.matches
@@ -46,6 +64,7 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
       if (!active) {
         track.style.transform = ''
         bar.style.transform = ''
+        setActiveStep(-1)
       }
     }
 
@@ -59,6 +78,7 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
 
       track.style.transform = `translate3d(${-(progress * distance).toFixed(2)}px, 0, 0)`
       bar.style.transform = `scaleX(${progress.toFixed(4)})`
+      setActiveStep(Math.round(progress * (steps.length - 1)))
     }
 
     const onScroll = () => {
@@ -84,6 +104,7 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
       reducedMotion.removeEventListener('change', onResize)
       track.style.transform = ''
       bar.style.transform = ''
+      setActiveStep(-1)
     }
   }, [])
 
