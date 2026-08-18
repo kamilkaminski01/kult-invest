@@ -36,7 +36,7 @@ export const NAV_LINKS = [
   { href: '#projekty', label: 'Projekty' }
 ]
 
-/** Jedyne liczby potwierdzone przez klienta. Nic poza nimi nie trafia na strone. */
+/** The only figures confirmed by the client. Nothing else goes on the page. */
 export const HERO_STATS: IStat[] = [
   { value: '15', label: 'zrealizowanych projektów' },
   { value: '26', label: 'przeprowadzonych transakcji' },
@@ -185,9 +185,9 @@ export const TEAM: IPerson[] = [
 ]
 
 /**
- * Zakres prac jest w kazdym projekcie ten sam, wiec nie opisujemy go przy
- * kazdej karcie - stoi raz nad cala galeria. Karta niesie tylko to, co
- * rzeczywiscie odroznia projekt: adres i zdjecie po remoncie.
+ * The scope of work is identical on every project, so it is not repeated on each
+ * card - it is stated once above the gallery. A card carries only what actually
+ * tells one project from another: the address and the photo after the works.
  */
 export const PROJECTS: IProject[] = [
   { id: 'kolejowa', name: 'Kolejowa', image: kolejowa },

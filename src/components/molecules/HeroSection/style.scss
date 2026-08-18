@@ -7,9 +7,9 @@
   padding-top: clamp(40px, 6vh, 80px);
   padding-bottom: clamp(48px, 8vh, 110px);
 
-  // --logo-w jest jedynym zrodlem prawdy dla calego bloku sygnatury: wysokosc
-  // pudelka i odstep pod nim licza sie z tej wartosci, wiec logotyp skaluje sie
-  // razem z ukladem, a nie z oknem.
+  // --logo-w is the single source of truth for the whole signature block: the box
+  // height and the gap beneath it are both derived from it, so the logotype scales
+  // with the layout rather than with the window.
   --logo-w: clamp(230px, 46vw, 660px);
 
   &__top {
@@ -32,8 +32,8 @@
     justify-content: flex-start;
   }
 
-  // Pudelko wyzej zostaje na swojej wysokosci, a znak stoi w nim wysrodkowany:
-  // dzieki temu rytm gory sekcji nie zalezy od proporcji samego pliku.
+  // The box above keeps its own height and the mark is centred inside it, so the
+  // rhythm at the top of the section does not depend on the file's proportions.
   &__mark {
     width: 100%;
     height: auto;
@@ -56,8 +56,8 @@
     }
   }
 
-  // Waga 400 nie ma wlasnego kroju w Condensed - projekt celowo zjezdza tu na 300,
-  // czyli najlzejszy wczytany krój. To ten sam kontrast, co w logotypie.
+  // Condensed has no cut of its own at 400 - the design deliberately drops to 300
+  // here, the lightest weight loaded. The same contrast as in the logotype.
   &__subtitle {
     margin-top: 0.16em;
 
@@ -76,7 +76,8 @@
     color: v.$ink-muted;
   }
 
-  // Przyciski stoja w prawej polowie siatki, wyrownane do dolu akapitu obok.
+  // The buttons sit in the right half of the grid, aligned to the bottom of the
+  // paragraph beside them.
   &__actions {
     grid-column: 7 / 13;
     align-self: end;
@@ -151,7 +152,7 @@
     color: v.$ink-muted;
   }
 
-  // Ponizej 400 px pelne wezwanie nie miesci sie w jednej linii przycisku.
+  // Below 400 px the full call to action does not fit on one line of the button.
   @media (max-width: 399px) {
     &__cta-long {
       display: none;

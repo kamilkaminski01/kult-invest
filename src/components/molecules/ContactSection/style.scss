@@ -21,8 +21,8 @@
   &__title {
     @include v.section-title;
 
-    // POROZMAWIAJMY to najdluzsze slowo na stronie, a kolumna ma polowe siatki -
-    // stad mniejszy stopien niz w pozostalych sekcjach.
+    // POROZMAWIAJMY is the longest word on the site and this column is half the
+    // grid - hence a smaller size than in the other sections.
     font-size: clamp(30px, 4.9vw, 70px);
   }
 

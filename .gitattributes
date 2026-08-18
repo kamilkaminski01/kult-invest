@@ -1,10 +1,10 @@
-# Repozytorium trzymalo LF w indeksie, ale core.autocrlf wypakowywal pliki
-# jako CRLF — a prettier domyslnie oczekuje LF. Efekt: `npm run lint` zglaszal
-# "Delete ␍" w kazdym pliku projektu, niezaleznie od tego, co w nim bylo.
-# Ponizsze wymusza LF takze w katalogu roboczym, na kazdym systemie.
+# The repo kept LF in the index, but core.autocrlf checked files out as CRLF -
+# and prettier expects LF by default. The effect: `npm run lint` reported
+# "Delete ␍" in every file in the project, whatever was actually in it.
+# The line below forces LF in the working tree too, on every system.
 * text=auto eol=lf
 
-# Binaria — nigdy nie tykac koncow linii.
+# Binaries - never touch line endings.
 *.png   binary
 *.jpg   binary
 *.jpeg  binary

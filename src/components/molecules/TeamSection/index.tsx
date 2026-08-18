@@ -11,13 +11,14 @@ const TeamSection = () => {
         <RevealLines lines={['Dwie osoby,', 'jedna odpowiedzialność']} />
       </h2>
 
-      {/* Sekcja mowi o podziale pracy, wiec pierwsza rzecza w plycie jest etap,
-          a nie twarz. Portret zostaje miniatura przy nazwisku: przy tej skali
-          nie widac, ze oba zdjecia pochodza z innej sesji.
+      {/* The section is about the split of labour, so the first thing on a plate is
+          the stage, not the face. The portrait is reduced to a thumbnail: at that
+          scale it does not show that the two photos come from different shoots.
 
-          Wejscie animuje siatka, nie pojedyncze plyty: kreska miedzy plytami to
-          tlo siatki widoczne przez 1 px odstepu, wiec gdyby plyty byly
-          przezroczyste osobno, przed animacja swiecilaby cala plaszczyzna. */}
+          The grid animates in, not the individual plates: the divider between them
+          is the grid's background showing through a 1 px gap, so if the plates were
+          transparent on their own the whole plane would glow before the animation
+          ran. */}
       <div className="team-section__grid fade">
         {TEAM.map((person: IPerson) => (
           <article key={person.name} className="team-section__person">

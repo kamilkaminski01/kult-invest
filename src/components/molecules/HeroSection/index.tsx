@@ -9,16 +9,17 @@ const HeroSection = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-section__top">
-        {/* Logotyp jest sygnatura sekcji, nie naglowkiem, wiec idzie tu ten sam plik,
-            co w stopce - sklad z fontu nie odtwarzal krojow ani swiatla oryginalu. */}
+        {/* The logotype is the section's signature, not a heading, so it uses the
+            same file as the footer - setting it from a font reproduced neither the
+            letterforms nor the spacing of the original. */}
         <div className="hero-section__logo">
           <Image src={Logo} alt="Kult Invest" className="hero-section__mark" priority />
         </div>
       </div>
 
-      {/* Lamanie jest recznie ustawione, zeby przecinek zawsze konczyl linie -
-          przy zawijaniu automatycznym "NIE" zostawalo na gorze na szerokich
-          ekranach i lockup czytal sie jak trzy osobne slowa. */}
+      {/* The break is set by hand so the comma always ends a line - left to wrap on
+          its own, "NIE" stayed up top on wide screens and the lockup read as three
+          loose words. */}
       <h1 className="hero-section__title">
         <span>Flip liczony,</span>
         <span>nie obstawiany</span>

@@ -25,8 +25,8 @@
     color: v.$ink-muted;
   }
 
-  // Odstep 1 px na tle linii daje siatke bez rysowania obramowan - karty same
-  // odslaniaja tlo miedzy soba.
+  // A 1 px gap over a line-coloured background gives a grid without drawing any
+  // borders - the cards expose the background between themselves.
   &__stages {
     grid-column: 1 / 13;
 

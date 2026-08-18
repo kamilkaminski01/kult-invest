@@ -13,8 +13,8 @@
     position: absolute;
     opacity: 0;
 
-    // Zaznaczone pole niesie mosiadz na calej kontrolce, nie tylko w ptaszku,
-    // wiec stan widac bez wpatrywania sie w srodek kratki.
+    // A checked box carries brass on the whole control, not just in the tick, so
+    // the state is legible without staring into the middle of the square.
     &:checked ~ .checkbox-wrapper__indicator {
       border-color: v.$brass;
     }
@@ -30,8 +30,8 @@
     }
   }
 
-  // Ta sama krawedz co w polach tekstowych: kontrolka musi byc rozpoznawalna
-  // jako kontrolka (WCAG 1.4.11), a $line-strong byl na to za ciemny.
+  // The same border as the text fields: a control has to be recognisable as a
+  // control (WCAG 1.4.11), and $line-strong was too dark for that.
   .checkbox-wrapper__indicator {
     position: absolute;
     top: 0.14em;
@@ -43,9 +43,9 @@
     cursor: pointer;
     transition: border-color v.$dur-fast v.$ease-out-quad;
 
-    // Ptaszek to dwie krawedzie pustego pudelka. Rozmiar w em i srodek liczony
-    // transformem, wiec znak zostaje w kratce niezaleznie od stopnia pisma -
-    // stale offsety w px wychodzily poza obramowanie.
+    // The tick is two borders of an empty box. Sized in em and centred by
+    // transform, so it stays inside the square whatever the font size - the fixed
+    // px offsets used to push it past the border.
     &::after {
       content: '';
       position: absolute;

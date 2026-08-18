@@ -12,8 +12,9 @@
     grid-column: 4 / 13;
   }
 
-  // Odstep 1 px na tle linii rysuje kreske miedzy plytami bez obramowan - ta
-  // sama sztuczka co w sekcji etapow. Dwie kolumny wchodza juz od tabletu.
+  // A 1 px gap over a line-coloured background draws the divider between plates
+  // without any borders - the same trick as the stages section. Two columns come in
+  // from tablet width up.
   &__grid {
     grid-column: 1 / 13;
 
@@ -28,7 +29,7 @@
     background-color: v.$bg-deep;
     padding: 40px clamp(24px, 3vw, 40px) 44px;
 
-    // Mosiezna kreska otwiera plyte, tak jak numer otwiera etap procesu.
+    // A brass rule opens the plate, the way the number opens a process step.
     &::before {
       content: '';
       display: block;
@@ -80,8 +81,8 @@
     color: v.$ink-muted;
   }
 
-  // Ponizej 360 px miniatura i nazwisko obok siebie zostawiaja na nazwisko
-  // niecale 8 znakow w linii.
+  // Below 360 px the thumbnail and the name side by side leave the name barely
+  // eight characters a line.
   @media (max-width: 359px) {
     &__head {
       flex-direction: column;

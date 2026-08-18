@@ -134,9 +134,9 @@
   }
 }
 
-// `stretch` daje wszystkim etapom wysokosc najwyzszego z nich, wiec mosiezne
-// kreski nad numerami stoja w jednej linii. Przy `center` kazda karta zaczynala
-// sie na innej wysokosci, bo opisy maja rozna dlugosc.
+// `stretch` gives every step the height of the tallest one, so the brass rules
+// above the numbers line up. With `center` each card started at a different
+// height, because the descriptions differ in length.
 .js .process-section__track {
   flex-direction: row;
   flex-wrap: nowrap;

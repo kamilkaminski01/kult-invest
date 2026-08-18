@@ -33,13 +33,14 @@ button {
   cursor: pointer;
 }
 
-// Widoczny fokus jest wymogiem WCAG 2.4.7, a `all: unset` na <a> kasuje domyslny.
+// A visible focus ring is required by WCAG 2.4.7, and `all: unset` on <a>
+// removes the browser default.
 :focus-visible {
   outline: 2px solid v.$brass;
   outline-offset: 3px;
 }
 
-// Kotwice nie moga chowac naglowka pod krawedzia okna.
+// Anchor targets must not hide their heading under the top edge of the window.
 section[id],
 #main {
   scroll-margin-top: 24px;

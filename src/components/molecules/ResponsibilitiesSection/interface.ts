@@ -1,6 +1,6 @@
 export interface IResponsibility {
   stage: string
-  /** Wartosc na cala szerokosc tabeli - uzywana tam, gdzie regula jest wspolna. */
+  /** Value spanning the full table width - used where the rule is shared. */
   span?: string
   partner?: string
   kult?: string

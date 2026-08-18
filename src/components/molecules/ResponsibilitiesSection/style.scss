@@ -13,8 +13,8 @@
   &__title {
     @include v.section-title;
 
-    // OBOWIAZKOW nie miesci sie w waskiej kolumnie tytulu w pelnej skali,
-    // a dzielenie tego slowa myslnikiem wyglada zle.
+    // OBOWIAZKOW does not fit the narrow title column at full scale, and
+    // hyphenating that word looks wrong.
     font-size: clamp(30px, 5vw, 68px);
     grid-column: 1 / 6;
     align-self: start;
@@ -97,9 +97,9 @@
     }
   }
 
-  // Tabela rozklada sie na pary etykieta/wartosc dopiero ponizej 680 px. Na
-  // tablecie kolumna tresci ma juz cala szerokosc strony i trzy kolumny mieszcza
-  // sie w niej bez sciskania - zwijanie ich przy 900 px bylo przedwczesne.
+  // The table only falls apart into label/value pairs below 680 px. On a tablet the
+  // content column already has the full page width and three columns fit in it
+  // without crowding - collapsing them at 900 px was premature.
   @media (max-width: 680px) {
     &__table {
       caption {

@@ -11,8 +11,8 @@ const AccordionItem = ({ question, answer }: AccordionItemProps) => {
 
   return (
     <div className="accordion-item" data-open={isOpen}>
-      {/* Naglowek niesie przycisk, nie odwrotnie - dzieki temu pytanie zostaje
-          w konspekcie strony, a czytnik ekranu podaje je jako naglowek h3. */}
+      {/* The heading carries the button, not the other way round - that keeps the
+          question in the page outline and a screen reader announces it as an h3. */}
       <h3 className="accordion-item__heading">
         <button
           type="button"
@@ -22,16 +22,17 @@ const AccordionItem = ({ question, answer }: AccordionItemProps) => {
           aria-controls={panelId}
           onClick={() => setIsOpen(!isOpen)}>
           <span>{question}</span>
-          {/* Plus i minus rysuja dwie kreski, a nie glif - dzieki temu znak
-              obraca sie razem z rozwijaniem i duplikuje aria-expanded tylko
-              wizualnie, wiec dla czytnika jest dekoracja. */}
+          {/* Two rules draw the plus and the minus rather than a glyph, so the mark
+              can rotate as the panel opens. It duplicates aria-expanded only
+              visually, so for a screen reader it is decoration. */}
           <span className="accordion-item__icon" aria-hidden="true" />
         </button>
       </h3>
-      {/* Panel zostaje w DOM i zwija sie siatka 1fr -> 0fr, bo `hidden` to
-          `display: none`, a tego nie da sie animowac. `visibility` na
-          zwinietej tresci wypisuje ja z drzewa dostepnosci i z kolejnosci
-          tabulacji, wiec zwiniete pytanie nadal nie istnieje dla czytnika. */}
+      {/* The panel stays in the DOM and collapses with a 1fr -> 0fr grid row,
+          because `hidden` is `display: none` and that cannot be animated.
+          `visibility` on the collapsed content takes it out of the accessibility
+          tree and the tab order, so a closed question still does not exist for a
+          screen reader. */}
       <div id={panelId} role="region" aria-labelledby={buttonId} className="accordion-item__panel">
         <div className="accordion-item__panel-inner">
           <p className="accordion-item__answer">{answer}</p>

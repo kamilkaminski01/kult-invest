@@ -1,9 +1,9 @@
 @use 'assets/styles/variables' as v;
 
 .accordion-item {
-  // Kreska nalezy do pozycji, nie do przycisku i nie do panelu. Wczesniej mialy
-  // ja obie czesci, a panel byl wezszy od pytania, wiec rozwiniete pytanie
-  // konczylo sie dwiema liniami roznej dlugosci.
+  // The divider belongs to the item, not to the button and not to the panel. Both
+  // used to carry one, and the panel was narrower than the question, so an open
+  // item ended in two rules of different lengths.
   border-bottom: 1px solid v.$line;
 
   &__heading {
@@ -32,8 +32,8 @@
     }
   }
 
-  // Wysokosc rowna jednemu wierszowi pytania, wiec znak stoi w osi pierwszej
-  // linii takze wtedy, gdy pytanie lamie sie na dwie.
+  // Height of exactly one line of the question, so the mark stays centred on the
+  // first line even when the question wraps onto two.
   &__icon {
     position: relative;
     flex: 0 0 auto;
@@ -54,7 +54,8 @@
       transition: transform v.$dur-base v.$ease-out-expo;
     }
 
-    // Pionowa kreska plusa. Po rozwinieciu klika sie na pozioma i zostaje minus.
+    // The vertical stroke of the plus. On open it rotates onto the horizontal one
+    // and what is left reads as a minus.
     &::after {
       transform: rotate(90deg);
     }
@@ -68,7 +69,8 @@
 
   &__panel-inner {
     overflow: hidden;
-    // Opoznione o czas zwijania, zeby tresc nie znikala przed animacja.
+    // Delayed by the collapse duration so the content does not vanish before the
+    // animation has run.
     visibility: hidden;
     transition: visibility 0s linear v.$dur-base;
   }

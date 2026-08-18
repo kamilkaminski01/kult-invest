@@ -9,9 +9,9 @@ import Motion from 'components/atoms/Motion'
 const description =
   'Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.'
 
-// Wymiary podane wprost, bo czesc czytnikow buduje podglad zanim pobierze sam
-// plik - bez nich karta potrafi mignac w zlych proporcjach albo wpasc na
-// mniejszy format. `alt` opisuje karte tam, gdzie obrazek sie nie zaladuje.
+// Dimensions are stated explicitly because some scrapers build the preview before
+// they fetch the file - without them the card can flash in the wrong proportion or
+// fall back to the small format. `alt` describes the card where it fails to load.
 const ogImage = {
   url: 'https://kultinvest.pl/og.png',
   width: 1200,
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      // Pierwszy na liscie, bo logotyp z czterech liter zyskuje na wektorze
-      // wszedzie tam, gdzie przegladarka rysuje ikone wieksza niz 16 px.
+      // First in the list, because a four-letter wordmark gains from being vector
+      // anywhere the browser draws the icon larger than 16 px.
       { url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' },
       { url: '/favicon.ico', type: 'image/x-icon', sizes: '16x16 32x32 48x48' },
       { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
@@ -62,7 +62,7 @@ export const viewport: Viewport = {
   initialScale: 1
 }
 
-/** Dane strukturalne - bez watku technologicznego, wylacznie nieruchomosci. */
+/** Structured data - no technology angle, real estate only. */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'RealEstateAgent',

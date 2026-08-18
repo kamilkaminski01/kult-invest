@@ -44,7 +44,7 @@
 
 .project-card {
   &__media {
-    // Proporcja trzymana w CSS, wiec obrazek nie przesuwa ukladu przy doczytaniu.
+    // The ratio is held in CSS, so the image cannot shift the layout as it loads.
     position: relative;
     aspect-ratio: 3 / 2;
     margin-bottom: 24px;

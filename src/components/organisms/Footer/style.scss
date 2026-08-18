@@ -4,8 +4,8 @@
   background-color: v.$bg-deep;
   border-top: 1px solid v.$line;
 
-  // Stopka jest jedyna nawigacja jednostronicowego serwisu - trzyma sie tej samej
-  // siatki i palety co sekcje powyzej, zeby nie czytala sie jak osobna strona.
+  // The footer is the only navigation on a one-page site - it keeps the same grid
+  // and palette as the sections above so it does not read as a separate page.
   &__inner {
     display: flex;
     flex-direction: column;
@@ -62,7 +62,7 @@
     }
   }
 
-  // Wyzsza specyficznosc niz `&__nav a`, wiec kolor przycisku nie potrzebuje !important.
+  // Higher specificity than `&__nav a`, so the button colour needs no !important.
   &__nav &__btn {
     display: inline-block;
     padding: 16px 28px;
@@ -94,9 +94,9 @@
     color: v.$ink-muted;
   }
 
-  // Na tablecie nawigacja zostaje wierszem i tylko sie zawija. Pelna szerokosc
-  // dla kazdego odnosnika ma sens dopiero na telefonie - wczesniej robila z
-  // czterech linkow piec pelnoekranowych pasow.
+  // On a tablet the navigation stays a row and merely wraps. Full width per link
+  // only makes sense on a phone - above that it turned four links and a button into
+  // five full-screen bars.
   @media (max-width: 900px) {
     &__top {
       flex-direction: column;

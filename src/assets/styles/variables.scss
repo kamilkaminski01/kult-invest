@@ -1,6 +1,6 @@
-// Tokeny przepisane 1:1 z zatwierdzonego projektu (Kult Invest.dc_1.html).
-// Kontrast kazdej pary tekst/tlo sprawdzony pod WCAG 2.1 AA: ink 16,7:1,
-// ink-muted 5,8:1, brass 7,9:1 na $bg-deep.
+// Tokens transcribed 1:1 from the approved design (Kult Invest.dc_1.html).
+// Every text/background pair is checked against WCAG 2.1 AA: ink 16.7:1,
+// ink-muted 5.8:1, brass 7.9:1 on $bg-deep.
 
 $ink: #f1efea;
 $ink-muted: #938d82;
@@ -11,24 +11,24 @@ $bg-raised: #1a1d23;
 
 $line: #24262c;
 $line-strong: #33363e;
-// Obramowanie pol formularza - jasniejsze niz $line-strong, bo kontrolka musi
-// byc rozpoznawalna jako kontrolka (WCAG 1.4.11, 3:1 wzgledem tla).
+// Form field border - lighter than $line-strong, because a control has to be
+// recognisable as a control (WCAG 1.4.11, 3:1 against its background).
 $control-border: #6a6e78;
 
 $brass: #c4a15a;
 $brass-ink: #0e0f12;
-// Projekt uzywa tu koloru krytego, nie polprzezroczystego mosiadzu - dzieki temu
-// krawedz wyglada tak samo na $bg-deep i na $bg-alt.
+// The design uses an opaque colour here rather than translucent brass, so the
+// edge looks identical on $bg-deep and on $bg-alt.
 $brass-dim: #4e422b;
 
 $danger: #e88a6a;
 
-// Siatka tresci - ta sama we wszystkich sekcjach.
+// Content grid - the same one in every section.
 $content-max: 1440px;
 $content-pad: clamp(20px, 4.2vw, 72px);
 $rhythm: clamp(80px, 12vh, 200px);
 
-// Skala typograficzna z projektu.
+// Type scale from the design.
 $fs-display-xl: clamp(34px, 6.7vw, 96px);
 $fs-display-l: clamp(34px, 6vw, 92px);
 $fs-display-m: clamp(24px, 3.4vw, 44px);
@@ -36,7 +36,7 @@ $fs-heading-s: clamp(19px, 1.6vw, 24px);
 $fs-body-l: clamp(16px, 1.5vw, 19px);
 $fs-meta: 11px;
 
-// Ruch - te same krzywe i czasy trwania, co w projekcie.
+// Motion - the same curves and durations as the design.
 $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $dur-fast: 200ms;
@@ -75,8 +75,8 @@ $dur-slow: 800ms;
   color: $ink;
 }
 
-// Mniejsze naglowki blokowe (nota o rejestracji, numery etapow) - ta sama
-// rodzina, inna skala i ciasniejsza interlinia niz w tytule sekcji.
+// Smaller block headings (the registration note, step numbers) - same family as
+// the section title, different scale and tighter leading.
 @mixin block-title {
   font-family: var(--font-plex-condensed);
   font-size: $fs-display-m;
@@ -87,7 +87,7 @@ $dur-slow: 800ms;
   color: $ink;
 }
 
-// Podtytuly wewnatrz kart: etapy A/B/C, nazwy projektow, nazwiska, pytania FAQ.
+// Subheadings inside cards: stages A/B/C, project names, people, FAQ questions.
 @mixin card-title {
   font-family: var(--font-plex-condensed);
   font-size: $fs-heading-s;

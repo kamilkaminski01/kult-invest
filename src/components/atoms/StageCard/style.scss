@@ -1,7 +1,7 @@
 @use 'assets/styles/variables' as v;
 
-// Karta jest jasniejsza od sekcji, na ktorej stoi - to ona niesie podzial na trzy
-// etapy, a nie obramowanie.
+// The card is lighter than the section it sits on - the tone carries the split
+// into three stages, not a border.
 .stage-card {
   padding: 40px 24px;
   background-color: v.$bg-alt;
