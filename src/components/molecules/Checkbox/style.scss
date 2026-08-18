@@ -1,4 +1,4 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .checkbox-wrapper {
   position: relative;
@@ -6,75 +6,72 @@
   flex-direction: column;
   flex-wrap: wrap;
 
-  padding-left: 1.5em;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  padding-left: 1.75em;
   user-select: none;
 
   .checkbox-wrapper__checkbox {
     position: absolute;
     opacity: 0;
 
+    // A checked box carries brass on the whole control, not just in the tick, so
+    // the state is legible without staring into the middle of the square.
+    &:checked ~ .checkbox-wrapper__indicator {
+      border-color: v.$brass;
+    }
+
     &:checked ~ .checkbox-wrapper__indicator::after {
       display: block;
     }
+
+    &:focus-visible ~ .checkbox-wrapper__indicator {
+      border-color: v.$brass;
+      outline: 2px solid v.$brass;
+      outline-offset: 2px;
+    }
   }
 
+  // The same border as the text fields: a control has to be recognisable as a
+  // control (WCAG 1.4.11), and $line-strong was too dark for that.
   .checkbox-wrapper__indicator {
     position: absolute;
-
-    top: 0.125em;
+    top: 0.14em;
     left: 0;
-    height: 1em;
-    width: 1em;
+    height: 1.125em;
+    width: 1.125em;
 
-    border: 1px solid variables.$dark-grey;
-    border-radius: 2px;
-
+    border: 1px solid v.$control-border;
     cursor: pointer;
+    transition: border-color v.$dur-fast v.$ease-out-quad;
 
+    // The tick is two borders of an empty box. Sized in em and centred by
+    // transform, so it stays inside the square whatever the font size - the fixed
+    // px offsets used to push it past the border.
     &::after {
       content: '';
-
       position: absolute;
       display: none;
 
-      left: 4px;
-      top: 1px;
-      width: 4px;
-      height: 8px;
+      left: 50%;
+      top: 46%;
+      width: 0.3em;
+      height: 0.6em;
 
-      border: solid variables.$dark-grey;
+      border: solid v.$brass;
       border-width: 0 2px 2px 0;
-
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 
   .checkbox-wrapper__content {
-    color: variables.$dark-grey;
-    font-size: 16px;
-    line-height: 1.5;
-
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-  }
-
-  .checkbox-wrapper__error-message {
-    padding-left: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: v.$ink-muted;
   }
 }
 
 .checkbox-wrapper--required .checkbox-wrapper__content::after {
   content: '*';
-
   position: relative;
   left: 1px;
-
-  color: variables.$dover-gray;
+  color: v.$brass;
 }

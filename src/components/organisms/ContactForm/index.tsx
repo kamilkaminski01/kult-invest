@@ -41,28 +41,24 @@ const ContactForm = () => {
   return (
     <FormProvider {...methods}>
       <form id={formID} className="contact-form" onSubmit={methods.handleSubmit(onSubmit)}>
-        <h2 className="contact-form__title">Skontaktuj się z nami</h2>
+        <p className="contact-form__note">Wszystkie pola oprócz firmy są wymagane</p>
         <Input
           name="name"
-          displayName="Podaj imię"
-          placeholder="np. Adam"
+          displayName="Imię i nazwisko"
+          placeholder="np. Adam Kowalski"
           validators={{ required: valid.required, ...validSchemas.name }}
         />
-        <Input
-          name="company"
-          displayName="W imieniu jakiej firmy się kontaktujesz? (opcjonalnie)"
-          placeholder="np. Kult Invest"
-        />
+        <Input name="company" displayName="Firma (opcjonalnie)" placeholder="np. Kult sp. z o.o." />
         <Input
           name="email"
-          displayName="Podaj e-mail"
-          placeholder="np. adam@gmail.com..."
+          displayName="E-mail"
+          placeholder="np. adam@firma.pl"
           validators={{ required: valid.required, pattern: valid.emailPattern }}
         />
         <TextArea
           name="message"
-          displayName="Wiadomość"
-          placeholder="Treść pytania lub wiadomości..."
+          displayName="Twoja sytuacja"
+          placeholder="Czego szukasz i w jakim horyzoncie czasowym"
           validators={{ required: valid.required }}
         />
         <Checkbox name="termsAcceptance" validators={{ required: valid.required }}>
@@ -75,9 +71,16 @@ const ContactForm = () => {
             Wyślij wiadomość
           </Button>
           {status === 'loading' && <Spinner />}
+          {/* The tick alone said nothing to a screen reader, and nothing at all
+              to a sighted visitor who does not read it as "sent". Its meaning
+              now lives in the text beside it, so the icon is decorative. */}
           {status === 'success' && (
-            <img src={CheckmarkIcon.src} alt="Success" className="footer__icon" />
+            <img src={CheckmarkIcon.src} alt="" className="contact-form__icon" />
           )}
+          <p className="contact-form__status" role="status">
+            {status === 'loading' && 'Wysyłanie wiadomości…'}
+            {status === 'success' && 'Wiadomość wysłana. Odezwiemy się.'}
+          </p>
           {status === 'error' && (
             <ErrorMessage message="Nie udało się wysłać wiadomości." fieldName="contactForm" />
           )}

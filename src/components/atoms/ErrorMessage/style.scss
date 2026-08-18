@@ -1,11 +1,11 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .error-message {
   padding-left: 0.375em;
   margin-top: 0.375em;
 
   font-size: 15px;
-  color: variables.$valencia;
+  color: v.$danger;
 
   width: 100%;
   max-width: 320px;

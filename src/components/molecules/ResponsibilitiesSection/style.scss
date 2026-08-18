@@ -1,0 +1,143 @@
+@use 'assets/styles/variables' as v;
+
+.responsibilities {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    // OBOWIAZKOW does not fit the narrow title column at full scale, and
+    // hyphenating that word looks wrong.
+    font-size: clamp(30px, 5vw, 68px);
+    grid-column: 1 / 6;
+    align-self: start;
+    position: sticky;
+    top: 40px;
+  }
+
+  &__content {
+    grid-column: 6 / 13;
+  }
+
+  &__lead {
+    max-width: 58ch;
+    margin-bottom: 64px;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    caption {
+      @include v.mono-label;
+
+      padding-bottom: 16px;
+      text-align: left;
+      color: v.$ink-muted;
+    }
+
+    thead th {
+      @include v.mono-label;
+
+      padding: 16px 8px;
+      border-bottom: 1px solid v.$line-strong;
+      font-weight: 500;
+      color: v.$brass;
+
+      &:first-child {
+        color: v.$ink-muted;
+      }
+    }
+
+    tbody th {
+      font-weight: 500;
+      color: v.$ink;
+    }
+
+    tbody td {
+      color: v.$ink-muted;
+    }
+
+    tbody th,
+    tbody td {
+      padding: 20px 8px;
+      border-bottom: 1px solid v.$line;
+    }
+
+    tbody tr:last-child {
+      th,
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__table tbody &__span {
+    color: v.$ink;
+  }
+
+  @media (max-width: 900px) {
+    &__title {
+      position: static;
+    }
+
+    &__lead {
+      margin-bottom: 40px;
+    }
+  }
+
+  // The table only falls apart into label/value pairs below 680 px. On a tablet the
+  // content column already has the full page width and three columns fit in it
+  // without crowding - collapsing them at 900 px was premature.
+  @media (max-width: 680px) {
+    &__table {
+      caption {
+        padding-bottom: 8px;
+      }
+
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+      }
+
+      tbody tr {
+        display: block;
+        padding-block: 20px;
+        border-bottom: 1px solid v.$line;
+      }
+
+      tbody th,
+      tbody td {
+        display: block;
+        padding: 0;
+        border-bottom: 0;
+      }
+
+      tbody th {
+        margin-bottom: 8px;
+      }
+
+      tbody td::before {
+        @include v.mono-label;
+
+        content: attr(data-label);
+        display: block;
+        color: v.$brass;
+      }
+    }
+  }
+}

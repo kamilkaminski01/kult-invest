@@ -1,0 +1,71 @@
+@use 'assets/styles/variables' as v;
+
+.projects-section {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  &__lead {
+    grid-column: 4 / 10;
+    max-width: 58ch;
+    margin-top: 32px;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
+  &__grid {
+    grid-column: 1 / 13;
+
+    display: grid;
+    // `min(300px, 100%)` matters below 340px: a bare 300px minimum is wider than
+    // the content column there, so the track overflowed it and the cards ran
+    // under the right edge of the screen.
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 40px;
+    align-items: start;
+    margin-top: clamp(48px, 8vh, 104px);
+    padding-top: 40px;
+    border-top: 1px solid v.$line;
+    list-style: none;
+  }
+}
+
+.project-card {
+  &__media {
+    // The ratio is held in CSS, so the image cannot shift the layout as it loads.
+    position: relative;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: v.$bg-raised;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    @include v.card-title;
+
+    padding-top: 12px;
+    border-top: 1px solid v.$line;
+    font-size: clamp(20px, 2.4vw, 32px);
+  }
+}

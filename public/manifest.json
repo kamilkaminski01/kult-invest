@@ -1,11 +1,11 @@
 {
-  "name": "Kult - nowoczesne inwestycje i technologie",
-  "short_name": "Kult",
-  "description": "Tworzymy innowacyjne rozwiązania, które łączą świat nieruchomości z technologią",
+  "name": "Kult Invest - flipy mieszkaniowe w Białymstoku",
+  "short_name": "Kult Invest",
+  "description": "Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "16x16",
+      "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon"
     },
     {
@@ -34,7 +34,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#020202",
-  "background_color": "#020202",
+  "theme_color": "#0e0f12",
+  "background_color": "#0e0f12",
   "display": "standalone"
 }

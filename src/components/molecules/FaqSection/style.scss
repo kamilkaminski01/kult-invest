@@ -1,81 +1,24 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .faq-section {
-  position: relative;
-  padding: 100px 9.75rem;
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
 
-  background-color: variables.$light-bg;
+  &__inner {
+    @include v.content-grid;
 
-  z-index: 1;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background: variables.$light-bg;
-    z-index: -1;
-  }
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 160px;
-    margin: 0 auto;
-    max-width: 1600px;
+    padding-block: v.$rhythm;
   }
 
   &__title {
-    flex-shrink: 0;
-    max-width: 560px;
+    @include v.section-title;
 
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.1;
-    color: variables.$grey-title;
+    grid-column: 4 / 13;
   }
 
-  @media (max-width: 1440px) {
-    padding: 80px 4rem;
-
-    &__container {
-      gap: 80px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    padding: 60px 2rem;
-
-    &__container {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    &__title {
-      font-size: 36px;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 40px 1rem;
-
-    &__title {
-      padding: 0 2rem;
-      margin-bottom: 2rem;
-
-      text-align: center;
-      font-size: 32px;
-      line-height: 1.2;
-    }
-
-    &__container {
-      gap: 32px;
-    }
+  &__items {
+    grid-column: 5 / 13;
+    margin-top: clamp(48px, 8vh, 104px);
+    border-top: 1px solid v.$line-strong;
   }
 }

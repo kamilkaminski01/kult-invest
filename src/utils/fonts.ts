@@ -1,17 +1,30 @@
-import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
+import { IBM_Plex_Sans, IBM_Plex_Sans_Condensed, IBM_Plex_Mono } from 'next/font/google'
 
-export const archivo = localFont({
-  variable: '--font-archivo',
-  src: [
-    { path: '../assets/fonts/Archivo-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../assets/fonts/Archivo-Semi-Bold.woff2', weight: '500', style: 'normal' },
-    { path: '../assets/fonts/Archivo-Bold.woff2', weight: '600', style: 'normal' }
-  ]
+// The three typefaces from the approved design. The weights are exactly the ones
+// the design calls for - nothing beyond them is loaded.
+//
+// `latin-ext` is mandatory: without that subset the Polish diacritics (a-ogonek,
+// s-acute, z-dot) fall back to a substitute face and break the setting.
+
+export const plexSans = IBM_Plex_Sans({
+  variable: '--font-plex-sans',
+  weight: ['400', '500'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
 })
 
-export const inter = Inter({
-  variable: '--font-inter',
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin']
+// Weight 300 is the fallback for the hero subtitle (Condensed has no 400 of its
+// own), 600 for card subheadings, 700 for section headings.
+export const plexCondensed = IBM_Plex_Sans_Condensed({
+  variable: '--font-plex-condensed',
+  weight: ['300', '600', '700'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
+})
+
+export const plexMono = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  weight: ['500'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
 })

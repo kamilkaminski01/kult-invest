@@ -1,95 +1,115 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .accordion-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  // The divider belongs to the item, not to the button and not to the panel. Both
+  // used to carry one, and the panel was narrower than the question, so an open
+  // item ended in two rules of different lengths.
+  border-bottom: 1px solid v.$line;
 
-  @media (max-width: 768px) {
-    border-bottom: 4px solid #dddddd;
+  &__heading {
+    margin: 0;
   }
 
-  &__header {
-    display: flex;
-    align-items: center;
-    padding: 32px 0;
+  &__button {
+    @include v.card-title;
+
     width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 0;
 
     text-align: left;
     background: none;
-    border: none;
+    border: 0;
     cursor: pointer;
+    transition: color v.$dur-fast v.$ease-out-quad;
 
-    @media (max-width: 768px) {
-      gap: 1rem;
+    &:hover,
+    &:focus-visible {
+      color: v.$brass;
     }
   }
 
-  &__number {
-    font-size: 24px;
-    font-weight: 700;
-    margin-right: 20px;
-    min-width: 25px;
-    color: variables.$dover-gray;
-
-    @media (max-width: 768px) {
-      padding-left: 0.5rem;
-
-      font-size: 18px;
-      line-height: 1.2;
-    }
-  }
-
-  &__question {
-    font-size: 24px;
-    font-weight: 700;
-    flex-grow: 1;
-    color: variables.$black;
-    margin: 0;
-
-    @media (max-width: 768px) {
-      font-size: 18px;
-      line-height: 1.4;
-    }
-  }
-
+  // Height of exactly one line of the question, so the mark stays centred on the
+  // first line even when the question wraps onto two.
   &__icon {
-    transition: transform 0.3s ease;
+    position: relative;
+    flex: 0 0 auto;
+    width: 14px;
+    height: 1.02em;
 
-    svg path {
-      stroke: variables.$spanish-gold;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      margin-top: -0.5px;
+
+      background-color: v.$brass;
+      transition: transform v.$dur-base v.$ease-out-expo;
+    }
+
+    // The vertical stroke of the plus. On open it rotates onto the horizontal one
+    // and what is left reads as a minus.
+    &::after {
+      transform: rotate(90deg);
     }
   }
 
-  &__content {
-    max-height: 0;
+  &__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows v.$dur-base v.$ease-out-expo;
+  }
+
+  &__panel-inner {
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    // Delayed by the collapse duration so the content does not vanish before the
+    // animation has run.
+    visibility: hidden;
+    transition: visibility 0s linear v.$dur-base;
   }
 
   &__answer {
-    padding-bottom: 24px;
-    padding-left: 45px;
-    line-height: 1.4;
+    max-width: 60ch;
+    padding-bottom: 28px;
 
-    color: variables.$black;
+    color: v.$ink-muted;
+    opacity: 0;
+    translate: 0 -8px;
+    transition:
+      opacity v.$dur-base v.$ease-out-expo,
+      translate v.$dur-base v.$ease-out-expo;
+  }
 
-    font-size: 18px;
-    max-width: 900px;
+  &[data-open='true'] {
+    .accordion-item__icon::after {
+      transform: rotate(0deg);
+    }
 
-    @media (max-width: 768px) {
-      padding-right: 1.5rem;
-      padding-left: 3.7rem;
+    .accordion-item__panel {
+      grid-template-rows: 1fr;
+    }
 
-      font-size: 16px;
-      line-height: 1.5;
+    .accordion-item__panel-inner {
+      visibility: visible;
+      transition-delay: 0s;
+    }
+
+    .accordion-item__answer {
+      opacity: 1;
+      translate: none;
     }
   }
 
-  &--active {
-    .accordion-item__icon {
-      transform: rotate(180deg);
-    }
-    .accordion-item__content {
-      max-height: 500px;
+  @media (max-width: 768px) {
+    &__button {
+      gap: 16px;
     }
   }
 }

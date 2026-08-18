@@ -1,0 +1,93 @@
+@use 'assets/styles/variables' as v;
+
+.team-section {
+  @include v.content-grid;
+
+  padding-block: v.$rhythm;
+  border-top: 1px solid v.$line;
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  // A 1 px gap over a line-coloured background draws the divider between plates
+  // without any borders - the same trick as the stages section. Two columns come in
+  // from tablet width up.
+  &__grid {
+    grid-column: 1 / 13;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 1px;
+    margin-top: clamp(48px, 8vh, 104px);
+    background-color: v.$line;
+  }
+
+  &__person {
+    background-color: v.$bg-deep;
+    padding: 40px clamp(24px, 3vw, 40px) 44px;
+
+    // A brass rule opens the plate, the way the number opens a process step.
+    &::before {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 2px;
+      margin-bottom: 22px;
+      background-color: v.$brass;
+    }
+  }
+
+  &__role {
+    @include v.mono-label;
+
+    color: v.$brass;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 18px 0 24px;
+  }
+
+  &__figure {
+    flex: 0 0 auto;
+    width: 112px;
+    height: 140px;
+
+    margin: 0;
+    overflow: hidden;
+    background-color: v.$bg-raised;
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    @include v.card-title;
+
+    font-size: clamp(20px, 1.9vw, 28px);
+  }
+
+  &__bio {
+    max-width: 52ch;
+    color: v.$ink-muted;
+  }
+
+  // Below 360 px the thumbnail and the name side by side leave the name barely
+  // eight characters a line.
+  @media (max-width: 359px) {
+    &__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+}

@@ -1,22 +1,10 @@
 import './style.scss'
 import { ButtonProps } from './interface'
 
-const Button = ({
-  children,
-  onClick,
-  form,
-  type = 'submit',
-  className = '',
-  disable = false
-}: ButtonProps) => {
+const Button = ({ children, type = 'submit', className = '', disable = false }: ButtonProps) => {
   return (
-    <button
-      className={`btn ${className}`}
-      type={type}
-      form={form}
-      onClick={onClick}
-      disabled={disable}>
-      {children || 'Button'}
+    <button className={`btn ${className}`} type={type} disabled={disable}>
+      {children}
     </button>
   )
 }

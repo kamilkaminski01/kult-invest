@@ -1,0 +1,30 @@
+@use 'assets/styles/variables' as v;
+
+.registration-note {
+  background-color: v.$bg-alt;
+  border-block: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: clamp(48px, 7vh, 96px);
+  }
+
+  &__title {
+    @include v.block-title;
+
+    grid-column: 1 / 6;
+  }
+
+  &__text {
+    grid-column: 7 / 13;
+    max-width: 58ch;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+
+    span {
+      color: v.$ink;
+    }
+  }
+}

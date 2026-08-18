@@ -1,128 +1,182 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include v.content-grid;
 
-  height: 800px;
-  gap: 1.5rem;
-  margin: 0 auto;
-  padding: 0 2rem;
+  background-color: v.$bg-deep;
+  padding-top: clamp(40px, 6vh, 80px);
+  padding-bottom: clamp(48px, 8vh, 110px);
 
-  background: variables.$bg-img no-repeat center/cover;
+  // --logo-w is the single source of truth for the whole signature block: the box
+  // height and the gap beneath it are both derived from it, so the logotype scales
+  // with the layout rather than with the window.
+  --logo-w: clamp(230px, 46vw, 660px);
 
-  .hero-section__header {
+  &__top {
+    grid-column: 1 / 13;
+
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    margin-bottom: clamp(16px, calc(var(--logo-w) * 0.032), 48px);
+  }
 
-    text-align: center;
+  &__logo {
+    width: var(--logo-w);
+    height: calc(var(--logo-w) / 3.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  // The box above keeps its own height and the mark is centred inside it, so the
+  // rhythm at the top of the section does not depend on the file's proportions.
+  &__mark {
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    grid-column: 1 / 13;
+    margin-bottom: 16px;
+
+    font-family: var(--font-plex-condensed);
+    font-size: v.$fs-display-xl;
+    font-weight: 700;
+    line-height: 0.86;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
+    color: v.$ink;
 
-    .header__subtitle {
-      font-family: var(--font-inter);
-      font-size: 32px;
-      font-weight: 400;
-      letter-spacing: 6.4px;
-      color: variables.$brainstem-grey;
-    }
-
-    .header__title {
-      color: variables.$spanish-gold;
-      line-height: 1.2;
-      font-size: 80px;
-      font-weight: 700;
+    span {
+      display: block;
     }
   }
 
-  .hero-section__body {
+  // Condensed has no cut of its own at 400 - the design deliberately drops to 300
+  // here, the lightest weight loaded. The same contrast as in the logotype.
+  &__subtitle {
+    margin-top: 0.16em;
+
+    font-size: clamp(24px, 4.6vw, 66px);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+    color: v.$ink-muted;
+  }
+
+  &__lead {
+    grid-column: 1 / 7;
+    max-width: 56ch;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
+  // The buttons sit in the right half of the grid, aligned to the bottom of the
+  // paragraph beside them.
+  &__actions {
+    grid-column: 7 / 13;
+    align-self: end;
+
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 
-    max-width: 1056px;
-    text-align: center;
+  &__cta {
+    @include v.mono-label;
 
-    .body__upper {
-      font-size: 24px;
-      line-height: 1.4;
+    padding: 18px 28px;
+    border: 1px solid v.$control-border;
+    color: v.$ink;
+    transition: border-color v.$dur-fast v.$ease-out-quad;
+
+    &:hover,
+    &:focus-visible {
+      border-color: v.$brass;
     }
 
-    .body__lower {
-      font-size: 18px;
-      line-height: 1.5;
-      color: variables.$dover-gray;
+    &--primary {
+      border-color: v.$brass;
+      background-color: v.$brass;
+      color: v.$brass-ink;
+
+      &:hover,
+      &:focus-visible {
+        background-color: transparent;
+        color: v.$ink;
+      }
     }
   }
 
-  @media (max-width: 1200px) {
-    height: 700px;
+  &__cta-short {
+    display: none;
+  }
 
-    .hero-section__header {
-      .header__title {
-        font-size: 64px;
-      }
-      .header__subtitle {
-        font-size: 24px;
-      }
+  &__stats {
+    grid-column: 1 / 13;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 24px;
+    margin-top: clamp(48px, 8vh, 104px);
+    padding-top: 40px;
+    border-top: 1px solid v.$line-strong;
+    list-style: none;
+  }
+
+  &__stat {
+    padding-left: 24px;
+    border-left: 1px solid v.$brass-dim;
+  }
+
+  &__stat-value {
+    display: block;
+    margin-bottom: 8px;
+
+    font-family: var(--font-plex-condensed);
+    font-size: v.$fs-display-m;
+    font-weight: 700;
+    line-height: 1;
+    color: v.$brass;
+  }
+
+  &__stat-label {
+    @include v.mono-label;
+
+    display: block;
+    color: v.$ink-muted;
+  }
+
+  // Below 400 px the full call to action does not fit on one line of the button.
+  @media (max-width: 399px) {
+    &__cta-long {
+      display: none;
+    }
+
+    &__cta-short {
+      display: inline;
     }
   }
 
-  @media (max-width: 992px) {
-    height: 600px;
-    gap: 1rem;
-
-    .hero-section__header {
-      .header__title {
-        font-size: 48px;
-      }
-      .header__subtitle {
-        font-size: 26px;
-      }
-    }
-
-    .hero-section__body {
-      .body__upper {
-        font-size: 20px;
-      }
+  @media (max-width: 900px) {
+    &__lead {
+      margin-bottom: 32px;
     }
   }
 
   @media (max-width: 768px) {
-    height: auto;
-    padding: 6rem 1rem 3rem 1rem;
-    margin-top: -5vh;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0;
-
-    .hero-section__header {
-      .header__title {
-        margin-bottom: 32px;
-        font-size: 40px;
-        text-align: left;
-      }
-
-      .header__subtitle {
-        margin-bottom: 4px;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 1;
-        letter-spacing: 0.2em;
-        text-align: left;
-      }
+    &__actions {
+      flex-direction: column;
+      align-items: stretch;
     }
 
-    .hero-section__body {
-      gap: 1rem;
-
-      .body__upper,
-      .body__lower {
-        font-size: 16px;
-        text-align: left;
-      }
+    &__cta {
+      text-align: center;
     }
   }
 }

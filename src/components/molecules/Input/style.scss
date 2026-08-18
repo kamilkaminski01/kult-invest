@@ -1,4 +1,4 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .input-wrapper {
   display: flex;
@@ -6,40 +6,39 @@
   gap: 8px;
 
   .input-wrapper__label {
-    color: variables.$black;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.4;
+    @include v.mono-label;
+
+    color: v.$ink-muted;
 
     &--required::after {
       content: '*';
       margin-left: 2px;
-      color: variables.$black;
+      color: v.$brass;
     }
   }
 
   .input-wrapper__input {
-    padding: 12px 16px;
-    background-color: #fafafa;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    padding: 14px 16px;
+
+    background-color: v.$bg-raised;
+    border: 1px solid v.$control-border;
+    color: v.$ink;
 
     font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 0.32px;
+    line-height: 1.4;
     outline: none;
     transition: border-color 0.2s;
 
-    &:focus {
-      border-color: variables.$black;
+    &:focus-visible {
+      border-color: v.$brass;
     }
 
     &--invalid {
-      border: 1px solid variables.$valencia;
+      border-color: v.$danger;
     }
 
     &::placeholder {
-      color: variables.$brainstem-grey;
+      color: v.$ink-muted;
       opacity: 1;
     }
   }

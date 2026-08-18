@@ -1,18 +1,99 @@
-$black: #020202;
-$white: #ffffff;
+// Tokens transcribed 1:1 from the approved design (Kult Invest.dc_1.html).
+// Every text/background pair is checked against WCAG 2.1 AA: ink 16.7:1,
+// ink-muted 5.8:1, brass 7.9:1 on $bg-deep.
 
-$dark-grey: #2d2d2d;
-$dover-gray: #848484;
-$grey-title: #5b5b5b;
-$light-grey: #cecece;
-$brainstem-grey: #b4b4b4;
-$lighthouse: #f4f4f4;
-$light-bg: #e4e4e4;
+$ink: #f1efea;
+$ink-muted: #938d82;
 
-$mobile-body-bg: #040404;
+$bg-deep: #0e0f12;
+$bg-alt: #14161b;
+$bg-raised: #1a1d23;
 
-$spanish-gold: #b29850;
+$line: #24262c;
+$line-strong: #33363e;
+// Form field border - lighter than $line-strong, because a control has to be
+// recognisable as a control (WCAG 1.4.11, 3:1 against its background).
+$control-border: #6a6e78;
 
-$bg-img: url('../../../assets/images/hero-img.webp');
+$brass: #c4a15a;
+$brass-ink: #0e0f12;
+// The design uses an opaque colour here rather than translucent brass, so the
+// edge looks identical on $bg-deep and on $bg-alt.
+$brass-dim: #4e422b;
 
-$valencia: #da4950;
+$danger: #e88a6a;
+
+// Content grid - the same one in every section.
+$content-max: 1440px;
+$content-pad: clamp(20px, 4.2vw, 72px);
+$rhythm: clamp(80px, 12vh, 200px);
+
+// Type scale from the design.
+$fs-display-xl: clamp(34px, 6.7vw, 96px);
+$fs-display-l: clamp(34px, 6vw, 92px);
+$fs-display-m: clamp(24px, 3.4vw, 44px);
+$fs-heading-s: clamp(19px, 1.6vw, 24px);
+$fs-body-l: clamp(16px, 1.5vw, 19px);
+$fs-meta: 11px;
+
+// Motion - the same curves and durations as the design.
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$dur-fast: 200ms;
+$dur-base: 450ms;
+$dur-slow: 800ms;
+
+@mixin content-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  max-width: $content-max;
+  margin: 0 auto;
+  padding-inline: $content-pad;
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@mixin mono-label {
+  font-family: var(--font-plex-mono);
+  font-size: $fs-meta;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@mixin section-title {
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-display-l;
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: $ink;
+}
+
+// Smaller block headings (the registration note, step numbers) - same family as
+// the section title, different scale and tighter leading.
+@mixin block-title {
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-display-m;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  text-transform: uppercase;
+  color: $ink;
+}
+
+// Subheadings inside cards: stages A/B/C, project names, people, FAQ questions.
+@mixin card-title {
+  font-family: var(--font-plex-condensed);
+  font-size: $fs-heading-s;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  text-transform: uppercase;
+  color: $ink;
+}

@@ -1,0 +1,173 @@
+@use 'assets/styles/variables' as v;
+
+.process-section {
+  --step-w: min(88vw, 440px);
+  --gap: clamp(24px, 4vw, 64px);
+  --steps: 5;
+
+  // Width the track is measured against: the same content column every other
+  // section uses, so above $content-max the steps stay aligned with the grid
+  // instead of running to the screen edge.
+  --view-w: calc(min(100vw, #{v.$content-max}) - 2 * #{v.$content-pad});
+
+  // Total width of the track and how far past the column it reaches. Both are
+  // pure CSS, so the pinned section knows its own height on the first paint and
+  // never resizes afterwards.
+  --track-w: calc(var(--steps) * var(--step-w) + (var(--steps) - 1) * var(--gap));
+  --travel: max(0px, calc(var(--track-w) - var(--view-w)));
+
+  background-color: v.$bg-alt;
+  border-top: 1px solid v.$line;
+  padding-top: v.$rhythm;
+  padding-bottom: v.$rhythm;
+
+  &__inner {
+    @include v.content-grid;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 4 / 13;
+  }
+
+  // Resting layout: a plain vertical list. This is what visitors get without
+  // JavaScript, with reduced motion, and on anything narrower than 1024px.
+  &__track {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: v.$content-max;
+    margin: clamp(48px, 8vh, 104px) auto 0;
+    padding-inline: v.$content-pad;
+    list-style: none;
+  }
+
+  &__progress {
+    display: none;
+  }
+}
+
+.process-step {
+  width: min(100%, 440px);
+  padding-top: 24px;
+  border-top: 1px solid v.$brass-dim;
+
+  // Only the step currently under the scroll position is lit. Colour is the one
+  // property animated outside transform/opacity anywhere on the page: it repaints
+  // five short text nodes and cannot move anything, so it costs no layout.
+  &__number {
+    display: block;
+
+    font-family: var(--font-plex-condensed);
+    font-size: v.$fs-display-m;
+    font-weight: 700;
+    line-height: 1;
+    color: v.$ink-muted;
+    transition: color v.$dur-fast v.$ease-out-quad;
+  }
+
+  &--active &__number {
+    color: v.$brass;
+  }
+
+  // The step title carries the same weight as the number - in the pinned view
+  // each step reads as its own screen.
+  &__title {
+    @include v.card-title;
+
+    margin: 8px 0;
+    font-size: v.$fs-display-m;
+  }
+
+  &__description {
+    max-width: 52ch;
+    color: v.$ink-muted;
+  }
+}
+
+// --- Pinned view ---
+//
+// Applies at every width, phones included, so the section behaves the same
+// everywhere. Gated only on `html.js`, which is set before the first paint and
+// only when reduced motion has not been requested.
+//
+// The outer block is tall enough to buy the horizontal travel; the inner block
+// sticks to the top for exactly that distance while a scroll handler slides the
+// track sideways. Only `transform` is ever written.
+.js .process-section {
+  padding-bottom: 0;
+}
+
+.js .process-section__pin-outer {
+  height: calc(100vh + var(--travel));
+}
+
+// The pin clips at the content column, not the screen edge, so on wide monitors
+// the steps enter and leave in line with every other section.
+.js .process-section__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  max-width: v.$content-max;
+  margin-inline: auto;
+  padding-inline: v.$content-pad;
+}
+
+// Mobile browsers grow and shrink the viewport as the address bar hides, and
+// 100vh follows it - the pinned section would resize mid-scroll and drag the
+// whole page with it. svh is the height with the bars showing, so it never
+// changes while scrolling.
+@supports (height: 100svh) {
+  .js .process-section__pin-outer {
+    height: calc(100svh + var(--travel));
+  }
+
+  .js .process-section__pin {
+    height: 100svh;
+  }
+}
+
+// `stretch` gives every step the height of the tallest one, so the brass rules
+// above the numbers line up. With `center` each card started at a different
+// height, because the descriptions differ in length.
+.js .process-section__track {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+  align-items: stretch;
+  max-width: none;
+  margin: 0;
+  padding-inline: 0;
+  will-change: transform;
+}
+
+.js .process-step {
+  flex: 0 0 auto;
+  width: var(--step-w);
+}
+
+.js .process-section__progress {
+  display: block;
+  margin-top: clamp(16px, 2.5vh, 28px);
+}
+
+.js .process-section__progress-line {
+  position: relative;
+  height: 1px;
+  background-color: v.$line-strong;
+}
+
+.js .process-section__progress-bar {
+  position: absolute;
+  inset: 0;
+  background-color: v.$brass;
+  transform: scaleX(0);
+  transform-origin: left;
+}

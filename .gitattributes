@@ -1,0 +1,15 @@
+# The repo kept LF in the index, but core.autocrlf checked files out as CRLF -
+# and prettier expects LF by default. The effect: `npm run lint` reported
+# "Delete ␍" in every file in the project, whatever was actually in it.
+# The line below forces LF in the working tree too, on every system.
+* text=auto eol=lf
+
+# Binaries - never touch line endings.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.svg   text eol=lf
+*.ico   binary
+*.woff  binary
+*.woff2 binary

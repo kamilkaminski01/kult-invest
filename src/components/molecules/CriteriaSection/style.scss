@@ -1,0 +1,46 @@
+@use 'assets/styles/variables' as v;
+
+.criteria-section {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
+
+  &__inner {
+    @include v.content-grid;
+
+    padding-block: v.$rhythm;
+  }
+
+  &__title {
+    @include v.section-title;
+
+    grid-column: 1 / 6;
+    align-self: start;
+    position: sticky;
+    top: 40px;
+  }
+
+  &__content {
+    grid-column: 6 / 13;
+    margin-top: clamp(24px, 3vh, 44px);
+  }
+
+  &__lead {
+    max-width: 62ch;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
+  &__lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 40px;
+    margin-top: clamp(40px, 6vh, 72px);
+  }
+
+  @media (max-width: 900px) {
+    &__title {
+      position: static;
+    }
+  }
+}

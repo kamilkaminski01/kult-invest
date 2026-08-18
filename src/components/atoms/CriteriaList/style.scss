@@ -1,0 +1,38 @@
+@use 'assets/styles/variables' as v;
+
+.criteria-list {
+  &__title {
+    @include v.mono-label;
+
+    padding-bottom: 16px;
+    font-weight: 500;
+  }
+
+  &--buy &__title {
+    border-bottom: 1px solid v.$brass-dim;
+    color: v.$brass;
+  }
+
+  &--avoid &__title {
+    border-bottom: 1px solid v.$line-strong;
+    color: v.$ink-muted;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 16px;
+    line-height: 1.6;
+    color: v.$ink-muted;
+  }
+
+  &__lead {
+    color: v.$ink;
+  }
+}

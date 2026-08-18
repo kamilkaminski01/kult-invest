@@ -1,20 +1,27 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
 .btn {
   width: 100%;
-  padding: 1.5rem 3rem;
+  padding: 18px 28px;
 
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.44px;
+  @include v.mono-label;
 
-  border-radius: 4px;
-  background-color: variables.$spanish-gold;
-  color: variables.$white;
+  line-height: 1;
 
-  border: none;
+  background-color: v.$brass;
+  color: v.$brass-ink;
+
+  border: 1px solid v.$brass;
   outline: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background-color: transparent;
+    color: v.$ink;
+  }
 
   &:disabled {
     pointer-events: none;

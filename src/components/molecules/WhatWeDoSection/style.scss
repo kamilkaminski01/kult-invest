@@ -1,80 +1,39 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/variables' as v;
 
-.whatwedo-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.what-we-do {
+  background-color: v.$bg-deep;
+  border-top: 1px solid v.$line;
 
-  max-width: 1608px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  background-color: variables.$light-bg;
-  z-index: 1;
+  &__inner {
+    @include v.content-grid;
 
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background: variables.$light-bg;
-    z-index: -1;
+    padding-block: v.$rhythm;
   }
 
   &__title {
-    margin-bottom: 5rem;
-    text-align: center;
+    @include v.section-title;
 
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 1.2;
-    color: variables.$grey-title;
+    grid-column: 4 / 13;
   }
 
-  &__grid {
+  &__lead {
+    grid-column: 5 / 12;
+    max-width: 62ch;
+    margin-top: 40px;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
+  // A 1 px gap over a line-coloured background gives a grid without drawing any
+  // borders - the cards expose the background between themselves.
+  &__stages {
+    grid-column: 1 / 13;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-    gap: 2rem;
-  }
-
-  @media (max-width: 1280px) {
-    padding: 6rem 2rem;
-
-    &__grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    &__title {
-      font-size: 36px;
-      margin-bottom: 3.5rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 4rem 1rem;
-
-    &__title {
-      font-size: 32px;
-      margin-bottom: 2.5rem;
-    }
-
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 1px;
+    margin-top: clamp(48px, 8vh, 104px);
+    background-color: v.$line;
   }
 }
