@@ -32,28 +32,11 @@
     justify-content: flex-start;
   }
 
-  &__lockup {
-    display: inline-block;
-    white-space: nowrap;
-
-    font-family: var(--font-plex-condensed);
-    font-size: clamp(30px, 9vw, 140px);
-    line-height: 1;
-    letter-spacing: -0.035em;
-    text-transform: lowercase;
-    color: v.$ink;
-
-    b {
-      font-weight: 700;
-      color: v.$ink;
-    }
-
-    // Mosiadz na tle strony daje 7,9:1 — z zapasem ponad wymagane 4,5:1.
-    i {
-      font-weight: 300;
-      font-style: normal;
-      color: v.$brass;
-    }
+  // Pudelko wyzej zostaje na swojej wysokosci, a znak stoi w nim wysrodkowany:
+  // dzieki temu rytm gory sekcji nie zalezy od proporcji samego pliku.
+  &__mark {
+    width: 100%;
+    height: auto;
   }
 
   &__title {
@@ -73,7 +56,7 @@
     }
   }
 
-  // Waga 400 nie ma wlasnego kroju w Condensed — projekt celowo zjezdza tu na 300,
+  // Waga 400 nie ma wlasnego kroju w Condensed - projekt celowo zjezdza tu na 300,
   // czyli najlzejszy wczytany krój. To ten sam kontrast, co w logotypie.
   &__subtitle {
     margin-top: 0.16em;

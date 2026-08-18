@@ -4,7 +4,7 @@
   background-color: v.$bg-deep;
   border-top: 1px solid v.$line;
 
-  // Stopka jest jedyna nawigacja jednostronicowego serwisu — trzyma sie tej samej
+  // Stopka jest jedyna nawigacja jednostronicowego serwisu - trzyma sie tej samej
   // siatki i palety co sekcje powyzej, zeby nie czytala sie jak osobna strona.
   &__inner {
     display: flex;
@@ -82,11 +82,6 @@
   }
 
   &__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-
     padding-top: clamp(24px, 3vh, 32px);
     border-top: 1px solid v.$line;
 
@@ -94,27 +89,14 @@
     font-size: v.$fs-meta;
     font-weight: 500;
     letter-spacing: 0.05em;
+    text-align: center;
     text-transform: uppercase;
     color: v.$ink-muted;
   }
 
-  &__credits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-
-    a {
-      color: v.$ink;
-      border-bottom: 1px solid v.$brass-dim;
-      transition: border-color 0.2s ease;
-
-      &:hover,
-      &:focus-visible {
-        border-color: v.$brass;
-      }
-    }
-  }
-
+  // Na tablecie nawigacja zostaje wierszem i tylko sie zawija. Pelna szerokosc
+  // dla kazdego odnosnika ma sens dopiero na telefonie - wczesniej robila z
+  // czterech linkow piec pelnoekranowych pasow.
   @media (max-width: 900px) {
     &__top {
       flex-direction: column;
@@ -127,21 +109,23 @@
     }
 
     &__nav {
+      flex-wrap: wrap;
+      gap: 24px 32px;
+      width: 100%;
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: 560px) {
+    &__nav {
       flex-direction: column;
       align-items: stretch;
-      gap: 24px;
-      width: 100%;
+      gap: 20px;
     }
 
     &__nav &__btn {
       display: block;
       text-align: center;
-    }
-
-    &__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
     }
   }
 

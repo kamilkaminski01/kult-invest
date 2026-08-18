@@ -13,7 +13,7 @@ const CriteriaSection = () => {
 
         <div className="criteria-section__content">
           <p className="criteria-section__lead fade">
-            Większość mieszkań odrzucamy — i to jest ta część pracy, za którą partner nam płaci.
+            Większość mieszkań odrzucamy - i to jest ta część pracy, za którą partner nam płaci.
             Każde „nie” na tym etapie kosztuje jeden wyjazd. Każde „tak” postawione na złym lokalu
             kosztuje miesiące zamrożonego kapitału. Poniżej kryteria, na których opieramy jedno i
             drugie.

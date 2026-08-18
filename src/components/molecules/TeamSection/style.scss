@@ -12,37 +12,52 @@
     grid-column: 4 / 13;
   }
 
-  // Portret 4:5 na cala szerokosc kolumny mial na monitorze ponad 900 px wysokosci,
-  // wiec nazwisko i opis zaczynaly sie juz pod krawedzia ekranu. Wysokosc zdjecia
-  // liczy sie teraz z wysokosci okna, a szerokosc karty wynika z tej wysokosci —
-  // proporcja zostaje dokladna, a calosc miesci sie na jednym ekranie.
-  // Rezerwa 360 px to miejsce na nazwisko i opis pod zdjeciem.
-  &__person {
-    --photo-h: clamp(240px, calc(100vh - 360px), 620px);
+  // Odstep 1 px na tle linii rysuje kreske miedzy plytami bez obramowan - ta
+  // sama sztuczka co w sekcji etapow. Dwie kolumny wchodza juz od tabletu.
+  &__grid {
+    grid-column: 1 / 13;
 
-    width: min(100%, max(40ch, calc(var(--photo-h) * 4 / 5)));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 1px;
     margin-top: clamp(48px, 8vh, 104px);
+    background-color: v.$line;
+  }
 
-    &:first-of-type {
-      grid-column: 1 / 7;
-    }
+  &__person {
+    background-color: v.$bg-deep;
+    padding: 40px clamp(24px, 3vw, 40px) 44px;
 
-    &:last-of-type {
-      grid-column: 7 / 13;
+    // Mosiezna kreska otwiera plyte, tak jak numer otwiera etap procesu.
+    &::before {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 2px;
+      margin-bottom: 22px;
+      background-color: v.$brass;
     }
   }
 
-  @supports (height: 100svh) {
-    &__person {
-      --photo-h: clamp(240px, calc(100svh - 360px), 620px);
-    }
+  &__role {
+    @include v.mono-label;
+
+    color: v.$brass;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 18px 0 24px;
   }
 
   &__figure {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    width: min(100%, calc(var(--photo-h) * 4 / 5));
-    margin: 0 0 24px;
+    flex: 0 0 auto;
+    width: 112px;
+    height: 140px;
+
+    margin: 0;
     overflow: hidden;
     background-color: v.$bg-raised;
   }
@@ -54,20 +69,10 @@
     object-fit: cover;
   }
 
-  &__caption {
-    @include v.mono-label;
-
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    color: v.$ink-muted;
-  }
-
   &__name {
     @include v.card-title;
 
-    margin-bottom: 16px;
-    font-size: clamp(20px, 2.4vw, 36px);
+    font-size: clamp(20px, 1.9vw, 28px);
   }
 
   &__bio {
@@ -75,23 +80,13 @@
     color: v.$ink-muted;
   }
 
-  // Nazwisko skaluje sie szerokoscia karty, a nie okna — karta bywa duzo wezsza
-  // niz kolumna, wiec cqw trafia w rzeczywista szerokosc i nazwisko zostaje
-  // w jednej linii na kazdym ekranie.
-  @supports (container-type: inline-size) {
-    &__person {
-      container-type: inline-size;
-    }
-
-    &__name {
-      font-size: clamp(20px, 8.6cqw, 36px);
-    }
-  }
-
-  @media (max-width: 900px) {
-    &__person {
-      width: 100%;
-      margin-top: 40px;
+  // Ponizej 360 px miniatura i nazwisko obok siebie zostawiaja na nazwisko
+  // niecale 8 znakow w linii.
+  @media (max-width: 359px) {
+    &__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
   }
 }

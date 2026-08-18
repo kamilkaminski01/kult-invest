@@ -25,7 +25,7 @@
     color: v.$ink-muted;
   }
 
-  // Odstep 1 px na tle linii daje siatke bez rysowania obramowan — karty same
+  // Odstep 1 px na tle linii daje siatke bez rysowania obramowan - karty same
   // odslaniaja tlo miedzy soba.
   &__stages {
     grid-column: 1 / 13;

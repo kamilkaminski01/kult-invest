@@ -1,6 +1,10 @@
+import { StaticImageData } from 'next/image'
+
 export interface IPerson {
   name: string
-  /** Podpis zaslepki — znika razem z nia, gdy wejdzie prawdziwy portret. */
+  /** Etap projektu, za ktory ta osoba odpowiada - to jest wlasciwa tresc sekcji. */
+  role: string
+  photo: StaticImageData
   photoAlt: string
   bio?: string
 }

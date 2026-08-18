@@ -29,7 +29,7 @@
     flex-shrink: 0;
   }
 
-  // Always in the DOM so the live region exists before it has anything to say —
+  // Always in the DOM so the live region exists before it has anything to say -
   // a region inserted at the same moment as its text is often missed.
   &__status {
     font-size: 14px;

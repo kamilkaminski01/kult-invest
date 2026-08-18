@@ -1,11 +1,11 @@
 {
-  "name": "Kult Invest — flipy mieszkaniowe w Białymstoku",
+  "name": "Kult Invest - flipy mieszkaniowe w Białymstoku",
   "short_name": "Kult Invest",
   "description": "Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "16x16",
+      "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon"
     },
     {

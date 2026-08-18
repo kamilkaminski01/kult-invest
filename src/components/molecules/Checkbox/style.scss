@@ -13,6 +13,12 @@
     position: absolute;
     opacity: 0;
 
+    // Zaznaczone pole niesie mosiadz na calej kontrolce, nie tylko w ptaszku,
+    // wiec stan widac bez wpatrywania sie w srodek kratki.
+    &:checked ~ .checkbox-wrapper__indicator {
+      border-color: v.$brass;
+    }
+
     &:checked ~ .checkbox-wrapper__indicator::after {
       display: block;
     }
@@ -24,29 +30,35 @@
     }
   }
 
+  // Ta sama krawedz co w polach tekstowych: kontrolka musi byc rozpoznawalna
+  // jako kontrolka (WCAG 1.4.11), a $line-strong byl na to za ciemny.
   .checkbox-wrapper__indicator {
     position: absolute;
-    top: 0.125em;
+    top: 0.14em;
     left: 0;
     height: 1.125em;
     width: 1.125em;
 
-    border: 1px solid v.$line-strong;
+    border: 1px solid v.$control-border;
     cursor: pointer;
+    transition: border-color v.$dur-fast v.$ease-out-quad;
 
+    // Ptaszek to dwie krawedzie pustego pudelka. Rozmiar w em i srodek liczony
+    // transformem, wiec znak zostaje w kratce niezaleznie od stopnia pisma -
+    // stale offsety w px wychodzily poza obramowanie.
     &::after {
       content: '';
       position: absolute;
       display: none;
 
-      left: 6px;
-      top: 2px;
-      width: 5px;
-      height: 10px;
+      left: 50%;
+      top: 46%;
+      width: 0.3em;
+      height: 0.6em;
 
       border: solid v.$brass;
       border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 
@@ -54,10 +66,6 @@
     font-size: 14px;
     line-height: 1.6;
     color: v.$ink-muted;
-  }
-
-  .checkbox-wrapper__error-message {
-    padding-left: 0;
   }
 }
 

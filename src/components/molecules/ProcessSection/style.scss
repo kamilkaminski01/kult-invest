@@ -71,7 +71,7 @@
     color: v.$brass;
   }
 
-  // The step title carries the same weight as the number — in the pinned view
+  // The step title carries the same weight as the number - in the pinned view
   // each step reads as its own screen.
   &__title {
     @include v.card-title;
@@ -121,7 +121,7 @@
 }
 
 // Mobile browsers grow and shrink the viewport as the address bar hides, and
-// 100vh follows it — the pinned section would resize mid-scroll and drag the
+// 100vh follows it - the pinned section would resize mid-scroll and drag the
 // whole page with it. svh is the height with the bars showing, so it never
 // changes while scrolling.
 @supports (height: 100svh) {
@@ -134,11 +134,14 @@
   }
 }
 
+// `stretch` daje wszystkim etapom wysokosc najwyzszego z nich, wiec mosiezne
+// kreski nad numerami stoja w jednej linii. Przy `center` kazda karta zaczynala
+// sie na innej wysokosci, bo opisy maja rozna dlugosc.
 .js .process-section__track {
   flex-direction: row;
   flex-wrap: nowrap;
   gap: var(--gap);
-  align-items: center;
+  align-items: stretch;
   max-width: none;
   margin: 0;
   padding-inline: 0;

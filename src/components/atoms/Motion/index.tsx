@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-const REVEAL_SELECTOR = '.reveal, .fade, .from-left, .from-right, .slide-x, .rule'
+const REVEAL_SELECTOR = '.reveal, .fade'
 const COUNTER_DURATION = 900
 
 /**
@@ -19,7 +19,7 @@ const Motion = () => {
   useEffect(() => {
     // `.js` is set by an inline script in the document head, before the first
     // paint, so the pinned layout never swaps in afterwards. Its absence means
-    // reduced motion was requested — nothing is hidden, so nothing to reveal.
+    // reduced motion was requested - nothing is hidden, so nothing to reveal.
     if (!document.documentElement.classList.contains('js')) return
 
     const targets = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR))
@@ -53,7 +53,7 @@ const Motion = () => {
 
           if (element.dataset.countTo) runCounter(element)
 
-          // Every animation plays once — re-triggering on the way back up turns
+          // Every animation plays once - re-triggering on the way back up turns
           // scrolling into a slideshow.
           observer.unobserve(element)
         })
@@ -63,7 +63,7 @@ const Motion = () => {
 
     ;[...targets, ...counters].forEach((element) => observer.observe(element))
 
-    // `.js` deliberately stays on the element — removing it would swap the
+    // `.js` deliberately stays on the element - removing it would swap the
     // layout back and register as a shift.
     return () => observer.disconnect()
   }, [])

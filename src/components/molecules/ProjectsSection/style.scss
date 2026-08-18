@@ -16,6 +16,15 @@
     grid-column: 4 / 13;
   }
 
+  &__lead {
+    grid-column: 4 / 10;
+    max-width: 58ch;
+    margin-top: 32px;
+
+    font-size: v.$fs-body-l;
+    color: v.$ink-muted;
+  }
+
   &__grid {
     grid-column: 1 / 13;
 
@@ -55,29 +64,8 @@
   &__name {
     @include v.card-title;
 
-    margin-bottom: 16px;
+    padding-top: 12px;
+    border-top: 1px solid v.$line;
     font-size: clamp(20px, 2.4vw, 32px);
-  }
-
-  &__meta {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1px 24px;
-
-    dt {
-      @include v.mono-label;
-
-      padding: 12px 0;
-      border-top: 1px solid v.$line;
-      color: v.$ink-muted;
-    }
-
-    dd {
-      margin: 0;
-      padding: 12px 0;
-      border-top: 1px solid v.$line;
-      font-size: 16px;
-      color: v.$ink;
-    }
   }
 }

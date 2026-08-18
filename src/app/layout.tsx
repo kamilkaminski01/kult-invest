@@ -9,8 +9,18 @@ import Motion from 'components/atoms/Motion'
 const description =
   'Kupujemy mieszkania z potencjałem w Białymstoku, remontujemy i sprzedajemy. Cenę zakupu i kosztorys zamykamy przed aktem notarialnym. Współpraca z partnerem kapitałowym.'
 
+// Wymiary podane wprost, bo czesc czytnikow buduje podglad zanim pobierze sam
+// plik - bez nich karta potrafi mignac w zlych proporcjach albo wpasc na
+// mniejszy format. `alt` opisuje karte tam, gdzie obrazek sie nie zaladuje.
+const ogImage = {
+  url: 'https://kultinvest.pl/og.png',
+  width: 1200,
+  height: 630,
+  alt: 'Kult Invest - flip liczony, nie obstawiany'
+}
+
 export const metadata: Metadata = {
-  title: 'Kult Invest — flipy mieszkaniowe w Białymstoku',
+  title: 'Kult Invest - flipy mieszkaniowe w Białymstoku',
   description,
   robots: 'index, follow',
   manifest: '/manifest.json',
@@ -18,18 +28,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://kultinvest.pl',
-    title: 'Kult Invest — flipy mieszkaniowe w Białymstoku',
+    title: 'Kult Invest - flipy mieszkaniowe w Białymstoku',
     description,
     siteName: 'Kult Invest',
-    images: 'https://kultinvest.pl/og.png'
+    locale: 'pl_PL',
+    images: [ogImage]
   },
   twitter: {
     card: 'summary_large_image',
-    images: 'https://kultinvest.pl/og.png'
+    title: 'Kult Invest - flipy mieszkaniowe w Białymstoku',
+    description,
+    images: [ogImage]
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon', sizes: '16x16' },
+      // Pierwszy na liscie, bo logotyp z czterech liter zyskuje na wektorze
+      // wszedzie tam, gdzie przegladarka rysuje ikone wieksza niz 16 px.
+      { url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' },
+      { url: '/favicon.ico', type: 'image/x-icon', sizes: '16x16 32x32 48x48' },
       { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
       { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
       { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
@@ -46,7 +62,7 @@ export const viewport: Viewport = {
   initialScale: 1
 }
 
-/** Dane strukturalne — bez watku technologicznego, wylacznie nieruchomosci. */
+/** Dane strukturalne - bez watku technologicznego, wylacznie nieruchomosci. */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'RealEstateAgent',
@@ -72,13 +88,13 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     // The inline script below sets `class="js"` before React hydrates, which is
-    // a deliberate mismatch with the server output — this tells React so.
+    // a deliberate mismatch with the server output - this tells React so.
     <html lang="pl" suppressHydrationWarning>
       <head>
         {/* Runs before the first paint. The pinned process section has a very
             different height with motion enabled, so deciding this later would
             re-lay-out the page after paint and cost us CLS. Kept inline and
-            tiny on purpose — it must not wait on a network round trip. */}
+            tiny on purpose - it must not wait on a network round trip. */}
         <script
           dangerouslySetInnerHTML={{
             __html:

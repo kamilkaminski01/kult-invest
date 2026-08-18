@@ -1,6 +1,11 @@
 @use 'assets/styles/variables' as v;
 
 .accordion-item {
+  // Kreska nalezy do pozycji, nie do przycisku i nie do panelu. Wczesniej mialy
+  // ja obie czesci, a panel byl wezszy od pytania, wiec rozwiniete pytanie
+  // konczylo sie dwiema liniami roznej dlugosci.
+  border-bottom: 1px solid v.$line;
+
   &__heading {
     margin: 0;
   }
@@ -10,7 +15,7 @@
 
     width: 100%;
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
     padding: 28px 0;
@@ -18,23 +23,86 @@
     text-align: left;
     background: none;
     border: 0;
-    border-bottom: 1px solid v.$line;
     cursor: pointer;
+    transition: color v.$dur-fast v.$ease-out-quad;
+
+    &:hover,
+    &:focus-visible {
+      color: v.$brass;
+    }
   }
 
+  // Wysokosc rowna jednemu wierszowi pytania, wiec znak stoi w osi pierwszej
+  // linii takze wtedy, gdy pytanie lamie sie na dwie.
   &__icon {
+    position: relative;
     flex: 0 0 auto;
+    width: 14px;
+    height: 1.02em;
 
-    font-family: var(--font-plex-mono);
-    font-size: v.$fs-meta;
-    color: v.$brass;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      margin-top: -0.5px;
+
+      background-color: v.$brass;
+      transition: transform v.$dur-base v.$ease-out-expo;
+    }
+
+    // Pionowa kreska plusa. Po rozwinieciu klika sie na pozioma i zostaje minus.
+    &::after {
+      transform: rotate(90deg);
+    }
   }
 
   &__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows v.$dur-base v.$ease-out-expo;
+  }
+
+  &__panel-inner {
+    overflow: hidden;
+    // Opoznione o czas zwijania, zeby tresc nie znikala przed animacja.
+    visibility: hidden;
+    transition: visibility 0s linear v.$dur-base;
+  }
+
+  &__answer {
     max-width: 60ch;
     padding-bottom: 28px;
-    border-bottom: 1px solid v.$line;
+
     color: v.$ink-muted;
+    opacity: 0;
+    translate: 0 -8px;
+    transition:
+      opacity v.$dur-base v.$ease-out-expo,
+      translate v.$dur-base v.$ease-out-expo;
+  }
+
+  &[data-open='true'] {
+    .accordion-item__icon::after {
+      transform: rotate(0deg);
+    }
+
+    .accordion-item__panel {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-item__panel-inner {
+      visibility: visible;
+      transition-delay: 0s;
+    }
+
+    .accordion-item__answer {
+      opacity: 1;
+      translate: none;
+    }
   }
 
   @media (max-width: 768px) {

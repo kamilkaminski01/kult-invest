@@ -30,7 +30,7 @@ const TextArea = ({ name, displayName, placeholder, validators, rows = 10 }: Tex
         {...register(name, validators)}
       />
       {/* Same component the text inputs use, so this message is announced as a
-          live region too — it used to be a bare span with no role. */}
+          live region too - it used to be a bare span with no role. */}
       {isInvalid && <ErrorMessage message={`${errors[name]?.message}`} fieldName={name} />}
     </div>
   )

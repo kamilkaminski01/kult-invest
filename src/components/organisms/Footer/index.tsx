@@ -36,20 +36,6 @@ const Footer = () => {
           <p className="footer__copyright">
             Copyright {currentYear} © {CONTACT.company}
           </p>
-          <div className="footer__credits">
-            Wykonali
-            <span>
-              <Link href="https://www.mgodlewskidev.pl" target="_blank" rel="noopener noreferrer">
-                Marcin Godlewski
-              </Link>
-            </span>
-            &
-            <span>
-              <Link href="https://kamilkaminski.pl" target="_blank" rel="noopener noreferrer">
-                Kamil Kamiński
-              </Link>
-            </span>
-          </div>
         </div>
       </div>
     </footer>

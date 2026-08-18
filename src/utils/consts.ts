@@ -1,13 +1,15 @@
-import nowosielska from 'assets/images/swipers/top/nowosielska.jpg'
-import kolejowa from 'assets/images/swipers/top/kolejowa.jpg'
-import olenki from 'assets/images/swipers/top/olenki.jpg'
-import stokrotki from 'assets/images/swipers/top/stokrotki.jpg'
-import vena from 'assets/images/swipers/top/vena.jpg'
-import elektryczna from 'assets/images/swipers/bottom/elektryczna.jpg'
-import witosa from 'assets/images/swipers/bottom/witosa.jpg'
-import porosly from 'assets/images/swipers/bottom/porosly.jpg'
-import kalinowa from 'assets/images/swipers/bottom/kalinowa.jpg'
-import wlokiennicza from 'assets/images/swipers/bottom/wlokiennicza.jpg'
+import kolejowa from 'assets/images/projects/kolejowa.jpg'
+import olenki from 'assets/images/projects/olenki.jpg'
+import stokrotki from 'assets/images/projects/stokrotki.jpg'
+import vena from 'assets/images/projects/vena.jpg'
+import elektryczna from 'assets/images/projects/elektryczna.jpg'
+import witosa from 'assets/images/projects/witosa.jpg'
+import porosly from 'assets/images/projects/porosly.jpg'
+import kalinowa from 'assets/images/projects/kalinowa.jpg'
+import wlokiennicza from 'assets/images/projects/wlokiennicza.jpg'
+
+import dominikTorebko from 'assets/images/team/dominik-torebko.jpg'
+import kamilKaminski from 'assets/images/team/kamil-kaminski.jpg'
 
 import { IFaqItem } from 'components/molecules/FaqSection/interface'
 import { IProject } from 'components/molecules/ProjectsSection/interface'
@@ -36,9 +38,9 @@ export const NAV_LINKS = [
 
 /** Jedyne liczby potwierdzone przez klienta. Nic poza nimi nie trafia na strone. */
 export const HERO_STATS: IStat[] = [
-  { value: '11', label: 'zrealizowanych projektów' },
-  { value: '21', label: 'przeprowadzonych transakcji' },
-  { value: '3', label: 'projekty prowadzone równolegle' }
+  { value: '15', label: 'zrealizowanych projektów' },
+  { value: '26', label: 'przeprowadzonych transakcji' },
+  { value: '4', label: 'projekty prowadzone równolegle' }
 ]
 
 export const STAGES: IStage[] = [
@@ -46,7 +48,7 @@ export const STAGES: IStage[] = [
     letter: 'A',
     title: 'Kupujemy',
     description:
-      'Lokale z problemem, który da się nazwać: układ, instalacje, stan techniczny, sytuacja właścicielska. Problem nazwany to problem wyceniony. Okazji, których nie umiemy policzyć, nie kupujemy — nawet tanich.'
+      'Lokale z problemem, który da się nazwać: układ, instalacje, stan techniczny, sytuacja właścicielska. Problem nazwany to problem wyceniony. Okazji, których nie umiemy policzyć, nie kupujemy - nawet tanich.'
   },
   {
     letter: 'B',
@@ -79,7 +81,7 @@ export const PROCESS_STEPS: IProcessStep[] = [
     number: '03',
     title: 'Projekt i remont',
     description:
-      'Plany, zakres, kosztorys, jedna ekipa. Raport z budowy raz w tygodniu, ze zdjęciami i listą tego, co nie poszło zgodnie z planem.'
+      'Plany, zakres, kosztorys, jedna ekipa. Raport z budowy raz w tygodniu, ze zdjęciami i listą tego, co poszło zgodnie z planem, a co nie.'
   },
   {
     number: '04',
@@ -101,12 +103,12 @@ export const RESPONSIBILITIES: IResponsibility[] = [
     partner: 'Całość albo część',
     kult: 'Uzupełnienie, jeśli tak ustalimy'
   },
-  { stage: 'Wyszukanie i wycena lokalu', partner: '—', kult: 'Całość' },
+  { stage: 'Wyszukanie i wycena lokalu', partner: '-', kult: 'Całość' },
   { stage: 'Decyzja o zakupie', partner: 'Zgoda', kult: 'Rekomendacja z wyceną' },
   { stage: 'Zakres i kosztorys remontu', partner: 'Wgląd', kult: 'Decyzja' },
-  { stage: 'Prowadzenie budowy', partner: '—', kult: 'Całość' },
+  { stage: 'Prowadzenie budowy', partner: '-', kult: 'Całość' },
   { stage: 'Raport z postępów', partner: 'Odbiorca', kult: 'Raz w tygodniu w czasie remontu' },
-  { stage: 'Ekspozycja i sprzedaż', partner: '—', kult: 'Całość' },
+  { stage: 'Ekspozycja i sprzedaż', partner: '-', kult: 'Całość' },
   { stage: 'Korekta ceny wyjściowej', partner: 'Decyzja wspólna', kult: 'Decyzja wspólna' },
   {
     stage: 'Rozliczenie projektu',
@@ -130,7 +132,7 @@ export const CRITERIA_BUY = [
   },
   {
     lead: 'Zły układ, dobra konstrukcja.',
-    text: 'Ściany do przestawienia to szansa; strop do wymiany to nie. Koszt zmiany układu policzymy przed zakupem, koszt niespodzianki w konstrukcji — dopiero po.'
+    text: 'Ściany do przestawienia to szansa; strop do wymiany to nie. Koszt zmiany układu policzymy przed zakupem, koszt niespodzianki w konstrukcji - dopiero po.'
   },
   {
     lead: 'Czysta sytuacja prawna.',
@@ -153,7 +155,7 @@ export const CRITERIA_AVOID = [
   },
   {
     lead: 'Lokali z lokatorem.',
-    text: 'Nie prowadzimy postępowań eksmisyjnych. Nigdy — nikt nie umie podać ich terminu, a bez terminu nie ma harmonogramu.'
+    text: 'Nie prowadzimy postępowań eksmisyjnych. Nigdy - nikt nie umie podać ich terminu, a bez terminu nie ma harmonogramu.'
   },
   {
     lead: 'Rynków, których nie znamy.',
@@ -168,47 +170,35 @@ export const CRITERIA_AVOID = [
 export const TEAM: IPerson[] = [
   {
     name: 'Dominik Torebko',
+    role: 'Przed zakupem',
+    photo: dominikTorebko,
     photoAlt: 'Dominik Torebko, współzałożyciel Kult',
-    bio: 'Ponad 150 przeprowadzonych transakcji na rynku nieruchomości. Inwestycje deweloperskie obejmujące kilkadziesiąt mieszkań. W Kult odpowiada za wybór lokali, wycenę, negocjacje i relacje z partnerami — czyli za wszystkie decyzje podejmowane przed zakupem.'
+    bio: 'Ponad 200 przeprowadzonych transakcji na rynku nieruchomości. Inwestycje deweloperskie obejmujące kilkadziesiąt mieszkań. W Kult odpowiada za wybór lokali, wycenę, negocjacje i relacje z partnerami - czyli za wszystkie decyzje podejmowane przed zakupem.'
   },
   {
     name: 'Kamil Kamiński',
+    role: 'Po zakupie',
+    photo: kamilKaminski,
     photoAlt: 'Kamil Kamiński, współzałożyciel Kult',
-    bio: 'Programista z wieloletnim doświadczeniem zdobytym w największych firmach w Polsce i Europie — projektował, wdrażał i prowadził tworzenie oprogramowania, czyli pracę, w której harmonogram i budżet rozlicza się co tydzień. W Kult odpowiada za prowadzenie remontu, raporty z budowy i rozliczenie projektu — czyli za wszystko, co dzieje się po zakupie.'
+    bio: 'Programista z wieloletnim doświadczeniem zdobytym w największych firmach w Polsce i Europie - projektował, wdrażał i prowadził tworzenie oprogramowania, czyli pracę, w której harmonogram i budżet rozlicza się co tydzień. W Kult odpowiada za prowadzenie remontu, raporty z budowy i rozliczenie projektu - czyli za wszystko, co dzieje się po zakupie.'
   }
 ]
 
+/**
+ * Zakres prac jest w kazdym projekcie ten sam, wiec nie opisujemy go przy
+ * kazdej karcie - stoi raz nad cala galeria. Karta niesie tylko to, co
+ * rzeczywiscie odroznia projekt: adres i zdjecie po remoncie.
+ */
 export const PROJECTS: IProject[] = [
-  {
-    id: 'nowosielska',
-    name: 'Nowosielska',
-    image: nowosielska,
-    scope: 'Instalacje, układ, wykończenie'
-  },
-  {
-    id: 'kolejowa',
-    name: 'Kolejowa',
-    image: kolejowa,
-    scope: 'Przebudowa układu, łazienka, kuchnia'
-  },
-  { id: 'olenki', name: 'Oleńki', image: olenki, scope: 'Osuszanie, tynki, wykończenie' },
-  { id: 'stokrotki', name: 'Stokrotki', image: stokrotki, scope: 'Układ, instalacje, wykończenie' },
-  { id: 'vena', name: 'Vena', image: vena, scope: 'Wykończenie pod klucz' },
-  {
-    id: 'elektryczna',
-    name: 'Elektryczna',
-    image: elektryczna,
-    scope: 'Kuchnia, łazienka, podłogi'
-  },
-  { id: 'witosa', name: 'Witosa', image: witosa, scope: 'Przebudowa układu, wykończenie' },
-  { id: 'porosly', name: 'Porosły', image: porosly, scope: 'Instalacje, tynki, wykończenie' },
-  { id: 'kalinowa', name: 'Kalinowa', image: kalinowa, scope: 'Łazienka, kuchnia, podłogi' },
-  {
-    id: 'wlokiennicza',
-    name: 'Włókiennicza',
-    image: wlokiennicza,
-    scope: 'Układ, instalacje, wykończenie'
-  }
+  { id: 'kolejowa', name: 'Kolejowa', image: kolejowa },
+  { id: 'olenki', name: 'Oleńki', image: olenki },
+  { id: 'stokrotki', name: 'Stokrotki', image: stokrotki },
+  { id: 'vena', name: 'Vena', image: vena },
+  { id: 'elektryczna', name: 'Elektryczna', image: elektryczna },
+  { id: 'witosa', name: 'Witosa', image: witosa },
+  { id: 'porosly', name: 'Porosły', image: porosly },
+  { id: 'kalinowa', name: 'Kalinowa', image: kalinowa },
+  { id: 'wlokiennicza', name: 'Włókiennicza', image: wlokiennicza }
 ]
 
 export const FAQ_DATA: IFaqItem[] = [
@@ -216,7 +206,7 @@ export const FAQ_DATA: IFaqItem[] = [
     id: 1,
     question: 'Kto podejmuje decyzję o zakupie mieszkania?',
     answer:
-      'Rekomendację przygotowujemy my — z wyceną, kosztorysem i zakładanym terminem wyjścia. Zgodę na zakup wydaje partner. Bez jego akceptacji nie kupujemy.'
+      'Rekomendację przygotowujemy my - z wyceną, kosztorysem i zakładanym terminem wyjścia. Zgodę na zakup wydaje partner. Bez jego akceptacji nie kupujemy.'
   },
   {
     id: 2,
@@ -233,6 +223,6 @@ export const FAQ_DATA: IFaqItem[] = [
     id: 4,
     question: 'Jak wygląda wejście w pierwszy projekt?',
     answer:
-      'Rozmowa, przegląd dotychczasowych projektów, ustalenie zakresu i podpisanie umowy — zanim wskażemy konkretny lokal. Dopiero potem zaczynamy szukać pod ten projekt.'
+      'Rozmowa, przegląd dotychczasowych projektów, ustalenie zakresu i podpisanie umowy - zanim wskażemy konkretny lokal. Dopiero potem zaczynamy szukać pod ten projekt.'
   }
 ]

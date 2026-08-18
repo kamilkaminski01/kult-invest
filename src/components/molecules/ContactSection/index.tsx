@@ -14,7 +14,7 @@ const ContactSection = () => {
           </h2>
 
           <p className="contact-section__lead fade">
-            Masz konkretny lokal na oku, mieszkanie do sprzedania albo kapitał, który ma pracować —
+            Masz konkretny lokal na oku, mieszkanie do sprzedania albo kapitał, który ma pracować -
             napisz. Na pierwszym spotkaniu pokazujemy pełne zestawienie kosztów i wyniku
             zakończonego projektu, to samo, które dostaje partner po sprzedaży. Wtedy sam ocenisz,
             czy jest o czym rozmawiać. Mówimy wprost, jeśli nie widzimy sensu we współpracy.

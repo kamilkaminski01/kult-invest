@@ -11,7 +11,7 @@ interface ProcessPinProps {
  * travel across the steps, then releases the page once the last step is flush.
  *
  * The tall spacer that buys the scroll distance is sized in CSS from the step
- * count, so the height is correct on the very first paint — this never adds to
+ * count, so the height is correct on the very first paint - this never adds to
  * CLS. JavaScript only reads scroll position and writes a transform; it never
  * measures or sets anything that could trigger layout.
  *
@@ -42,7 +42,7 @@ const ProcessPin = ({ children }: ProcessPinProps) => {
     let activeStep = -1
 
     // Highlights one step at a time. Driven by progress rather than by which
-    // card sits nearest an edge, so every number gets its turn — including the
+    // card sits nearest an edge, so every number gets its turn - including the
     // last one, which never reaches the left edge on a wide screen.
     const setActiveStep = (index: number) => {
       if (index === activeStep) return

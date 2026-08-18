@@ -13,10 +13,10 @@ const ResponsibilitiesSection = () => {
 
         <div className="responsibilities__content">
           <p className="responsibilities__lead fade">
-            Partner wnosi kapitał, my prowadzimy projekt — od wyszukania lokalu po akt sprzedaży.
+            Partner wnosi kapitał, my prowadzimy projekt - od wyszukania lokalu po akt sprzedaży.
             Modele współpracy dobieramy do kapitału i oczekiwań partnera: nie w każdym partner
             finansuje zakup w całości. Zysk dzielimy wprost proporcjonalnie do wniesionego kapitału,
-            po odliczeniu wszystkich kosztów projektu — kto wnosi więcej, bierze więcej. Udział
+            po odliczeniu wszystkich kosztów projektu - kto wnosi więcej, bierze więcej. Udział
             ustalamy przed zakupem i zapisujemy w umowie. Podział obowiązków poniżej zostaje taki
             sam w każdym modelu.
           </p>

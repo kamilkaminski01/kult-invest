@@ -11,19 +11,19 @@ $bg-raised: #1a1d23;
 
 $line: #24262c;
 $line-strong: #33363e;
-// Obramowanie pol formularza — jasniejsze niz $line-strong, bo kontrolka musi
+// Obramowanie pol formularza - jasniejsze niz $line-strong, bo kontrolka musi
 // byc rozpoznawalna jako kontrolka (WCAG 1.4.11, 3:1 wzgledem tla).
 $control-border: #6a6e78;
 
 $brass: #c4a15a;
 $brass-ink: #0e0f12;
-// Projekt uzywa tu koloru krytego, nie polprzezroczystego mosiadzu — dzieki temu
+// Projekt uzywa tu koloru krytego, nie polprzezroczystego mosiadzu - dzieki temu
 // krawedz wyglada tak samo na $bg-deep i na $bg-alt.
 $brass-dim: #4e422b;
 
 $danger: #e88a6a;
 
-// Siatka tresci — ta sama we wszystkich sekcjach.
+// Siatka tresci - ta sama we wszystkich sekcjach.
 $content-max: 1440px;
 $content-pad: clamp(20px, 4.2vw, 72px);
 $rhythm: clamp(80px, 12vh, 200px);
@@ -36,9 +36,8 @@ $fs-heading-s: clamp(19px, 1.6vw, 24px);
 $fs-body-l: clamp(16px, 1.5vw, 19px);
 $fs-meta: 11px;
 
-// Ruch — te same krzywe i czasy trwania, co w projekcie.
+// Ruch - te same krzywe i czasy trwania, co w projekcie.
 $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-$ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $dur-fast: 200ms;
 $dur-base: 450ms;
@@ -76,7 +75,7 @@ $dur-slow: 800ms;
   color: $ink;
 }
 
-// Mniejsze naglowki blokowe (nota o rejestracji, numery etapow) — ta sama
+// Mniejsze naglowki blokowe (nota o rejestracji, numery etapow) - ta sama
 // rodzina, inna skala i ciasniejsza interlinia niz w tytule sekcji.
 @mixin block-title {
   font-family: var(--font-plex-condensed);

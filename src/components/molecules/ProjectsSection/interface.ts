@@ -4,5 +4,4 @@ export interface IProject {
   id: string
   name: string
   image: StaticImageData
-  scope: string
 }

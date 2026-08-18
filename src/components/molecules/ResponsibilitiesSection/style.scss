@@ -95,9 +95,12 @@
     &__lead {
       margin-bottom: 40px;
     }
+  }
 
-    // Na waskim ekranie tabela zamienia sie w liste par etykieta/wartosc —
-    // trzy kolumny obok siebie nie mieszcza sie czytelnie.
+  // Tabela rozklada sie na pary etykieta/wartosc dopiero ponizej 680 px. Na
+  // tablecie kolumna tresci ma juz cala szerokosc strony i trzy kolumny mieszcza
+  // sie w niej bez sciskania - zwijanie ich przy 900 px bylo przedwczesne.
+  @media (max-width: 680px) {
     &__table {
       caption {
         padding-bottom: 8px;
